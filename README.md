@@ -1,4 +1,5 @@
 # My personal website
 ## Goal
-- [ ] Create new remix application
-- [ ] Buy template
+- [x] Create new remix application
+- [x] Buy template
+- [] Create landing page
