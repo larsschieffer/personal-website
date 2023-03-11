@@ -1,4 +1,5 @@
-import stylesheet from "~/tailwind.css";
+import stylesheet from "~/styles/tailwind.css";
+import styles from "~/styles/styles.css";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -11,6 +12,7 @@ import {
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: styles },
 ];
 
 export const meta: MetaFunction = () => ({
