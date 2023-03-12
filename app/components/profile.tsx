@@ -1,3 +1,5 @@
+import { FaLinkedinIn, FaXing } from "react-icons/fa";
+
 export default function Profile() {
   return (
     <div className="relative flex flex-col items-center gap-4 rounded-3xl bg-white px-8 pt-36">
@@ -12,6 +14,13 @@ export default function Profile() {
       <span className="w-fit rounded-[50px] bg-gray-lighter px-4 py-2">
         Software Developer
       </span>
+      <div className="my-2 flex gap-7">
+        <FaLinkedinIn />
+        <FaXing />
+      </div>
+      <div className="h-44 w-full bg-red-300">
+        <span>Hi world!</span>
+      </div>
     </div>
   );
 }
