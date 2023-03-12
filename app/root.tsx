@@ -30,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="font-archivo">
+      <body className="font-archivo text-gray-dark">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
