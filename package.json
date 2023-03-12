@@ -8,6 +8,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@fontsource/archivo": "^4.5.11",
+    "@fontsource/merriweather": "^4.5.14",
     "@remix-run/node": "^1.14.0",
     "@remix-run/react": "^1.14.0",
     "@remix-run/serve": "^1.14.0",

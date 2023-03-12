@@ -1,5 +1,3 @@
-import stylesheet from "~/styles/tailwind.css";
-import styles from "~/styles/styles.css";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -9,9 +7,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import fonts from "~/styles/fonts.css";
+import styles from "~/styles/styles.css";
+import tailwind from "~/styles/tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: fonts },
+  { rel: "stylesheet", href: tailwind },
   { rel: "stylesheet", href: styles },
 ];
 
@@ -28,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-archivo">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
