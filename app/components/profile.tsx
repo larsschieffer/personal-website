@@ -8,11 +8,12 @@ import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
 
 import ProfileItem from "./profile-item";
+import RoundedBox from "./rounded-box";
 
 export default function Profile() {
   return (
     <div className="relative">
-      <div className="overflow-hidden rounded-3xl">
+      <RoundedBox>
         <div className="flex flex-col items-center gap-4 bg-white px-8 pt-36">
           <img
             className="absolute left-1/2 top-0 h-44 w-44 -translate-y-1/3 -translate-x-1/2 rounded-[48px]"
@@ -52,7 +53,7 @@ export default function Profile() {
             </span>
           </button>
         </div>
-      </div>
+      </RoundedBox>
     </div>
   );
 }
