@@ -1,5 +1,6 @@
 import { BsCalendar } from "@react-icons/all-files/bs/BsCalendar";
 import { HiOutlineLocationMarker } from "@react-icons/all-files/hi/HiOutlineLocationMarker";
+import { MdFileDownload } from "@react-icons/all-files/md/MdFileDownload";
 
 import { BsEnvelope } from "@react-icons/all-files/bs/BsEnvelope";
 
@@ -29,19 +30,27 @@ export default function Profile() {
             <FaXing />
           </div>
         </div>
-        <div className="flex flex-col gap-5 bg-gray-lighter px-8 py-5">
-          <ProfileItem
-            icon={<BsCalendar />}
-            description="December, 1996"
-          ></ProfileItem>
-          <ProfileItem
-            icon={<HiOutlineLocationMarker />}
-            description="Frankfurt, Germany"
-          ></ProfileItem>
-          <ProfileItem
-            icon={<BsEnvelope />}
-            description="contact@larsschieffer.de"
-          ></ProfileItem>
+        <div className=" bg-gray-lighter px-8 py-5">
+          <div className="mx-auto flex w-fit flex-col gap-5">
+            <ProfileItem
+              icon={<BsCalendar />}
+              description="December, 1996"
+            ></ProfileItem>
+            <ProfileItem
+              icon={<HiOutlineLocationMarker />}
+              description="Frankfurt, Germany"
+            ></ProfileItem>
+            <ProfileItem
+              icon={<BsEnvelope />}
+              description="contact@larsschieffer.de"
+            ></ProfileItem>
+          </div>
+
+          <button className="mt-5 rounded-3xl bg-blue-600 py-4 px-12">
+            <span className="inline-flex items-center gap-2 text-lg text-white">
+              <MdFileDownload /> Download CV
+            </span>
+          </button>
         </div>
       </div>
     </div>
