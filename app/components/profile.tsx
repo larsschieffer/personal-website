@@ -16,7 +16,7 @@ export default function Profile() {
       <RoundedBox>
         <div className="flex flex-col items-center gap-4 bg-white px-8 pt-36">
           <img
-            className="absolute left-1/2 top-0 h-44 w-44 -translate-y-1/3 -translate-x-1/2 rounded-[48px]"
+            className="absolute left-1/2 top-0 h-44 w-44 -translate-y-1/3 -translate-x-1/2 rounded-3xl"
             src="/assets/profile.png"
             alt="Profile picture"
           />
@@ -31,7 +31,7 @@ export default function Profile() {
             <FaXing />
           </div>
         </div>
-        <div className=" bg-gray-lighter px-8 py-5">
+        <div className="bg-gray-lighter px-8 py-5">
           <div className="mx-auto flex w-fit flex-col gap-5">
             <ProfileItem
               icon={<BsCalendar />}
@@ -47,7 +47,7 @@ export default function Profile() {
             ></ProfileItem>
           </div>
 
-          <button className="mt-5 rounded-3xl bg-blue-600 py-4 px-12">
+          <button className="mt-5 rounded-3xl bg-accent py-4 px-12">
             <span className="inline-flex items-center gap-2 text-lg text-white">
               <MdFileDownload /> Download CV
             </span>

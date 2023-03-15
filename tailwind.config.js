@@ -11,6 +11,9 @@ module.exports = {
           light: "#F0F0F6",
           lighter: "#F5F8F9",
         },
+        accent: {
+          DEFAULT: "#304CFD",
+        },
       },
       fontFamily: {
         merriweather: ["Merriweather", "serif"],
