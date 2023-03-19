@@ -1,5 +1,6 @@
 import ExperienceStepCarglass from "~/components/experience/experience-step-carglass";
 import ExperienceStepDetim from "~/components/experience/experience-step-detim";
+import ExperienceStepSkatGuru from "~/components/experience/experience-step-skat-guru";
 import RoundedBox from "~/components/rounded-box";
 
 export default function About() {
@@ -47,8 +48,9 @@ export default function About() {
       <div className="bg-gray-lighter px-10 pb-9 pt-6">
         <h2 className="text-3xl font-bold">Experience</h2>
         <div className="mt-6">
-          <ExperienceStepDetim />
-          <ExperienceStepCarglass />
+          <ExperienceStepDetim isFirstInRow={true} />
+          <ExperienceStepCarglass isFirstInRow={false} />
+          <ExperienceStepSkatGuru isFirstInRow={false} />
         </div>
       </div>
     </RoundedBox>

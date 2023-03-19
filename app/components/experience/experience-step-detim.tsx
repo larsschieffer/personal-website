@@ -1,6 +1,6 @@
-import ExperienceStep from "./experience-step";
+import ExperienceStep, { ExperienceStepOptions } from "./experience-step";
 
-export default function ExperienceStepDetim() {
+export default function ExperienceStepDetim(options: ExperienceStepOptions) {
   const skills = [
     "Angular",
     "NgRx",
@@ -18,7 +18,7 @@ export default function ExperienceStepDetim() {
       employer="detim IT Consulting GmbH"
       start={new Date("2021-01-01")}
       skills={skills}
-      options={{ isFirstInRow: true }}
+      options={options}
     />
   );
 }

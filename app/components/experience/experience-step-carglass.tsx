@@ -1,6 +1,6 @@
-import ExperienceStep from "./experience-step";
+import ExperienceStep, { ExperienceStepOptions } from "./experience-step";
 
-export default function ExperienceStepCarglass() {
+export default function ExperienceStepCarglass(options: ExperienceStepOptions) {
   const skills = [
     "Angular",
     "NgRx",
@@ -19,7 +19,7 @@ export default function ExperienceStepCarglass() {
       employer="Carglass® Germany"
       start={new Date("2022-12-15")}
       skills={skills}
-      options={{ isFirstInRow: false }}
+      options={options}
     />
   );
 }
