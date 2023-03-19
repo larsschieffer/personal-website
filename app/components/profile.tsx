@@ -28,8 +28,20 @@ export default function Profile() {
               Software Developer
             </span>
             <div className="mt-2 mb-6 flex gap-7 sm:pr-7 md:pr-0">
-              <FaLinkedinIn />
-              <FaXing />
+              <a
+                className="hover:scale-110 hover:text-[#0072b1]"
+                href="https://www.linkedin.com/in/larsschieffer/"
+                target="_blank"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                className="hover:scale-110 hover:text-[#0698a0]"
+                href="https://www.xing.com/profile/Lars_Schieffer/"
+                target="_blank"
+              >
+                <FaXing />
+              </a>
             </div>
           </div>
         </div>
@@ -48,11 +60,15 @@ export default function Profile() {
               description="contact@larsschieffer.de"
             ></ProfileItem>
           </div>
-          <button className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12">
+          <a
+            className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12"
+            href="/assets/cv/lebenslauf.pdf"
+            target="_blank"
+          >
             <span className="inline-flex items-center gap-2 text-lg text-white">
               <MdFileDownload /> Download CV
             </span>
-          </button>
+          </a>
         </div>
       </RoundedBox>
     </div>
