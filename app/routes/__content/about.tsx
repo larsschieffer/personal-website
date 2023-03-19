@@ -48,9 +48,9 @@ export default function About() {
       <div className="bg-gray-lighter px-10 pb-9 pt-6">
         <h2 className="text-3xl font-bold">Experience</h2>
         <div className="mt-6">
-          <ExperienceStepDetim isFirstInRow={true} />
-          <ExperienceStepCarglass isFirstInRow={false} />
-          <ExperienceStepSkatGuru isFirstInRow={false} />
+          <ExperienceStepDetim isFirstInColumn={true} />
+          <ExperienceStepCarglass />
+          <ExperienceStepSkatGuru isLastInColumn={true} />
         </div>
       </div>
     </RoundedBox>
