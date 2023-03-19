@@ -1,4 +1,5 @@
-import ExperienceStep from "~/components/experience-step";
+import ExperienceStepCarglass from "~/components/experience/experience-step-carglass";
+import ExperienceStepDetim from "~/components/experience/experience-step-detim";
 import RoundedBox from "~/components/rounded-box";
 
 export default function About() {
@@ -45,8 +46,10 @@ export default function About() {
       </div>
       <div className="bg-gray-lighter px-10 pb-9 pt-6">
         <h2 className="text-3xl font-bold">Experience</h2>
-        <div className="mt-6"></div>
-        <ExperienceStep />
+        <div className="mt-6">
+          <ExperienceStepDetim />
+          <ExperienceStepCarglass />
+        </div>
       </div>
     </RoundedBox>
   );
