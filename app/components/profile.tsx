@@ -14,25 +14,27 @@ export default function Profile() {
   return (
     <div className="relative">
       <RoundedBox>
-        <div className="flex flex-col items-center gap-4 bg-white px-8 pt-36">
+        <div className="flex flex-col items-center gap-4 bg-white px-8 pt-8 sm:flex-row sm:p-8 md:flex-col md:pt-36 md:pb-0">
           <img
-            className="absolute left-1/2 top-0 h-44 w-44 -translate-y-1/3 -translate-x-1/2 rounded-3xl"
+            className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-y-1/3 md:-translate-x-1/2"
             src="/assets/profile.png"
             alt="Profile picture"
           />
-          <span className="block font-merriweather text-3xl">
-            Lars <strong className="font-black">Schieffer</strong>
-          </span>
-          <span className="w-fit rounded-[50px] bg-gray-lighter px-4 py-2">
-            Software Developer
-          </span>
-          <div className="mt-2 mb-6 flex gap-7">
-            <FaLinkedinIn />
-            <FaXing />
+          <div className="flex flex-1 flex-col items-center gap-4 sm:items-end md:items-center">
+            <span className="block font-merriweather text-3xl">
+              Lars <strong className="font-black">Schieffer</strong>
+            </span>
+            <span className="w-fit rounded-[50px] bg-gray-lighter px-4 py-2">
+              Software Developer
+            </span>
+            <div className="mt-2 mb-6 flex gap-7 sm:pr-7 md:pr-0">
+              <FaLinkedinIn />
+              <FaXing />
+            </div>
           </div>
         </div>
-        <div className="bg-gray-lighter px-8 py-5">
-          <div className="mx-auto flex w-fit flex-col gap-5">
+        <div className="flex flex-col items-center gap-5 bg-gray-lighter px-8 py-5 sm:flex-row sm:justify-between md:flex-col">
+          <div className="mx-auto flex w-fit flex-col gap-5 sm:mx-0 md:mx-auto">
             <ProfileItem
               icon={<BsCalendar />}
               description="December, 1996"
@@ -46,8 +48,7 @@ export default function Profile() {
               description="contact@larsschieffer.de"
             ></ProfileItem>
           </div>
-
-          <button className="mt-5 rounded-3xl bg-accent py-4 px-12">
+          <button className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12">
             <span className="inline-flex items-center gap-2 text-lg text-white">
               <MdFileDownload /> Download CV
             </span>
