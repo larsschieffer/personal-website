@@ -3,8 +3,8 @@ import Profile from "~/components/profile";
 
 export default function ContentLayout() {
   return (
-    <div className="my-8 mx-6 grid place-items-center md:mt-36">
-      <div className="grid max-w-7xl gap-8 md:grid-flow-col">
+    <div className="mx-6 my-8 grid place-items-center md:mt-[198px] md:mb-[130px]">
+      <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
         <Profile />
         <Outlet />
       </div>
