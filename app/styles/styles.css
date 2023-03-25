@@ -1,4 +1,5 @@
 body {
+  min-height: 100vh;
   background-image: url("/assets/left_upper_corner.svg"),
     url("/assets/right_lower_corner.svg");
   background-position: left top, right bottom;
