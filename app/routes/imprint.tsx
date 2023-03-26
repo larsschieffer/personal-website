@@ -1,9 +1,10 @@
+import RoundedBox from "~/components/rounded-box";
+
 export default function Imprint() {
   return (
-    <div className="grid h-screen place-items-center">
-      <div>
-        <h1>Imprint</h1>
-        <div className="flex content-center gap-8">
+    <div className="grid h-screen place-items-center ">
+      <RoundedBox>
+        <div className="flex content-center gap-8 bg-white p-8">
           <p>
             Contact: <br />
             Lars Schieffer <br />
@@ -19,7 +20,7 @@ export default function Imprint() {
             65719 Hofheim am Taunus
           </p>
         </div>
-      </div>
+      </RoundedBox>
     </div>
   );
 }
