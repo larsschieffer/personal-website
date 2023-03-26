@@ -1,24 +1,27 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
 import Profile from "~/components/profile";
+import { db } from "~/utils/db.server";
 
-export function loader() {
+export async function loader() {
+  const resume = await db.resume.findFirst();
   const data = {
     copyright: {
       start: "2021",
       end: new Date().toLocaleDateString("en-GB", { year: "numeric" }),
     },
+    resumeURL: `http://localhost:3000/assets/${resume?.path}`,
   };
   return json(data);
 }
 
 export default function ContentLayout() {
-  const { copyright } = useLoaderData<typeof loader>();
+  const { copyright, resumeURL } = useLoaderData<typeof loader>();
   return (
     <div className="mx-6 mt-8 mb-2 md:mt-[198px]">
       <div className="grid place-items-center">
         <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
-          <Profile />
+          <Profile resumeURL={resumeURL} />
           <Outlet />
         </div>
       </div>

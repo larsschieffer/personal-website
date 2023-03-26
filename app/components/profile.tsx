@@ -10,7 +10,7 @@ import { FaXing } from "@react-icons/all-files/fa/FaXing";
 import ProfileItem from "./profile-item";
 import RoundedBox from "./rounded-box";
 
-export default function Profile() {
+export default function Profile({ resumeURL }: { resumeURL: string }) {
   return (
     <div className="relative">
       <RoundedBox>
@@ -60,14 +60,12 @@ export default function Profile() {
               description="contact@larsschieffer.de"
             ></ProfileItem>
           </div>
-          <a
-            className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12"
-            href="/assets/cv/lebenslauf.pdf"
-            target="_blank"
-          >
-            <span className="inline-flex items-center gap-2 text-lg text-white">
-              <MdFileDownload /> Download CV
-            </span>
+          <a href={resumeURL} download="lebenslauf.pdf">
+            <button className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12">
+              <span className="inline-flex items-center gap-2 text-lg text-white">
+                <MdFileDownload /> Download CV
+              </span>
+            </button>
           </a>
         </div>
       </RoundedBox>
