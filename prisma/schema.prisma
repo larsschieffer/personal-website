@@ -6,11 +6,35 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Resume {
   id   String @id @default(uuid())
   path String
+}
+
+model Experience {
+  id       String    @id @default(uuid())
+  jobTitle String
+  employer String
+  start    DateTime  @db.Date
+  end      DateTime? @db.Date
+  skills   Skill[]
+}
+
+model Skill {
+  id          String       @id @default(uuid())
+  title       String
+  area        SkillArea
+  experiences Experience[]
+}
+
+enum SkillArea {
+  Frontend
+  Backend
+  EndToEnd
+  Cloud
+  None
 }
