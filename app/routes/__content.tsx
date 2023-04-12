@@ -25,12 +25,14 @@ export default function ContentLayout() {
           <Outlet />
         </div>
       </div>
-      <div className="mx-auto mt-8 flex max-w-[1170px] flex-col justify-between rounded-xl bg-white/75 p-2 sm:flex-row">
+      <div className="mx-auto mt-8 flex max-w-[1170px] flex-col justify-between rounded-xl bg-white/80 p-2 sm:flex-row">
         <span>
           Copyright © {copyright.start}-{copyright.end} Lars Schieffer, All
           rights reserved.
         </span>
-        <Link to="/imprint">Imprint</Link>
+        <Link to="/imprint" className="self-end hover:underline">
+          Imprint
+        </Link>
       </div>
     </div>
   );
