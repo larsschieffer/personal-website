@@ -66,6 +66,7 @@ export default function About() {
         <div className="mt-6">
           {experiences.map((experience, index, arr) => (
             <ExperienceStep
+              key={experience.id}
               jobTitle={experience.jobTitle}
               employer={experience.employer}
               start={new Date(experience.start)}
