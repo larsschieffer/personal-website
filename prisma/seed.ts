@@ -62,7 +62,7 @@ function getExperiences(): {
     },
     {
       experience: {
-        jobTitle: "Frontend software developer as external consultant",
+        jobTitle: "Frontend Software Developer as external consultant",
         employer: "Carglass® Germany",
         start: new Date("2022-12-15"),
         end: null,
@@ -82,7 +82,7 @@ function getExperiences(): {
     },
     {
       experience: {
-        jobTitle: "Full-Stack software developer as external consultant",
+        jobTitle: "Full-Stack Software Developer as external consultant",
         employer: "SMD Innovations GmbH",
         start: new Date("2021-06-15"),
         end: new Date("2022-09-30"),
