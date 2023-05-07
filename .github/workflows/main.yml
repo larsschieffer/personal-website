@@ -1,7 +1,7 @@
 name: Continues deployment for application
 on: [push]
 jobs:
-  Build-Application:
+  Deploy-Application-To-AWS:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,4 +9,7 @@ jobs:
         with:
           node-version: 18
           cache: "npm"
-      - run: npm ci
+      - name: "Install dependencies"
+        run: npm ci
+      - name: "Build application"
+        run: npm run build
