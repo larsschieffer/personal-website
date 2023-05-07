@@ -1,12 +1,13 @@
 import { BsCalendar } from "@react-icons/all-files/bs/BsCalendar";
+import { FaRegFilePdf } from "@react-icons/all-files/fa/FaRegFilePdf";
 import { HiOutlineLocationMarker } from "@react-icons/all-files/hi/HiOutlineLocationMarker";
-import { MdFileDownload } from "@react-icons/all-files/md/MdFileDownload";
 
 import { BsEnvelope } from "@react-icons/all-files/bs/BsEnvelope";
 
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
 
+import { notImplementedYet } from "~/utils/under-construction";
 import ProfileItem from "./profile-item";
 import RoundedBox from "./rounded-box";
 
@@ -60,13 +61,14 @@ export default function Profile({ resumeURL }: { resumeURL: string }) {
               description="contact@larsschieffer.de"
             ></ProfileItem>
           </div>
-          <a href={resumeURL} download="lebenslauf.pdf">
-            <button className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12">
-              <span className="inline-flex items-center gap-2 text-lg text-white">
-                <MdFileDownload /> Download CV
-              </span>
-            </button>
-          </a>
+          <button
+            onClick={notImplementedYet}
+            className="rounded-3xl bg-accent py-4 px-8 sm:mt-0 sm:px-12"
+          >
+            <span className="inline-flex items-center gap-2 text-lg text-white">
+              <FaRegFilePdf /> Request CV
+            </span>
+          </button>
         </div>
       </RoundedBox>
     </div>

@@ -7,12 +7,15 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
 import styles from "~/styles/styles.css";
 import tailwind from "~/styles/tailwind.css";
+import Toast from "./components/toast";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },
+  { rel: "stylesheet", href: toastify },
   { rel: "stylesheet", href: tailwind },
   { rel: "stylesheet", href: styles },
 ];
@@ -32,6 +35,7 @@ export default function App() {
       </head>
       <body className="font-archivo text-gray-dark">
         <Outlet />
+        <Toast />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
