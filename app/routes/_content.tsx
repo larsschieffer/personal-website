@@ -25,7 +25,7 @@ export default function ContentLayout() {
           <Outlet />
         </div>
       </div>
-      <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2">
+      <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2 pl-10 pr-10 md:pl-8">
         <div>
           <span className="block md:inline-block">
             Copyright © {copyright.start}-{copyright.end}
