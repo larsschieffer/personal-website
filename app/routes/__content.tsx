@@ -25,12 +25,17 @@ export default function ContentLayout() {
           <Outlet />
         </div>
       </div>
-      <div className="mx-auto mt-8 flex max-w-[1170px] flex-col justify-between rounded-xl bg-white/80 p-2 sm:flex-row">
-        <span>
-          Copyright © {copyright.start}-{copyright.end} Lars Schieffer, All
-          rights reserved.
-        </span>
-        <Link to="/imprint" className="self-end hover:underline">
+      <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2">
+        <div>
+          <span className="block md:inline-block">
+            Copyright © {copyright.start}-{copyright.end}
+          </span>
+          <span className="block xs:inline-block md:ml-1">
+            Lars Schieffer,{" "}
+          </span>
+          <span className="xs:ml-1">All rights reserved.</span>
+        </div>
+        <Link to="/imprint" className="self-top hover:underline">
           Imprint
         </Link>
       </div>

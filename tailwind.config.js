@@ -19,6 +19,9 @@ module.exports = {
         merriweather: ["Merriweather", "serif"],
         archivo: ["Archivo", "sans-serif"],
       },
+      screens: {
+        xs: "475px",
+      },
     },
   },
   plugins: [],

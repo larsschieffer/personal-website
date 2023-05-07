@@ -37,7 +37,7 @@ export default function About() {
           dishwashers. Fortunately, through my skills as a software developer, I
           can enable digital products that take work off our hands or offer
           exciting tasks in our spare time. So far, I have been able to solve
-          manually complex tasks through a time–tracking calendar, the easy
+          manually complex tasks through a time-tracking calendar, the easy
           recording of card game results and improving the product for
           registering damages in windscreens. I'm really lucky that all the
           different groups I worked with had a great team spirit. Everyone was
