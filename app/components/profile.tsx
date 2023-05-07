@@ -19,7 +19,7 @@ export default function Profile({ resumeURL }: { resumeURL: string }) {
           <img
             className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-y-1/3 md:-translate-x-1/2"
             src="/assets/profile.png"
-            alt="Profile picture"
+            alt="Portrait"
           />
           <div className="flex flex-1 flex-col items-center gap-4 sm:items-end md:items-center">
             <span className="block font-merriweather text-3xl">
@@ -33,6 +33,7 @@ export default function Profile({ resumeURL }: { resumeURL: string }) {
                 className="hover:scale-110 hover:text-[#0072b1]"
                 href="https://www.linkedin.com/in/larsschieffer/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <FaLinkedinIn />
               </a>
@@ -40,6 +41,7 @@ export default function Profile({ resumeURL }: { resumeURL: string }) {
                 className="hover:scale-110 hover:text-[#0698a0]"
                 href="https://www.xing.com/profile/Lars_Schieffer/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <FaXing />
               </a>

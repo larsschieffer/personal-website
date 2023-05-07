@@ -1,10 +1,5 @@
-import {
-  Experience,
-  PrismaClient,
-  Resume,
-  Skill,
-  SkillArea,
-} from "@prisma/client";
+import type { Experience, Resume, Skill } from "@prisma/client";
+import { PrismaClient, SkillArea } from "@prisma/client";
 const db = new PrismaClient();
 
 enum SkillId {

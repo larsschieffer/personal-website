@@ -1,4 +1,4 @@
-import { Skill } from "@prisma/client";
+import type { Skill } from "@prisma/client";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import ExperienceStep from "~/components/experience-step";
