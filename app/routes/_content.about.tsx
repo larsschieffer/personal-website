@@ -1,6 +1,7 @@
 import type { Skill } from "@prisma/client";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@vercel/remix";
+import { FormattedMessage } from "react-intl";
 import ExperienceStep from "~/components/experience-step";
 import RoundedBox from "~/components/rounded-box";
 import { db } from "~/utils/db.server";
@@ -24,7 +25,7 @@ export default function About() {
     <RoundedBox>
       <div className="bg-white px-10 pb-6 pt-9">
         <h1 className="text-3xl font-bold after:block after:h-1 after:w-12 after:rounded-md after:bg-accent after:content-['']">
-          About me
+          <FormattedMessage id="headline.aboutMe"></FormattedMessage>
         </h1>
         <p className="mt-6">
           My absolute passion lies in creating products that make our everyday
@@ -62,7 +63,9 @@ export default function About() {
         </p>
       </div>
       <div className="bg-gray-lighter px-10 pb-9 pt-6">
-        <h2 className="text-3xl font-bold">Experience</h2>
+        <h2 className="text-3xl font-bold">
+          <FormattedMessage id="headline.experience"></FormattedMessage>
+        </h2>
         <div className="mt-6">
           {experiences.map((experience, index, arr) => (
             <ExperienceStep

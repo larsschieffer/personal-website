@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl";
 import RoundedBox from "~/components/rounded-box";
 
 export default function Imprint() {
@@ -11,13 +12,17 @@ export default function Imprint() {
               Lars Schieffer <br />
               Neugasse 1a <br />
               65719 Hofheim am Taunus <br />
-              Email: contact@larsschieffer.de
+              Email: <FormattedMessage id="contact.email"></FormattedMessage>
             </p>
           </div>
           <div>
-            <span className="font-semibold"> For editorial content:</span>
+            <span className="font-semibold">
+              <FormattedMessage id="imprint.editorialContent"></FormattedMessage>
+              :
+            </span>
             <p>
-              Responsible according to § 55 Abs.2 RStV <br />
+              <FormattedMessage id="imprint.responsible"></FormattedMessage> §
+              55 Abs.2 RStV <br />
               Lars Schieffer <br />
               Neugasse 1a <br />
               65719 Hofheim am Taunus

@@ -1,0 +1,28 @@
+{
+  "time": {
+    "present": "Present"
+  },
+  "headline": {
+    "aboutMe": "About Me",
+    "experience": "Experience"
+  },
+  "profile": {
+    "portrait": "Portrait",
+    "jobTitle": "Software Developer",
+    "requestCV": "Request CV",
+    "birthdayMonth": "December, 1996",
+    "currentLocation": "Frankfurt, Germany"
+  },
+  "contact": {
+    "email": "contact@larsschieffer.de"
+  },
+  "copyright": {
+    "rightsReserved": "All rights reserved"
+  },
+  "imprint": {
+    "title": "Imprint",
+    "editorialContent": "For editorial content",
+    "responsible": "Responsible according to"
+  },
+  "at": "at"
+}
