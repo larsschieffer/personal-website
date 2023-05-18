@@ -30,6 +30,11 @@ export const meta: V2_MetaFunction = () => [
     name: "viewport",
     content: "width=device-width,initial-scale=1",
   },
+  {
+    name: "description",
+    content:
+      "My personal website to show my experience as a Software Developer",
+  },
 ];
 
 export default function App() {
