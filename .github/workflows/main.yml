@@ -51,6 +51,7 @@ jobs:
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
+
   deploy:
     needs: [lint, typecheck]
     runs-on: ubuntu-latest
@@ -89,7 +90,21 @@ jobs:
       - name: Deploy project artifacts to vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: 📀 Deploy database Migrations
+  migrate:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          cache-dependency-path: ./package.json
+          node-version: 18
+      - name: 📀 Run database migrations
         run: npx prisma migrate deploy
         env:
           POSTGRES_PRISMA_URL: ${{ secrets.POSTGRES_PRISMA_URL }}
