@@ -1,4 +1,7 @@
 name: 🚀 Deploy
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
     branches:
@@ -74,10 +77,19 @@ jobs:
       - name: 📥 Install deps
         run: npm install
 
-      - name: 🏗 Build
-        run: npm run build
+      - name: Install vercel CLI
+        run: npm install --global vercel@latest
 
-      # - name: 📀 Deploy database Migrations
-      #   run: npx prisma migrate deploy
-      #   env:
-      #     DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+      - name: Pull vercel environment information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 🏗 Build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy project artifacts to vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 📀 Deploy database Migrations
+        run: npx prisma migrate deploy
+        env:
+          POSTGRES_PRISMA_URL: ${{ secrets.POSTGRES_PRISMA_URL }}

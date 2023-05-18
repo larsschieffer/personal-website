@@ -1,4 +1,3 @@
-import type { LinksFunction, V2_MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { LinksFunction, V2_MetaFunction } from "@vercel/remix";
 import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
 import styles from "~/styles/styles.css";

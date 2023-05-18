@@ -1,6 +1,6 @@
 import type { Skill } from "@prisma/client";
-import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { json } from "@vercel/remix";
 import ExperienceStep from "~/components/experience-step";
 import RoundedBox from "~/components/rounded-box";
 import { db } from "~/utils/db.server";
@@ -22,7 +22,7 @@ export default function About() {
   const { experiences } = useLoaderData<typeof loader>();
   return (
     <RoundedBox>
-      <div className="bg-white px-10 pt-9 pb-6">
+      <div className="bg-white px-10 pb-6 pt-9">
         <h1 className="text-3xl font-bold after:block after:h-1 after:w-12 after:rounded-md after:bg-accent after:content-['']">
           About me
         </h1>
