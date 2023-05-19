@@ -33,10 +33,10 @@ export default function About() {
   return (
     <RoundedBox>
       <div className="bg-white px-10 pb-6 pt-9">
-        <h1 className="text-3xl font-bold after:block after:h-1 after:w-12 after:rounded-md after:bg-accent after:content-['']">
+        <h1 className="pb-2 text-3xl font-bold after:block after:h-1 after:w-12 after:rounded-md after:bg-accent after:content-['']">
           <FormattedMessage id="headline.aboutMe"></FormattedMessage>
         </h1>
-        <div className="fist:[&>p]:mt-6 [&>p]:mt-4">
+        <div className="[&>p]:mt-4">
           <Component />
         </div>
       </div>

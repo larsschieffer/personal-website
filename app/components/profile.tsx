@@ -21,7 +21,7 @@ export default function Profile() {
         <div className="flex flex-col items-center gap-4 bg-white px-8 pt-8 sm:flex-row sm:p-8 md:flex-col md:pb-0 md:pt-36">
           <img
             className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:-translate-y-1/3"
-            src="/assets/profile.png"
+            src="/assets/portrait.webp"
             alt={intl.formatMessage({ id: "profile.portrait" })}
           />
           <div className="flex flex-1 flex-col items-center gap-4 sm:items-end md:items-center">
