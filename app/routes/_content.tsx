@@ -3,7 +3,7 @@ import { json } from "@remix-run/server-runtime";
 import { FormattedMessage } from "react-intl";
 import Profile from "~/components/profile";
 
-export async function loader() {
+export function loader() {
   const data = {
     copyright: {
       start: "2021",

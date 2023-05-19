@@ -37,6 +37,7 @@ export default function Profile() {
                 href="https://www.linkedin.com/in/larsschieffer/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
               </a>
@@ -45,6 +46,7 @@ export default function Profile() {
                 href="https://www.xing.com/profile/Lars_Schieffer/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Xing"
               >
                 <FaXing />
               </a>

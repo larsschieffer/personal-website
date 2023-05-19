@@ -1,6 +1,7 @@
 import { fetch } from "@remix-run/node";
 import { bundleMDX } from "mdx-bundler";
 import path from "path";
+import invariant from "tiny-invariant";
 
 export async function bundleFileMarkdown(filePath: string) {
   if (process.platform === "win32") {
@@ -21,6 +22,7 @@ export async function bundleFileMarkdown(filePath: string) {
   }
 
   const location = process.env.CONTENT_LOCATION;
+  invariant(location, "Environment variable CONTENT_LOCATION is missing");
 
   const file = await fetch(`${location}/en/${filePath}`);
   const content = await file.text();
