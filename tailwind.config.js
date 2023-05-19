@@ -22,6 +22,9 @@ module.exports = {
       screens: {
         xs: "475px",
       },
+      borderRadius: {
+        "4xl": "2rem",
+      },
     },
   },
   plugins: [],

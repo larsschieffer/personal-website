@@ -1,6 +1,8 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
 import { FormattedMessage } from "react-intl";
+import type { NavigationItem } from "~/components/navigation/navigation";
+import Navigation from "~/components/navigation/navigation";
 import Profile from "~/components/profile";
 
 export function loader() {
@@ -15,12 +17,21 @@ export function loader() {
 
 export default function ContentLayout() {
   const { copyright } = useLoaderData<typeof loader>();
+  const navigationItems: NavigationItem[] = [
+    { title: "About me", link: "about" },
+    { title: "Resume", link: "imprint" },
+  ];
   return (
     <div className="mx-6 mb-2 mt-8 md:mt-[198px]">
       <div className="grid place-items-center">
         <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
           <Profile />
-          <Outlet />
+          <div className="relative">
+            <div className="absolute bottom-full right-0">
+              <Navigation navigationItems={navigationItems}></Navigation>
+            </div>
+            <Outlet />
+          </div>
         </div>
       </div>
       <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2 pl-10 pr-10 md:pl-8">

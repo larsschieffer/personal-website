@@ -4,8 +4,8 @@ import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
 import { FormattedMessage } from "react-intl";
+import ContentBox from "~/components/content-box";
 import ExperienceStep from "~/components/experience-step";
-import RoundedBox from "~/components/rounded-box";
 import { db } from "~/utils/db.server";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 
@@ -31,7 +31,7 @@ export default function About() {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <RoundedBox>
+    <ContentBox>
       <div className="bg-white px-10 pb-6 pt-9">
         <h1 className="pb-2 text-3xl font-bold after:block after:h-1 after:w-12 after:rounded-md after:bg-accent after:content-['']">
           <FormattedMessage id="headline.aboutMe"></FormattedMessage>
@@ -63,6 +63,6 @@ export default function About() {
           ))}
         </div>
       </div>
-    </RoundedBox>
+    </ContentBox>
   );
 }
