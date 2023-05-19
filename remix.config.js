@@ -17,4 +17,5 @@ module.exports = {
   },
   serverModuleFormat: "cjs",
   tailwind: true,
+  serverDependenciesToBundle: ["mdx-bundler"],
 };
