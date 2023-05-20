@@ -9,6 +9,11 @@ import ExperienceStep from "~/components/experience-step";
 import { db } from "~/utils/db.server";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 
+import type { V2_MetaFunction } from "@vercel/remix";
+import { metaFunctionFactory } from "~/utils/meta";
+
+export const meta: V2_MetaFunction = metaFunctionFactory("About Me");
+
 export async function loader() {
   const experiences = await db.experience.findMany({
     include: { skills: true },

@@ -15,6 +15,7 @@ import styles from "~/styles/styles.css";
 import tailwind from "~/styles/tailwind.css";
 import messages from "../public/assets/i18n/en.json";
 import Toast from "./components/toast";
+import { metaFunctionFactory } from "./utils/meta";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },
@@ -23,28 +24,18 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
 ];
 
-export const meta: V2_MetaFunction = () => [
-  { title: "Lars Schieffer" },
-  { charSet: "utf-8" },
-  {
-    name: "viewport",
-    content: "width=device-width,initial-scale=1",
-  },
-  {
-    name: "description",
-    content:
-      "My personal website to show my experience as a Software Developer",
-  },
-];
+export const meta: V2_MetaFunction = metaFunctionFactory();
 
 export default function App() {
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="font-archivo text-gray-dark">
+      <body className="h-screen w-screen font-archivo text-gray-dark md:overflow-visible">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"

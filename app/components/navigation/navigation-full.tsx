@@ -1,24 +1,16 @@
-import { Link } from "@remix-run/react";
-import { useEffect, useState } from "react";
-import type { NavigationItem } from "./navigation";
-
-function isHighlighted(pathname: string, linkTarget: string) {
-  return pathname.startsWith(`/${linkTarget}`);
-}
+import { Link, useLocation } from "@remix-run/react";
+import type { NavigationItem } from "~/types/navigation-item";
+import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
 
 export default function NavigationFull({
   navigationItems,
 }: {
   navigationItems: NavigationItem[];
 }) {
-  const [currentPathname, setCurrentPathname] = useState("");
-
-  useEffect(() => {
-    setCurrentPathname(window.location.pathname);
-  }, []);
+  const location = useLocation();
 
   return (
-    <div className="hidden flex-row md:flex">
+    <div className="flex-row md:flex">
       <svg viewBox="0 0 200 100" width="112" height="56">
         <path
           fill="#FFFFFF"
@@ -34,7 +26,7 @@ export default function NavigationFull({
                 key={index}
                 to={`/${navigationItem.link}`}
                 className={`my-3 px-4 py-1 ${
-                  isHighlighted(currentPathname, navigationItem.link)
+                  isHighlighted(location.pathname, navigationItem.link)
                     ? "rounded-2xl bg-accent text-white"
                     : "font-normal"
                 }`}
