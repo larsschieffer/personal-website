@@ -4,7 +4,9 @@
   },
   "headline": {
     "aboutMe": "About Me",
-    "experience": "Experience"
+    "experience": "Experience",
+    "resume": "Resume",
+    "education": "Education"
   },
   "profile": {
     "portrait": "Portrait",
@@ -24,5 +26,9 @@
     "editorialContent": "For editorial content",
     "responsible": "Responsible according to"
   },
-  "at": "at"
+  "at": "at",
+  "navigation": {
+    "aboutMe": "About me",
+    "resume": "Resume"
+  }
 }

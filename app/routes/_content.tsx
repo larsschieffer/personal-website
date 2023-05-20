@@ -1,10 +1,10 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
-import { FormattedMessage } from "react-intl";
-import type { NavigationItem } from "~/components/navigation/navigation";
+import { FormattedMessage, useIntl } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
 import Profile from "~/components/profile";
+import type { NavigationItem } from "~/types/navigation-item";
 
 export function loader() {
   const data = {
@@ -16,11 +16,14 @@ export function loader() {
   return json(data);
 }
 
-const navigationItems: NavigationItem[] = [
-  { title: "About me", link: "about" },
-];
-
 export default function ContentLayout() {
+  const intl = useIntl();
+
+  const navigationItems: NavigationItem[] = [
+    { title: intl.formatMessage({ id: "navigation.aboutMe" }), link: "about" },
+    { title: intl.formatMessage({ id: "navigation.resume" }), link: "resume" },
+  ];
+
   const { copyright } = useLoaderData<typeof loader>();
   return (
     <div>
@@ -29,7 +32,7 @@ export default function ContentLayout() {
           <NavigationSmall navigationItems={navigationItems}></NavigationSmall>
         </div>
       </div>
-      <div className="mx-6 mb-2 mt-6 md:mt-[198px]">
+      <div className="mx-6 pb-2 pt-6 md:mt-[198px]">
         <div className="grid place-items-center">
           <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
             <Profile />
