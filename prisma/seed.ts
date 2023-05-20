@@ -1,4 +1,4 @@
-import type { Experience, Resume, Skill } from "@prisma/client";
+import type { Education, Experience, Skill } from "@prisma/client";
 import { PrismaClient, SkillArea } from "@prisma/client";
 const db = new PrismaClient();
 
@@ -23,10 +23,37 @@ enum SkillId {
   TAILWIND_CSS = "6d1def26-b083-4a85-9ab9-c318411492f3",
 }
 
-function getResumes(): Omit<Resume, "id">[] {
+function getEducation(): Omit<Education, "id">[] {
   return [
     {
-      path: "cv/lebenslauf.pdf",
+      title: "Master of Science in Computer Science",
+      organisation: "Saarland University",
+      start: new Date("2018-12-01"),
+      end: new Date("2020-09-30"),
+      description:
+        'Final Thesis: "JANI2PINS: The JANI front-end module for the LTSmin toolset"',
+    },
+    {
+      title: "Bachelor of Science in Computer Science",
+      organisation: "Saarland University",
+      start: new Date("2015-10-01"),
+      end: new Date("2018-11-30"),
+      description:
+        'Final Thesis: "Numeric Representation of Probability Density Functions"',
+    },
+    {
+      title: "AWS Certified Developer - Associate",
+      organisation: null,
+      start: new Date("2022-03-01"),
+      end: new Date("2022-03-01"),
+      description: null,
+    },
+    {
+      title: "Oracle Certified Professional: Java SE 11 Developer",
+      organisation: null,
+      start: new Date("2021-04-01"),
+      end: new Date("2021-04-01"),
+      description: null,
     },
   ];
 }
@@ -38,8 +65,8 @@ function getExperiences(): {
   return [
     {
       experience: {
-        jobTitle: "IT Consultant",
-        employer: "detim IT Consulting GmbH",
+        title: "IT Consultant",
+        organisation: "detim IT Consulting GmbH",
         start: new Date("2021-01-01"),
         end: null,
       },
@@ -57,8 +84,8 @@ function getExperiences(): {
     },
     {
       experience: {
-        jobTitle: "Frontend Software Developer as external consultant",
-        employer: "Carglass® Germany",
+        title: "Frontend Software Developer as external consultant",
+        organisation: "Carglass® Germany",
         start: new Date("2022-12-15"),
         end: null,
       },
@@ -77,8 +104,8 @@ function getExperiences(): {
     },
     {
       experience: {
-        jobTitle: "Full-Stack Software Developer as external consultant",
-        employer: "SMD Innovations GmbH",
+        title: "Full-Stack Software Developer as external consultant",
+        organisation: "SMD Innovations GmbH",
         start: new Date("2021-06-15"),
         end: new Date("2022-09-30"),
       },
@@ -194,14 +221,14 @@ function getSkills(): Skill[] {
 
 async function seed() {
   await Promise.all(
-    getResumes().map((resume) => {
-      return db.resume.create({ data: resume });
+    getSkills().map((skill: Skill) => {
+      return db.skill.create({ data: skill });
     })
   );
 
   await Promise.all(
-    getSkills().map((skill: Skill) => {
-      return db.skill.create({ data: skill });
+    getEducation().map((education) => {
+      return db.education.create({ data: education });
     })
   );
 

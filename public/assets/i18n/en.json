@@ -6,7 +6,7 @@
     "aboutMe": "About Me",
     "experience": "Experience",
     "resume": "Resume",
-    "education": "Education"
+    "educationAndCertification": "Education & Certification"
   },
   "profile": {
     "portrait": "Portrait",
@@ -25,6 +25,10 @@
     "title": "Imprint",
     "editorialContent": "For editorial content",
     "responsible": "Responsible according to"
+  },
+  "experience": {
+    "skills": "Skills",
+    "thesis": "Thesis"
   },
   "at": "at",
   "navigation": {

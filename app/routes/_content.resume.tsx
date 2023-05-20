@@ -5,8 +5,8 @@ import ContentBox from "~/components/box/content-box";
 import { db } from "~/utils/db.server";
 
 import type { V2_MetaFunction } from "@vercel/remix";
-import { ExperienceEducation } from "~/components/experience/experience-education";
-import { ExperienceWork } from "~/components/experience/experience-work";
+import { ExperienceEducation } from "~/components/experience/experiences-education";
+import { ExperienceWork } from "~/components/experience/experiences-work";
 import { ProgressBarColumn } from "~/components/progress-bar/progress-bar-column";
 import {
   backendSkills,
@@ -28,11 +28,19 @@ export async function loader() {
     ],
   });
 
-  return json({ experiences });
+  const educations = await db.education.findMany({
+    orderBy: [
+      {
+        start: "desc",
+      },
+    ],
+  });
+
+  return json({ educations, experiences });
 }
 
 export default function About() {
-  const { experiences } = useLoaderData<typeof loader>();
+  const { educations, experiences } = useLoaderData<typeof loader>();
   const intl = useIntl();
 
   return (
@@ -41,9 +49,7 @@ export default function About() {
         <ExperienceWork experiences={experiences}></ExperienceWork>
       </section>
       <section>
-        <ExperienceEducation
-          experiences={experiences.slice(0, 2)}
-        ></ExperienceEducation>
+        <ExperienceEducation educations={educations}></ExperienceEducation>
       </section>
       <section>
         <h2 className="mb-4 text-2xl font-semibold">My Skills</h2>

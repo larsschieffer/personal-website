@@ -1,31 +1,31 @@
 import { FormattedMessage, useIntl } from "react-intl";
 
-export interface ExperienceStepOptions {
+export interface StepOptions {
   isFirstInColumn?: boolean;
   isLastInColumn?: boolean;
 }
 
-interface ExperienceStepProps {
-  jobTitle: string;
-  employer: string;
-  start: Date;
-  end?: Date;
-  skills: string[];
-  options: ExperienceStepOptions;
+export interface StepData {
+  title: string;
+  organisation: string | null;
+  start: string;
+  end: string | null;
+  description: string | null;
 }
 
-export default function ExperienceStep({
-  jobTitle,
-  employer,
-  start,
-  end,
-  skills,
+interface StepProps {
+  data: StepData;
+  options: StepOptions;
+}
+
+export default function Step({
+  data: { title, organisation, start, end, description },
   options,
-}: ExperienceStepProps) {
+}: StepProps) {
   const intl = useIntl();
 
-  function displayDate(date: Date): string {
-    return date.toLocaleDateString(intl.locale, {
+  function displayDate(date: string): string {
+    return new Date(date).toLocaleDateString(intl.locale, {
       month: "short",
       year: "numeric",
     });
@@ -35,7 +35,11 @@ export default function ExperienceStep({
     <div className="border-l border-gray-light">
       <div className="pl-3">
         <h3 className="relative font-bold before:absolute before:-left-[12.5px] before:top-[0.35rem] before:block before:h-3 before:w-3 before:-translate-x-1/2 before:rounded-full before:border-2 before:border-white/75 before:bg-accent before:content-['']">
-          {jobTitle} <FormattedMessage id="at"></FormattedMessage> {employer}
+          {`${title}${
+            organisation
+              ? ` ${intl.formatMessage({ id: "at" })} ${organisation}`
+              : ""
+          }`}
         </h3>
       </div>
       <div className={`pl-3 ${options.isLastInColumn ? "pb-1" : "pb-6"}`}>
@@ -47,7 +51,7 @@ export default function ExperienceStep({
             displayDate(end)
           )}
         </p>
-        <p>Skills: {skills.join(" · ")}</p>
+        {description ? <p>{description}</p> : null}
       </div>
     </div>
   );

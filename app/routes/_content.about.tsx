@@ -8,7 +8,7 @@ import { bundleFileMarkdown } from "~/utils/markdown.server";
 
 import type { V2_MetaFunction } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import { ExperienceWork } from "~/components/experience/experience-work";
+import { ExperienceWork } from "~/components/experience/experiences-work";
 import { metaFunctionFactory } from "~/utils/meta";
 
 export const meta: V2_MetaFunction = metaFunctionFactory("About Me");
