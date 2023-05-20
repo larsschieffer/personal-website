@@ -18,7 +18,7 @@ export default function Profile() {
   return (
     <div className="relative">
       <RoundedBox>
-        <div className="flex flex-col items-center gap-4 bg-white px-8 pt-8 sm:flex-row sm:p-8 md:flex-col md:pb-0 md:pt-36">
+        <div className="flex flex-col items-center gap-4 bg-white px-6 pt-6 sm:flex-row sm:p-8 sm:px-10 sm:pt-10 md:flex-col md:pb-0 md:pt-36">
           <img
             className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:-translate-y-1/3"
             src="/assets/portrait.webp"
@@ -53,7 +53,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-5 bg-gray-lighter px-8 py-5 sm:flex-row sm:justify-between md:flex-col">
+        <div className="flex flex-col items-center gap-4 bg-gray-lighter px-6 py-5 sm:flex-row sm:justify-between sm:px-10 md:flex-col">
           <div className="mx-auto flex w-fit flex-col gap-5 sm:mx-0 md:mx-auto">
             <ProfileItem
               icon={<BsCalendar />}

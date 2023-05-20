@@ -7,6 +7,13 @@ import { db } from "~/utils/db.server";
 import type { V2_MetaFunction } from "@vercel/remix";
 import { ExperienceEducation } from "~/components/experience/experience-education";
 import { ExperienceWork } from "~/components/experience/experience-work";
+import { ProgressBarColumn } from "~/components/progress-bar/progress-bar-column";
+import {
+  backendSkills,
+  cloudSkills,
+  frontendSkills,
+  securitySkills,
+} from "~/constant/skill-percentages";
 import { metaFunctionFactory } from "~/utils/meta";
 
 export const meta: V2_MetaFunction = metaFunctionFactory("Resume");
@@ -39,7 +46,21 @@ export default function About() {
         ></ExperienceEducation>
       </section>
       <section>
-        <h2 className="text-2xl font-semibold">My Skills</h2>
+        <h2 className="mb-4 text-2xl font-semibold">My Skills</h2>
+        <div className="grid grid-cols-1 gap-2 rounded-4xl bg-gray-lighter p-8 pt-0 lg:grid-cols-2 lg:gap-4">
+          <ProgressBarColumn
+            headline="Frontend Technologies"
+            progressBarItems={frontendSkills}
+          ></ProgressBarColumn>
+          <ProgressBarColumn
+            headline="Backend & Cloud Technologies"
+            progressBarItems={[
+              ...backendSkills,
+              ...cloudSkills,
+              ...securitySkills,
+            ]}
+          ></ProgressBarColumn>
+        </div>
       </section>
     </ContentBox>
   );
