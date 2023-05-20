@@ -1,5 +1,5 @@
 import { FormattedMessage } from "react-intl";
-import RoundedBox from "~/components/rounded-box";
+import RoundedBox from "~/components/box/rounded-box";
 
 export default function Imprint() {
   return (

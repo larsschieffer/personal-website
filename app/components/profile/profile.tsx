@@ -9,8 +9,8 @@ import { FaXing } from "@react-icons/all-files/fa/FaXing";
 
 import { FormattedMessage, useIntl } from "react-intl";
 import { notImplementedYet } from "~/utils/under-construction";
+import RoundedBox from "../box/rounded-box";
 import ProfileItem from "./profile-item";
-import RoundedBox from "./rounded-box";
 
 export default function Profile() {
   const intl = useIntl();

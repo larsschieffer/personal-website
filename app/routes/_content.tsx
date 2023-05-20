@@ -3,7 +3,7 @@ import { json } from "@remix-run/server-runtime";
 import { FormattedMessage, useIntl } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
-import Profile from "~/components/profile";
+import Profile from "~/components/profile/profile";
 import type { NavigationItem } from "~/types/navigation-item";
 
 export function loader() {

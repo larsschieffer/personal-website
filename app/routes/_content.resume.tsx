@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import ContentBox from "~/components/content-box";
+import ContentBox from "~/components/box/content-box";
 import { db } from "~/utils/db.server";
 
 import type { V2_MetaFunction } from "@vercel/remix";

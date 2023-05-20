@@ -2,7 +2,7 @@ import { useLoaderData } from "@remix-run/react";
 import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
-import ContentBox from "~/components/content-box";
+import ContentBox from "~/components/box/content-box";
 import { db } from "~/utils/db.server";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 
