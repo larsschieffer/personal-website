@@ -1,4 +1,5 @@
-import { FormattedMessage, useIntl } from "react-intl";
+import { useIntl } from "react-intl";
+import { StepDate } from "./step-date";
 
 export interface StepOptions {
   isFirstInColumn?: boolean;
@@ -24,13 +25,6 @@ export default function Step({
 }: StepProps) {
   const intl = useIntl();
 
-  function displayDate(date: string): string {
-    return new Date(date).toLocaleDateString(intl.locale, {
-      month: "short",
-      year: "numeric",
-    });
-  }
-
   return (
     <div className="border-l border-gray-light">
       <div className="pl-3">
@@ -44,12 +38,7 @@ export default function Step({
       </div>
       <div className={`pl-3 ${options.isLastInColumn ? "pb-1" : "pb-6"}`}>
         <p className="py-2 text-gray">
-          {displayDate(start)} -{" "}
-          {end == null ? (
-            <FormattedMessage id="time.present"></FormattedMessage>
-          ) : (
-            displayDate(end)
-          )}
+          <StepDate start={start} end={end}></StepDate>
         </p>
         {description ? <p>{description}</p> : null}
       </div>

@@ -5,7 +5,7 @@ export function ProgressBar({ title, percentage }: ProgressBarItem) {
     <div className="rounded-full bg-gray-light ">
       <div
         style={{ width: `${percentage}%` }}
-        className={`flex items-center justify-between rounded-full bg-accent-ternary px-4 py-1 text-xs text-white`}
+        className={`flex items-center justify-between rounded-full bg-accent px-4 py-1 text-xs text-white`}
       >
         <span>{title}</span>
         <span>{percentage}%</span>
