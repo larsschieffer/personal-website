@@ -8,6 +8,7 @@ import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
 
 import { FormattedMessage, useIntl } from "react-intl";
+import { ASSETS_LOCATION } from "~/constant/assets-location";
 import { notImplementedYet } from "~/utils/under-construction";
 import RoundedBox from "../box/rounded-box";
 import ProfileItem from "./profile-item";
@@ -21,7 +22,7 @@ export default function Profile() {
         <div className="flex flex-col items-center gap-4 bg-white px-6 pt-6 sm:flex-row sm:p-8 sm:px-10 sm:pt-10 md:flex-col md:pb-0 md:pt-36">
           <img
             className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:-translate-y-1/3"
-            src="/assets/portrait.webp"
+            src={`${ASSETS_LOCATION}portrait.webp`}
             alt={intl.formatMessage({ id: "profile.portrait" })}
           />
           <div className="flex flex-1 flex-col items-center gap-4 sm:items-end md:items-center">

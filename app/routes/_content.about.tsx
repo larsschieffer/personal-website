@@ -23,16 +23,13 @@ export async function loader() {
     ],
   });
 
-  const mdx = await bundleFileMarkdown("about-me.mdx");
+  const { code } = await bundleFileMarkdown("en/about-me.mdx");
 
-  return json({ experiences, mdx });
+  return json({ experiences, code });
 }
 
 export default function About() {
-  const {
-    experiences,
-    mdx: { code },
-  } = useLoaderData<typeof loader>();
+  const { experiences, code } = useLoaderData<typeof loader>();
   const intl = useIntl();
   const AboutMeText = useMemo(() => getMDXComponent(code), [code]);
 
