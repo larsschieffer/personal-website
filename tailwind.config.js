@@ -12,7 +12,9 @@ module.exports = {
           lighter: "#F5F8F9",
         },
         accent: {
-          DEFAULT: "#304CFD",
+          DEFAULT: "#0E78A3",
+          secondary: "#F87210",
+          ternary: "#01BBBD",
         },
       },
       fontFamily: {
@@ -21,6 +23,9 @@ module.exports = {
       },
       screens: {
         xs: "475px",
+      },
+      borderRadius: {
+        "4xl": "2rem",
       },
     },
   },

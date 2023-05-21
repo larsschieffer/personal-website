@@ -11,18 +11,22 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL")
 }
 
-model Resume {
-  id   String @id @default(uuid())
-  path String
+model Education {
+  id           String    @id @default(uuid())
+  title        String
+  description  String?
+  organisation String?
+  start        DateTime  @db.Date
+  end          DateTime? @db.Date
 }
 
 model Experience {
-  id       String    @id @default(uuid())
-  jobTitle String
-  employer String
-  start    DateTime  @db.Date
-  end      DateTime? @db.Date
-  skills   Skill[]
+  id           String    @id @default(uuid())
+  title        String
+  organisation String
+  start        DateTime  @db.Date
+  end          DateTime? @db.Date
+  skills       Skill[]
 }
 
 model Skill {

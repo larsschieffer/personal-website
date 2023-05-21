@@ -2,18 +2,22 @@
 CREATE TYPE "SkillArea" AS ENUM ('Frontend', 'Backend', 'EndToEnd', 'Cloud', 'None');
 
 -- CreateTable
-CREATE TABLE "Resume" (
+CREATE TABLE "Education" (
     "id" TEXT NOT NULL,
-    "path" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT,
+    "organisation" TEXT,
+    "start" DATE NOT NULL,
+    "end" DATE,
 
-    CONSTRAINT "Resume_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Education_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Experience" (
     "id" TEXT NOT NULL,
-    "jobTitle" TEXT NOT NULL,
-    "employer" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "organisation" TEXT NOT NULL,
     "start" DATE NOT NULL,
     "end" DATE,
 
