@@ -55,11 +55,13 @@ export default function About() {
         <h2 className="mb-4 text-2xl font-semibold">My Skills</h2>
         <div className="grid grid-cols-1 gap-2 rounded-4xl bg-gray-lighter p-8 pt-0 lg:grid-cols-2 lg:gap-4">
           <ProgressBarColumn
-            headline="Frontend Technologies"
+            headline={intl.formatMessage({ id: "skills.headline.frontend" })}
             progressBarItems={frontendSkills}
           ></ProgressBarColumn>
           <ProgressBarColumn
-            headline="Backend & Cloud Technologies"
+            headline={intl.formatMessage({
+              id: "skills.headline.backendAndCloud",
+            })}
             progressBarItems={[
               ...backendSkills,
               ...cloudSkills,

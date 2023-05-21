@@ -30,6 +30,12 @@
     "skills": "Skills",
     "thesis": "Thesis"
   },
+  "skills": {
+    "headline": {
+      "frontend": "Frontend Technologies",
+      "backendAndCloud": "Backend & Cloud Technologies"
+    }
+  },
   "at": "at",
   "navigation": {
     "aboutMe": "About me",
