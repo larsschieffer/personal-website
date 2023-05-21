@@ -1,4 +1,4 @@
 export interface NavigationItem {
-  title: string;
+  titleKey: string;
   link: string;
 }

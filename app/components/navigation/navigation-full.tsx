@@ -1,4 +1,5 @@
 import { Link, useLocation } from "@remix-run/react";
+import { FormattedMessage } from "react-intl";
 import type { NavigationItem } from "~/types/navigation-item";
 import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
 
@@ -31,7 +32,9 @@ export default function NavigationFull({
                     : "font-normal"
                 }`}
               >
-                {navigationItem.title}
+                <FormattedMessage
+                  id={navigationItem.titleKey}
+                ></FormattedMessage>
               </Link>
             );
           }

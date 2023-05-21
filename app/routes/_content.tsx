@@ -1,10 +1,10 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
 import Profile from "~/components/profile/profile";
-import type { NavigationItem } from "~/types/navigation-item";
+import { navigationItems } from "~/constant/navigation-items";
 
 export function loader() {
   const data = {
@@ -17,13 +17,6 @@ export function loader() {
 }
 
 export default function ContentLayout() {
-  const intl = useIntl();
-
-  const navigationItems: NavigationItem[] = [
-    { title: intl.formatMessage({ id: "navigation.aboutMe" }), link: "about" },
-    { title: intl.formatMessage({ id: "navigation.resume" }), link: "resume" },
-  ];
-
   const { copyright } = useLoaderData<typeof loader>();
   return (
     <div>

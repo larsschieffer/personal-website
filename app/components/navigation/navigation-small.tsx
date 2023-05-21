@@ -2,6 +2,7 @@ import { GoThreeBars } from "@react-icons/all-files/go/GoThreeBars";
 import { GoX } from "@react-icons/all-files/go/GoX";
 import { Link, useLocation } from "@remix-run/react";
 import { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import type { NavigationItem } from "~/types/navigation-item";
 import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
 
@@ -18,7 +19,7 @@ export default function NavigationSmall({
   }
 
   useEffect(() => {
-    toggleMenuState();
+    setMenuOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -58,7 +59,9 @@ export default function NavigationSmall({
                     : ""
                 }`}
               >
-                {navigationItem.title}
+                <FormattedMessage
+                  id={navigationItem.titleKey}
+                ></FormattedMessage>
               </Link>
             )
           )}
