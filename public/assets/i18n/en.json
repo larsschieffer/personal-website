@@ -39,6 +39,7 @@
   "at": "at",
   "navigation": {
     "aboutMe": "About me",
-    "resume": "Resume"
+    "resume": "Resume",
+    "toggle": "Toggle menu"
   }
 }

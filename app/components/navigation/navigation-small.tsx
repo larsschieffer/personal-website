@@ -2,7 +2,7 @@ import { GoThreeBars } from "@react-icons/all-files/go/GoThreeBars";
 import { GoX } from "@react-icons/all-files/go/GoX";
 import { Link, useLocation } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import type { NavigationItem } from "~/types/navigation-item";
 import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
 
@@ -13,6 +13,7 @@ export default function NavigationSmall({
 }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const intl = useIntl();
 
   function toggleMenuState() {
     setMenuOpen((menuState: boolean) => !menuState);
@@ -39,6 +40,7 @@ export default function NavigationSmall({
           isMenuOpen ? "absolute right-0 top-0" : "rounded-4xl rounded-tr-none"
         } bg-accent p-4 text-white`}
         onClick={toggleMenuState}
+        aria-label={intl.formatMessage({ id: "navigation.toggle" })}
       >
         {isMenuOpen ? (
           <GoX className="text-2xl" />
@@ -69,4 +71,7 @@ export default function NavigationSmall({
       ) : null}
     </div>
   );
+}
+function useIntel() {
+  throw new Error("Function not implemented.");
 }
