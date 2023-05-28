@@ -142,9 +142,6 @@ jobs:
       - name: 📥 Install deps
         run: pnpm install
 
-      - name: 💎 Install prisma client
-        run: pnpm dlx prisma generate
-
       - name: Pull vercel environment information
         run: pnpm dlx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
