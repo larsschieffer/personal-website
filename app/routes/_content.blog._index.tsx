@@ -12,13 +12,24 @@ import type { GithubMetaFile } from "~/types/github/github-meta-file";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 import { metaFunctionFactory } from "~/utils/meta";
 
-export const meta: V2_MetaFunction = metaFunctionFactory("Blog");
+export const meta: V2_MetaFunction = metaFunctionFactory({ location: "Blog" });
+
+const byDateDesc = (
+  { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
+  { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter }
+) => new Date(b).getTime() - new Date(a).getTime();
+
+const onlyAlreadyPublished = ({
+  frontmatter: { published },
+}: {
+  frontmatter: BlogFrontmatter;
+}) => new Date(published) < new Date();
 
 export async function loader() {
   const api = process.env.CONTENT_API_LOCATION;
   invariant(api, "Environment variable CONTENT_API_LOCATION is missing");
 
-  const files = await fetch(`${api}en/blog?ref=feat/blog`, {
+  const files = await fetch(`${api}en/blog`, {
     headers: {
       Authorization: process.env.GITHUB_TOKEN ?? "",
       Accept: "application/vnd.github+json",
@@ -26,7 +37,7 @@ export async function loader() {
   });
   const filesData = (await files.json()) as GithubMetaFile[];
 
-  const posts = await Promise.all(
+  let posts = await Promise.all(
     filesData.map(async (file: GithubMetaFile) => {
       const { frontmatter } = await bundleFileMarkdown<BlogFrontmatter>(
         file.path
@@ -39,6 +50,7 @@ export async function loader() {
       };
     })
   );
+  posts = posts.sort(byDateDesc).filter(onlyAlreadyPublished);
 
   return json({
     posts,

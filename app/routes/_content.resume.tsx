@@ -16,7 +16,9 @@ import {
 } from "~/constant/skill-percentages";
 import { metaFunctionFactory } from "~/utils/meta";
 
-export const meta: V2_MetaFunction = metaFunctionFactory("Resume");
+export const meta: V2_MetaFunction = metaFunctionFactory({
+  location: "Resume",
+});
 
 export async function loader() {
   const experiences = await db.experience.findMany({

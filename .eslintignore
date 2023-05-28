@@ -1,3 +1,4 @@
 public/build/**
 build/**
 api/**
+prisma/prisma-client/**

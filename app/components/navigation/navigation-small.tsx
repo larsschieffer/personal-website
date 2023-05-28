@@ -72,6 +72,3 @@ export default function NavigationSmall({
     </div>
   );
 }
-function useIntel() {
-  throw new Error("Function not implemented.");
-}

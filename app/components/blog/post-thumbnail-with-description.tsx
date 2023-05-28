@@ -14,6 +14,7 @@ export function PostThumbnailWithDescription({
   frontMatter: BlogFrontmatter;
 }) {
   const [isHoverOnThumbnail, setHoverOnThumbnail] = useState(false);
+  const [hasImageError, setImageError] = useState(!thumbnail);
   const intl = useIntl();
   const publishedDate = new Date(published);
 
@@ -25,13 +26,26 @@ export function PostThumbnailWithDescription({
       onMouseLeave={() => setHoverOnThumbnail(false)}
     >
       <div className="relative">
-        <img
-          className="max-h-60 w-full object-cover"
-          src={thumbnail}
-          alt={`${intl.formatMessage({
-            id: "blog.thumbnailLabel",
-          })} ${title}`}
-        />
+        {hasImageError ? (
+          <div
+            className="h-60 max-h-60 w-full bg-blue-300"
+            style={{
+              background:
+                "linear-gradient(55deg, hsla(197, 84%, 35%, 1) 0%, hsla(181, 99%, 37%, 1) 60%)",
+            }}
+          ></div>
+        ) : (
+          <img
+            className="h-60 max-h-60 w-full object-cover"
+            src={thumbnail}
+            alt={`${intl.formatMessage({
+              id: "blog.thumbnailLabel",
+            })} ${title}`}
+            onError={() => {
+              return setImageError(true);
+            }}
+          />
+        )}
         {isHoverOnThumbnail ? (
           <div className="absolute inset-0 grid place-content-center bg-gray-dark/20">
             <CgNotes className="text-4xl text-white"></CgNotes>
@@ -46,8 +60,8 @@ export function PostThumbnailWithDescription({
           </span>
         </div>
       </div>
-      <div className="bg-gray-light p-6 pt-3">
-        <h4 className="py-2 text-lg font-bold">{title}</h4>
+      <div className="h-full bg-gray-light p-6 pt-3">
+        <h3 className="py-2 text-lg font-bold capitalize truncate">{title}</h3>
         <p className="line-clamp-2 text-ellipsis">{description}</p>
       </div>
     </Link>
