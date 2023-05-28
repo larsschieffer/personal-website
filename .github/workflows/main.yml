@@ -48,6 +48,9 @@ jobs:
       - name: 📥 Install deps
         run: pnpm install
 
+      - name: 💎 Install prisma client
+        run: pnpm dlx prisma generate
+
       - name: 🔬 Lint
         run: pnpm run lint
 
@@ -87,8 +90,11 @@ jobs:
       - name: 📥 Install deps
         run: pnpm install
 
+      - name: 💎 Install prisma client
+        run: pnpm dlx prisma generate
+
       - name: 🔎 Type check
-        run: pnpm run typecheck --if-present
+        run: pnpm run typecheck
 
   deploy:
     needs: [lint, typecheck]
@@ -132,8 +138,12 @@ jobs:
           echo "SHA:        ${{ github.sha }}"
           VER=`node --version`; echo "Node ver:   $VER"
           VER=`npm --version`; echo "npm ver:    $VER"
+
       - name: 📥 Install deps
         run: pnpm install
+
+      - name: 💎 Install prisma client
+        run: pnpm dlx prisma generate
 
       - name: Pull vercel environment information
         run: pnpm dlx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
@@ -177,6 +187,9 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: 💎 Install prisma client
+        run: pnpm dlx prisma generate
 
       - name: 📀 Run database migrations
         run: pnpm dlx prisma migrate deploy
