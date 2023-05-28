@@ -1,5 +1,5 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/server-runtime";
+import { json } from "@vercel/remix";
 import { FormattedMessage } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
@@ -35,11 +35,13 @@ export default function ContentLayout() {
                   navigationItems={navigationItems}
                 ></NavigationFull>
               </div>
-              <Outlet />
+              <div className="[&>*]:h-full h-full">
+                <Outlet />
+              </div>
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2 px-6 sm:px-10">
+        <div className="mx-auto mt-8 flex max-w-[1170px] justify-between rounded-xl bg-white/80 p-2 px-6 sm:px-10 md:pr-6">
           <div>
             <span className="block md:inline-block">
               Copyright© {copyright.start}-{copyright.end}

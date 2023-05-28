@@ -3,7 +3,9 @@ import { bundleMDX } from "mdx-bundler";
 import path from "path";
 import invariant from "tiny-invariant";
 
-export async function bundleFileMarkdown(filePath: string) {
+export async function bundleFileMarkdown<T extends Record<string, unknown>>(
+  filePath: string
+) {
   if (process.platform === "win32") {
     process.env.ESBUILD_BINARY_PATH = path.join(
       process.cwd(),
@@ -24,11 +26,17 @@ export async function bundleFileMarkdown(filePath: string) {
   const location = process.env.CONTENT_LOCATION;
   invariant(location, "Environment variable CONTENT_LOCATION is missing");
 
-  const file = await fetch(`${location}/en/${filePath}`);
+  const file = await fetch(`${location}/${filePath}`);
   const content = await file.text();
 
-  return await bundleMDX({
+  return await bundleMDX<T>({
     source: content,
     cwd: "/Users/lars/Projects/personal-website/app/components",
+    esbuildOptions(options, _frontmatter) {
+      options.minify = false;
+      options.target = ["es2019"];
+
+      return options;
+    },
   });
 }

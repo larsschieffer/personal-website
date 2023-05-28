@@ -13,13 +13,13 @@ module.exports = {
         },
         accent: {
           DEFAULT: "#0E78A3",
-          secondary: "#F87210",
+          secondary: "#F7962A",
           ternary: "#01BBBD",
         },
       },
       fontFamily: {
         merriweather: ["Merriweather", "serif"],
-        archivo: ["Archivo", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       screens: {
         xs: "475px",

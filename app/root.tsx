@@ -35,7 +35,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="font-archivo text-gray-dark md:overflow-visible">
+      <body className="font-inter text-gray-dark md:overflow-visible">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"

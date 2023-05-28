@@ -40,6 +40,10 @@
   "navigation": {
     "aboutMe": "About me",
     "resume": "Resume",
-    "toggle": "Toggle menu"
+    "toggle": "Toggle menu",
+    "blog": "Blog"
+  },
+  "blog": {
+    "thumbnailLabel": "Thumbnail of"
   }
 }

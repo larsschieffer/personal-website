@@ -9,9 +9,21 @@ import { bundleFileMarkdown } from "~/utils/markdown.server";
 import type { V2_MetaFunction } from "@vercel/remix";
 import { useIntl } from "react-intl";
 import { ExperienceWork } from "~/components/experience/experiences-work";
+import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
 import { metaFunctionFactory } from "~/utils/meta";
 
-export const meta: V2_MetaFunction = metaFunctionFactory("About Me");
+export const meta: V2_MetaFunction = (args) => {
+  const {
+    aboutMe: { frontmatter },
+  } = args.data as { aboutMe: { frontmatter: BlogFrontmatter } };
+
+  const meta = {
+    location: frontmatter.title,
+    description: frontmatter.description,
+  };
+
+  return metaFunctionFactory(meta)(args);
+};
 
 export async function loader() {
   const experiences = await db.experience.findMany({
@@ -23,22 +35,24 @@ export async function loader() {
     ],
   });
 
-  const mdx = await bundleFileMarkdown("about-me.mdx");
+  const { code, frontmatter } = await bundleFileMarkdown(
+    "en/blog/about-me.mdx"
+  );
 
-  return json({ experiences, mdx });
+  return json({ experiences, aboutMe: { code, frontmatter } });
 }
 
 export default function About() {
   const {
     experiences,
-    mdx: { code },
+    aboutMe: { code },
   } = useLoaderData<typeof loader>();
   const intl = useIntl();
   const AboutMeText = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <ContentBox headline={intl.formatMessage({ id: "headline.aboutMe" })}>
-      <section className="flex flex-col gap-4">
+      <section>
         <AboutMeText />
       </section>
       <section>

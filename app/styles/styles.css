@@ -1,9 +1,8 @@
 body {
-  min-height: 100vh;
-  background-image: url("/assets/left_upper_corner.svg"),
-    url("/assets/right_lower_corner.svg");
+  background-image: url("https://assets.larsschieffer.de/left_upper_corner.svg"),
+    url("https://assets.larsschieffer.de/right_lower_corner.svg");
   background-position: left top, right bottom;
   background-repeat: no-repeat, no-repeat;
   background-color: #f0f0f6;
-  background-size: min(420px, 50vw) auto, min(447px, 50vw) auto;
+  background-size: min(420px, 50vw) auto, min(447px, 50vw) auto, contain;
 }

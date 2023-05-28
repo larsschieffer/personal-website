@@ -19,14 +19,14 @@ export default function NavigationFull({
           d="M0,0 L200,0 C25,25 100,100 0,100z"
         />
       </svg>
-      <div className="flex flex-row gap-4 rounded-tr-3xl bg-white pr-10">
+      <div className="flex flex-row rounded-tr-3xl bg-white pr-6">
         {navigationItems.map(
           (navigationItem: NavigationItem, index: number) => {
             return (
               <Link
                 key={index}
                 to={`/${navigationItem.link}`}
-                className={`my-3 px-4 py-1 ${
+                className={`my-3 px-4 py-1 first:-ml-4 ${
                   isHighlighted(location.pathname, navigationItem.link)
                     ? "rounded-2xl bg-accent text-white"
                     : "font-normal"
