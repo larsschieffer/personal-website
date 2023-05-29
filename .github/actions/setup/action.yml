@@ -31,7 +31,7 @@ runs:
 
     - name: Install deps
       shell: bash
-      run: pnpm install
+      run: pnpm install --production --ignore-scripts
 
     - name: Install prisma client
       shell: bash
