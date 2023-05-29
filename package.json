@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.1",
-    "@fontsource/merriweather": "^4.5.14",
+    "@fontsource/merriweather": "^5.0.0",
     "@prisma/client": "^4.13.0",
     "@react-icons/all-files": "^4.1.0",
     "@remix-run/css-bundle": "^1.16.1",
