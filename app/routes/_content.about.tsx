@@ -6,24 +6,8 @@ import ContentBox from "~/components/box/content-box";
 import { db } from "~/utils/db.server";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 
-import type { V2_MetaFunction } from "@vercel/remix";
 import { useIntl } from "react-intl";
 import { ExperienceWork } from "~/components/experience/experiences-work";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import { metaFunctionFactory } from "~/utils/meta";
-
-export const meta: V2_MetaFunction = (args) => {
-  const {
-    aboutMe: { frontmatter },
-  } = args.data as { aboutMe: { frontmatter: BlogFrontmatter } };
-
-  const meta = {
-    location: frontmatter.title,
-    description: frontmatter.description,
-  };
-
-  return metaFunctionFactory(meta)(args);
-};
 
 export async function loader() {
   const experiences = await db.experience.findMany({
@@ -52,7 +36,7 @@ export default function About() {
 
   return (
     <ContentBox headline={intl.formatMessage({ id: "headline.aboutMe" })}>
-      <section>
+      <section className="text-justify">
         <AboutMeText />
       </section>
       <section>

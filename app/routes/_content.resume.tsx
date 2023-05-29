@@ -4,7 +4,6 @@ import { useIntl } from "react-intl";
 import ContentBox from "~/components/box/content-box";
 import { db } from "~/utils/db.server";
 
-import type { V2_MetaFunction } from "@vercel/remix";
 import { ExperienceEducation } from "~/components/experience/experiences-education";
 import { ExperienceWork } from "~/components/experience/experiences-work";
 import { ProgressBarColumn } from "~/components/progress-bar/progress-bar-column";
@@ -14,11 +13,6 @@ import {
   frontendSkills,
   securitySkills,
 } from "~/constant/skill-percentages";
-import { metaFunctionFactory } from "~/utils/meta";
-
-export const meta: V2_MetaFunction = metaFunctionFactory({
-  location: "Resume",
-});
 
 export async function loader() {
   const experiences = await db.experience.findMany({

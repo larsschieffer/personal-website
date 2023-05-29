@@ -3,16 +3,13 @@ import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
 import ContentBox from "~/components/box/content-box";
 
-import type { SerializeFrom, V2_MetaFunction } from "@vercel/remix";
+import type { SerializeFrom } from "@vercel/remix";
 import invariant from "tiny-invariant";
 import { PostThumbnailWithDescription } from "~/components/blog/post-thumbnail-with-description";
 import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
 import type { PostThumbnailType } from "~/types/blog/post-thumbnail";
 import type { GithubMetaFile } from "~/types/github/github-meta-file";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
-import { metaFunctionFactory } from "~/utils/meta";
-
-export const meta: V2_MetaFunction = metaFunctionFactory({ location: "Blog" });
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },

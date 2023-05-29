@@ -1,10 +1,37 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import type { V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, IntlProvider } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
 import Profile from "~/components/profile/profile";
 import { navigationItems } from "~/constant/navigation-items";
+import type { NavigationItem } from "~/types/navigation-item";
+import { metaFunctionFactory } from "~/utils/meta";
+import { isLinkTargetingPathname } from "~/utils/path";
+import messages from "../../public/assets/i18n/en.json";
+
+import flatten from "flat";
+
+export const meta: V2_MetaFunction = (args) => {
+  const intlProvider = new IntlProvider({
+    locale: "en",
+    messages: flatten(messages),
+  });
+
+  const { titleKey = "" } =
+    navigationItems.find(({ link }: NavigationItem) => {
+      return isLinkTargetingPathname(args.location.pathname, link);
+    }) ?? {};
+
+  const location = titleKey
+    ? intlProvider.state.intl?.formatMessage({ id: titleKey })
+    : undefined;
+
+  return metaFunctionFactory({
+    location,
+  })(args);
+};
 
 export function loader() {
   const data = {
