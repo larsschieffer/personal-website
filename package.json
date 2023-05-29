@@ -22,7 +22,7 @@
     "@remix-run/vercel": "1.16.1",
     "@vercel/node": "2.10.3",
     "@vercel/remix": "1.16.1",
-    "esbuild": "0.17.6",
+    "esbuild": "0.17.19",
     "flat": "5.0.2",
     "isbot": "3.6.8",
     "mdx-bundler": "9.2.1",
