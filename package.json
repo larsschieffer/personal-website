@@ -4,7 +4,6 @@
   "scripts": {
     "preinstall": "pnpm dlx only-allow pnpm",
     "build": "remix build",
-    "build:vercel": "pnpm dlx prisma generate && remix build",
     "dev": "remix dev",
     "typecheck": "tsc",
     "format": "prettier --write .",
@@ -61,7 +60,7 @@
     "typescript": "^5.0.4"
   },
   "engines": {
-    "node": ">=18"
+    "node": "18"
   },
   "prisma": {
     "seed": "node --require esbuild-register prisma/seed.ts"
