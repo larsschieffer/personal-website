@@ -5,8 +5,11 @@
   ],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
   ],
@@ -15,5 +18,6 @@
     "automerge": true,
     "automergeType": "pr",
     "platformAutomerge": true
-  }
+  },
+  "platformAutomerge": true
 }
