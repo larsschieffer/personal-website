@@ -4,7 +4,6 @@
   "prHourlyLimit": 3,
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "pr",
       "platformAutomerge": true
@@ -15,11 +14,5 @@
       "automergeType": "pr",
       "platformAutomerge": true
     }
-  ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true,
-    "automergeType": "pr",
-    "platformAutomerge": true
-  }
+  ]
 }
