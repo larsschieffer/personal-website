@@ -9,8 +9,8 @@ dependencies:
     specifier: 5.0.1
     version: 5.0.1
   '@fontsource/merriweather':
-    specifier: 5.0.0
-    version: 5.0.0
+    specifier: 5.0.1
+    version: 5.0.1
   '@prisma/client':
     specifier: 4.14.1
     version: 4.14.1(prisma@4.13.0)
@@ -1809,8 +1809,8 @@ packages:
     resolution: {integrity: sha512-jezFhHp0HcVy2t6M6r89EcxkT30vx0ofGauveQWQ81j70N/wNDYs4zI+sedeend6zF9GXIEqpOTO2D1k7VQX4w==}
     dev: false
 
-  /@fontsource/merriweather@5.0.0:
-    resolution: {integrity: sha512-NTM4+fhRpp0ssEXBK9rQRIq7YPMOMSKK1fs49D/wbuquFwJQ0OWzGdIxm9WsJmqFHcUA6wUU+V2/12fLn8W0fw==}
+  /@fontsource/merriweather@5.0.1:
+    resolution: {integrity: sha512-yEls56g2NQckvL4f+TM+ZobENndcET5CPVh63ydTZEkXF/YgI8dliDnT2xi4D9G1p8eBmvLzdxhT9gF9bgfmfw==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.15.0:
