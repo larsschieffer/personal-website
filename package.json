@@ -8,7 +8,8 @@
     "typecheck": "tsc",
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "seed": "node --require esbuild-register prisma/seed.ts"
+    "seed": "node --require esbuild-register prisma/seed.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fontsource/inter": "5.0.1",
@@ -50,6 +51,7 @@
     "eslint-plugin-formatjs": "4.10.1",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
+    "husky": "^8.0.3",
     "postcss": "8.4.23",
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "0.3.0",
