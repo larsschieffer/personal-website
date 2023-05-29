@@ -4,15 +4,14 @@
   "prHourlyLimit": 3,
   "packageRules": [
     {
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      "matchPackagePatterns": ["*"],
+      "automerge": true
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "platformAutomerge": true
+  }
 }
