@@ -90,6 +90,6 @@ jobs:
       - uses: ./.github/actions/setup
 
       - name: 📀 Run database migrations
-        run: pnpm prisma migrate deploy
+        run: pnpm dlx prisma migrate deploy
         env:
           POSTGRES_PRISMA_URL: ${{ secrets.POSTGRES_PRISMA_URL }}
