@@ -6,5 +6,11 @@
   "automerge": true,
   "automergeType": "pr",
   "platformAutomerge": true,
-  "dependencyDashboard": false
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@remix-run\\/", "@vercel/remix"],
+      "groupName": "Remix packages"
+    }
+  ]
 }
