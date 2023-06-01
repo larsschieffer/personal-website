@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
+
 export default function ProfileItem({
   icon,
   description,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   description: string;
 }) {
   return (

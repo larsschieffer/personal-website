@@ -31,9 +31,8 @@ export async function bundleFileMarkdown<T extends Record<string, unknown>>(
 
   return await bundleMDX<T>({
     source: content,
-    cwd: "/Users/lars/Projects/personal-website/app/components",
     esbuildOptions(options, _frontmatter) {
-      options.minify = false;
+      options.minify = true;
       options.target = ["es2019"];
 
       return options;

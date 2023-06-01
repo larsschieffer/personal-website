@@ -1,9 +1,13 @@
+import type { PropsWithChildren } from "react";
+
 export interface RoundedBoxProps {
-  children?: React.ReactNode;
   className?: string;
 }
 
-export default function RoundedBox({ children, className }: RoundedBoxProps) {
+export default function RoundedBox({
+  children,
+  className,
+}: PropsWithChildren<RoundedBoxProps>) {
   return (
     <div className={`overflow-hidden rounded-3xl ${className ?? ""}`}>
       {children}
