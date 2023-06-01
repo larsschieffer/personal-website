@@ -1,15 +1,22 @@
 import { useLoaderData } from "@remix-run/react";
 
-import type { LoaderArgs, V2_MetaFunction } from "@vercel/remix";
+import type { LinksFunction, LoaderArgs, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
+import hljs from "highlight.js";
+import highlightjs from "highlight.js/styles/github.css";
 import { getMDXComponent } from "mdx-bundler/client";
-import { useMemo } from "react";
+import type { PropsWithChildren } from "react";
+import { useEffect, useMemo } from "react";
 import invariant from "tiny-invariant";
 import Feedback from "~/components/blog/feedback";
 import ContentBox from "~/components/box/content-box";
 import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
 import { bundleFileMarkdown } from "~/utils/markdown.server";
 import { metaFunctionFactory } from "~/utils/meta";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: highlightjs },
+];
 
 const substitutions = {
   h2: (
@@ -38,7 +45,7 @@ const substitutions = {
   ) => (
     <ul
       {...props}
-      className="list-disc list-outside mt-4 ml-6 [&_li]:first-letter:uppercase"
+      className="list-disc list-outside mt-4 [&_li]:first-letter:uppercase"
     />
   ),
   a: (
@@ -48,6 +55,44 @@ const substitutions = {
     >
     // eslint-disable-next-line jsx-a11y/anchor-has-content
   ) => <a {...props} className="text-accent hover:underline" target="_blank" />,
+  pre: (
+    props: React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLPreElement>,
+      HTMLPreElement
+    >
+  ) => <pre {...props} className="grid [&>code]:p-4"></pre>,
+  code: (
+    props: React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    >
+  ) => (
+    <code
+      {...props}
+      className="bg-gray-lighter mt-4 rounded-sm overflow-x-auto"
+    ></code>
+  ),
+  ImageFrame: function ImageFrame({
+    children,
+    alignment = "vertical",
+  }: PropsWithChildren<{
+    alignment: "vertical" | "horizontal";
+  }>) {
+    return (
+      <div
+        className={`grid ${
+          alignment === "vertical"
+            ? "grid-flow-row grid-cols-1"
+            : "grid-flow-col"
+        } gap-2 my-4 justify-center`}
+      >
+        {children}
+      </div>
+    );
+  },
+  BlogImage: function BlogImage({ src, alt }: { src: string; alt: string }) {
+    return <img src={src} alt={alt} className="object-fit w-full" />;
+  },
 };
 
 export const meta: V2_MetaFunction = (args) => {
@@ -81,6 +126,10 @@ export default function Post() {
     () => getMDXComponent(postContent),
     [postContent]
   );
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
 
   return (
     <ContentBox headline={frontmatter.title} options={{ position: "center" }}>
