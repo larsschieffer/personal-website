@@ -60,17 +60,19 @@ const substitutions = {
       React.HTMLAttributes<HTMLPreElement>,
       HTMLPreElement
     >
-  ) => <pre {...props} className="grid [&>code]:p-4"></pre>,
+  ) => (
+    <pre
+      {...props}
+      className="grid [&>code]:p-4 [&>code]:mt-4 [&>code]:rounded-md"
+    ></pre>
+  ),
   code: (
     props: React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     >
   ) => (
-    <code
-      {...props}
-      className="bg-gray-lighter mt-4 rounded-sm overflow-x-auto"
-    ></code>
+    <code {...props} className="!bg-gray-light px-0.5 overflow-x-auto"></code>
   ),
   ImageFrame: function ImageFrame({
     children,
