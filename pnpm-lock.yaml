@@ -45,7 +45,7 @@ dependencies:
     specifier: 5.0.2
     version: 5.0.2
   highlight.js:
-    specifier: ^11.8.0
+    specifier: 11.8.0
     version: 11.8.0
   isbot:
     specifier: 3.6.10
