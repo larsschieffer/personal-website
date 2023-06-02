@@ -89,6 +89,8 @@ jobs:
     outputs:
       is-required: ${{ steps.filter.outputs.database }}
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
