@@ -1,4 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
+import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type {
   LinksFunction,
   LoaderArgs,
@@ -23,7 +24,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: highlightjs },
 ];
 
-export const meta: V2_MetaFunction = (args) => {
+export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
   const {
     post: { frontmatter },
   } = args.data as { post: { frontmatter: BlogFrontmatter } };

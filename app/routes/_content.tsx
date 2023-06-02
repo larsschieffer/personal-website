@@ -1,4 +1,5 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import flatten from "flat";
@@ -13,7 +14,7 @@ import type { ContentData } from "~/types/content";
 import type { NavigationItem } from "~/types/navigation";
 import messages from "../../public/assets/i18n/en.json";
 
-export const meta: V2_MetaFunction = (args) => {
+export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
   const intlProvider = new IntlProvider({
     locale: "en",
     messages: flatten(messages),

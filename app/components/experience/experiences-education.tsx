@@ -1,4 +1,6 @@
+import type { Education } from "@prisma/client";
 import { FcElectronics } from "@react-icons/all-files/fc/FcElectronics";
+import type { SerializeFrom } from "@remix-run/node";
 import { useIntl } from "react-intl";
 import { Experiences } from "~/components/experience/experiences";
 import type { ExperienceEducationProps } from "~/types/experience";
@@ -15,16 +17,22 @@ export const ExperiencesEducation = ({
         id: "headline.educationAndCertification",
       })}
     >
-      {educations.map((education, index, arr) => (
-        <ExperienceOfEducation
-          key={education.id}
-          education={education}
-          options={{
-            isFirstInColumn: index == 0,
-            isLastInColumn: index == arr.length - 1,
-          }}
-        />
-      ))}
+      {educations.map(
+        (
+          education: SerializeFrom<Education>,
+          index: number,
+          arr: SerializeFrom<Education>[]
+        ) => (
+          <ExperienceOfEducation
+            key={education.id}
+            education={education}
+            options={{
+              isFirstInColumn: index == 0,
+              isLastInColumn: index == arr.length - 1,
+            }}
+          />
+        )
+      )}
     </Experiences>
   );
 };

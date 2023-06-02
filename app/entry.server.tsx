@@ -42,40 +42,42 @@ const handleBotRequest = (
   responseHeaders: Headers,
   remixContext: EntryContext
 ): Promise<unknown> =>
-  new Promise((resolve, reject) => {
-    const { pipe, abort } = renderToPipeableStream(
-      <RemixServer
-        context={remixContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
-      {
-        onAllReady: () => {
-          const body = new PassThrough();
+  new Promise(
+    (resolve: (value: unknown) => void, reject: (reason?: unknown) => void) => {
+      const { pipe, abort } = renderToPipeableStream(
+        <RemixServer
+          context={remixContext}
+          url={request.url}
+          abortDelay={ABORT_DELAY}
+        />,
+        {
+          onAllReady: () => {
+            const body = new PassThrough();
 
-          responseHeaders.set("Content-Type", "text/html");
+            responseHeaders.set("Content-Type", "text/html");
 
-          resolve(
-            new Response(body, {
-              headers: responseHeaders,
-              status: responseStatusCode,
-            })
-          );
+            resolve(
+              new Response(body, {
+                headers: responseHeaders,
+                status: responseStatusCode,
+              })
+            );
 
-          pipe(body);
-        },
-        onShellError: (error: unknown) => {
-          reject(error);
-        },
-        onError: (error: unknown) => {
-          responseStatusCode = 500;
-          console.error(error);
-        },
-      }
-    );
+            pipe(body);
+          },
+          onShellError: (error: unknown) => {
+            reject(error);
+          },
+          onError: (error: unknown) => {
+            responseStatusCode = 500;
+            console.error(error);
+          },
+        }
+      );
 
-    setTimeout(abort, ABORT_DELAY);
-  });
+      setTimeout(abort, ABORT_DELAY);
+    }
+  );
 
 const handleBrowserRequest = (
   request: Request,
@@ -83,39 +85,41 @@ const handleBrowserRequest = (
   responseHeaders: Headers,
   remixContext: EntryContext
 ): Promise<unknown> =>
-  new Promise((resolve, reject) => {
-    const { pipe, abort } = renderToPipeableStream(
-      <RemixServer
-        context={remixContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
-      {
-        onShellReady: () => {
-          const body = new PassThrough();
+  new Promise(
+    (resolve: (value: unknown) => void, reject: (reason?: unknown) => void) => {
+      const { pipe, abort } = renderToPipeableStream(
+        <RemixServer
+          context={remixContext}
+          url={request.url}
+          abortDelay={ABORT_DELAY}
+        />,
+        {
+          onShellReady: () => {
+            const body = new PassThrough();
 
-          responseHeaders.set("Content-Type", "text/html");
+            responseHeaders.set("Content-Type", "text/html");
 
-          resolve(
-            new Response(body, {
-              headers: responseHeaders,
-              status: responseStatusCode,
-            })
-          );
+            resolve(
+              new Response(body, {
+                headers: responseHeaders,
+                status: responseStatusCode,
+              })
+            );
 
-          pipe(body);
-        },
-        onShellError: (error: unknown) => {
-          reject(error);
-        },
-        onError: (error: unknown) => {
-          console.error(error);
-          responseStatusCode = 500;
-        },
-      }
-    );
+            pipe(body);
+          },
+          onShellError: (error: unknown) => {
+            reject(error);
+          },
+          onError: (error: unknown) => {
+            console.error(error);
+            responseStatusCode = 500;
+          },
+        }
+      );
 
-    setTimeout(abort, ABORT_DELAY);
-  });
+      setTimeout(abort, ABORT_DELAY);
+    }
+  );
 
 export default handleRequest;

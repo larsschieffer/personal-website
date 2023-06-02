@@ -36,5 +36,17 @@ module.exports = {
         classPropertiesAllowed: false,
       },
     ],
+    "@typescript-eslint/typedef": [
+      "error",
+      {
+        arrayDestructuring: false,
+        arrowParameter: true,
+        memberVariableDeclaration: false,
+        objectDestructuring: false,
+        parameter: true,
+        propertyDeclaration: true,
+        variableDeclaration: false,
+      },
+    ],
   },
 };
