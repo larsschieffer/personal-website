@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
 
-export default function Toast(): JSX.Element {
+export const Toast = (): JSX.Element => {
   return (
     <ToastContainer
       position="top-right"
@@ -15,4 +15,6 @@ export default function Toast(): JSX.Element {
       theme="light"
     />
   );
-}
+};
+
+export default Toast;

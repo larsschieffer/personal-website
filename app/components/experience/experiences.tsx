@@ -1,10 +1,10 @@
 import type { ExperiencesProps } from "~/types/experience";
 
-export default function Experiences({
+export const Experiences = ({
   children,
   headline,
   icon,
-}: ExperiencesProps): JSX.Element {
+}: ExperiencesProps): JSX.Element => {
   return (
     <div className="pl-[17px]">
       <div className="-ml-[17px] mb-4 flex flex-row items-center gap-3">
@@ -14,4 +14,5 @@ export default function Experiences({
       {children}
     </div>
   );
-}
+};
+export default Experiences;

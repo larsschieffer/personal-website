@@ -15,12 +15,12 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
-export default function handleRequest(
+export const handleRequest = (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext
-): Promise<unknown> {
+): Promise<unknown> => {
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
         request,
@@ -34,15 +34,15 @@ export default function handleRequest(
         responseHeaders,
         remixContext
       );
-}
+};
 
-function handleBotRequest(
+const handleBotRequest = (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext
-): Promise<unknown> {
-  return new Promise((resolve, reject) => {
+): Promise<unknown> =>
+  new Promise((resolve, reject) => {
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
@@ -50,7 +50,7 @@ function handleBotRequest(
         abortDelay={ABORT_DELAY}
       />,
       {
-        onAllReady() {
+        onAllReady: () => {
           const body = new PassThrough();
 
           responseHeaders.set("Content-Type", "text/html");
@@ -64,10 +64,10 @@ function handleBotRequest(
 
           pipe(body);
         },
-        onShellError(error: unknown) {
+        onShellError: (error: unknown) => {
           reject(error);
         },
-        onError(error: unknown) {
+        onError: (error: unknown) => {
           responseStatusCode = 500;
           console.error(error);
         },
@@ -76,15 +76,14 @@ function handleBotRequest(
 
     setTimeout(abort, ABORT_DELAY);
   });
-}
 
-function handleBrowserRequest(
+const handleBrowserRequest = (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext
-): Promise<unknown> {
-  return new Promise((resolve, reject) => {
+): Promise<unknown> =>
+  new Promise((resolve, reject) => {
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
@@ -92,7 +91,7 @@ function handleBrowserRequest(
         abortDelay={ABORT_DELAY}
       />,
       {
-        onShellReady() {
+        onShellReady: () => {
           const body = new PassThrough();
 
           responseHeaders.set("Content-Type", "text/html");
@@ -106,10 +105,10 @@ function handleBrowserRequest(
 
           pipe(body);
         },
-        onShellError(error: unknown) {
+        onShellError: (error: unknown) => {
           reject(error);
         },
-        onError(error: unknown) {
+        onError: (error: unknown) => {
           console.error(error);
           responseStatusCode = 500;
         },
@@ -118,4 +117,5 @@ function handleBrowserRequest(
 
     setTimeout(abort, ABORT_DELAY);
   });
-}
+
+export default handleRequest;

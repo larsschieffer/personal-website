@@ -115,6 +115,9 @@ devDependencies:
   eslint-plugin-jsx-a11y:
     specifier: 6.7.1
     version: 6.7.1(eslint@8.41.0)
+  eslint-plugin-prefer-arrow:
+    specifier: ^1.2.3
+    version: 1.2.3(eslint@8.41.0)
   eslint-plugin-react:
     specifier: 7.32.2
     version: 7.32.2(eslint@8.41.0)
@@ -4427,6 +4430,14 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.2
       semver: 6.3.0
+    dev: true
+
+  /eslint-plugin-prefer-arrow@1.2.3(eslint@8.41.0):
+    resolution: {integrity: sha512-J9I5PKCOJretVuiZRGvPQxCbllxGAV/viI20JO3LYblAodofBxyMnZAJ+WGeClHgANnSJberTNoFWWjrWKBuXQ==}
+    peerDependencies:
+      eslint: '>=2.0.0'
+    dependencies:
+      eslint: 8.41.0
     dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.41.0):

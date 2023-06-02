@@ -1,9 +1,9 @@
 import type { BlogFrameProps } from "~/types/blog";
 
-export default function BlogFrame({
+export const BlogFrame = ({
   children,
   alignment = "vertical",
-}: BlogFrameProps): JSX.Element {
+}: BlogFrameProps): JSX.Element => {
   return (
     <div
       className={`grid ${
@@ -13,4 +13,5 @@ export default function BlogFrame({
       {children}
     </div>
   );
-}
+};
+export default BlogFrame;

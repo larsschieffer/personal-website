@@ -7,10 +7,10 @@ import { HiOutlineLocationMarker } from "@react-icons/all-files/hi/HiOutlineLoca
 import { FormattedMessage, useIntl } from "react-intl";
 import { ASSETS_LOCATION } from "~/constants/assets-location";
 import { notImplementedYet } from "~/services/under-construction";
-import BoxRounded from "../box/box-rounded";
-import ProfileItem from "./profile-item";
+import { BoxRounded } from "../box/box-rounded";
+import { ProfileItem } from "./profile-item";
 
-export default function Profile(): JSX.Element {
+export const Profile = (): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -81,4 +81,6 @@ export default function Profile(): JSX.Element {
       </BoxRounded>
     </div>
   );
-}
+};
+
+export default Profile;

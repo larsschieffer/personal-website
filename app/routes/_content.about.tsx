@@ -4,13 +4,13 @@ import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
 import { useIntl } from "react-intl";
-import BoxContent from "~/components/box/box-content";
-import { ExperienceWork } from "~/components/experience/experiences-work";
+import { BoxContent } from "~/components/box/box-content";
+import { ExperiencesWork } from "~/components/experience/experiences-work";
 import { db } from "~/services/server/db.server";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { ContentAbout } from "~/types/content";
 
-export async function loader(): Promise<TypedResponse<ContentAbout>> {
+export const loader = async (): Promise<TypedResponse<ContentAbout>> => {
   const experiences = await db.experience.findMany({
     include: { skills: true },
     orderBy: [
@@ -25,9 +25,9 @@ export async function loader(): Promise<TypedResponse<ContentAbout>> {
   );
 
   return json({ experiences, aboutMe: { code, frontmatter } });
-}
+};
 
-export default function About(): JSX.Element {
+export const About = (): JSX.Element => {
   const {
     experiences,
     aboutMe: { code },
@@ -41,8 +41,10 @@ export default function About(): JSX.Element {
         <AboutMeText />
       </section>
       <section>
-        <ExperienceWork experiences={experiences}></ExperienceWork>
+        <ExperiencesWork experiences={experiences}></ExperiencesWork>
       </section>
     </BoxContent>
   );
-}
+};
+
+export default About;

@@ -1,9 +1,11 @@
 import type { ExperienceOfEducationProps } from "~/types/experience";
-import ExperienceStep from "./experience-step";
+import { ExperienceStep } from "./experience-step";
 
-export default function ExperienceOfEducation({
+export const ExperienceOfEducation = ({
   education,
   options,
-}: ExperienceOfEducationProps): JSX.Element {
+}: ExperienceOfEducationProps): JSX.Element => {
   return <ExperienceStep data={education} options={options}></ExperienceStep>;
-}
+};
+
+export default ExperienceOfEducation;

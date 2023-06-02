@@ -1,12 +1,12 @@
 import { FcElectronics } from "@react-icons/all-files/fc/FcElectronics";
 import { useIntl } from "react-intl";
-import Experiences from "~/components/experience/experiences";
+import { Experiences } from "~/components/experience/experiences";
 import type { ExperienceEducationProps } from "~/types/experience";
-import ExperienceOfEducation from "./experience-education";
+import { ExperienceOfEducation } from "./experience-education";
 
-export function ExperienceEducation({
+export const ExperiencesEducation = ({
   educations,
-}: ExperienceEducationProps): JSX.Element {
+}: ExperienceEducationProps): JSX.Element => {
   const intl = useIntl();
   return (
     <Experiences
@@ -27,4 +27,6 @@ export function ExperienceEducation({
       ))}
     </Experiences>
   );
-}
+};
+
+export default ExperiencesEducation;

@@ -2,10 +2,10 @@ import { useIntl } from "react-intl";
 import type { StepProps } from "~/types/experience";
 import { DateRange } from "../date-range";
 
-export default function ExperienceStep({
+export const ExperienceStep = ({
   data: { title, organisation, start, end, description },
   options,
-}: StepProps): JSX.Element {
+}: StepProps): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -27,4 +27,6 @@ export default function ExperienceStep({
       </div>
     </div>
   );
-}
+};
+
+export default ExperienceStep;

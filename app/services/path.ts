@@ -1,10 +1,10 @@
-export function isLinkTargetingPathname(
+export const isLinkTargetingPathname = (
   pathname?: string,
   linkTarget?: string
-): boolean {
+): boolean => {
   if (pathname == null || linkTarget == null) {
     return false;
   }
 
   return pathname.startsWith(`/${linkTarget}`);
-}
+};

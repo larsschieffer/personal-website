@@ -3,9 +3,9 @@ import { FormattedMessage } from "react-intl";
 import { isLinkTargetingPathname as isHighlighted } from "~/services/path";
 import type { NavigationItem, NavigationProps } from "~/types/navigation";
 
-export default function NavigationFull({
+export const NavigationFull = ({
   navigationItems,
-}: NavigationProps): JSX.Element {
+}: NavigationProps): JSX.Element => {
   const { pathname } = useLocation();
 
   return (
@@ -38,4 +38,6 @@ export default function NavigationFull({
       </div>
     </div>
   );
-}
+};
+
+export default NavigationFull;

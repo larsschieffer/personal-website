@@ -2,9 +2,9 @@ import { useLoaderData } from "@remix-run/react";
 import type { TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import BoxContent from "~/components/box/box-content";
-import { ExperienceEducation } from "~/components/experience/experiences-education";
-import { ExperienceWork } from "~/components/experience/experiences-work";
+import { BoxContent } from "~/components/box/box-content";
+import { ExperiencesEducation } from "~/components/experience/experiences-education";
+import { ExperiencesWork } from "~/components/experience/experiences-work";
 import { ProgressBarColumn } from "~/components/progress-bar/progress-bar-column";
 import {
   backendSkills,
@@ -15,7 +15,7 @@ import {
 import { db } from "~/services/server/db.server";
 import type { ContentResumeData } from "~/types/content";
 
-export async function loader(): Promise<TypedResponse<ContentResumeData>> {
+export const loader = async (): Promise<TypedResponse<ContentResumeData>> => {
   const experiences = await db.experience.findMany({
     include: { skills: true },
     orderBy: [
@@ -34,19 +34,19 @@ export async function loader(): Promise<TypedResponse<ContentResumeData>> {
   });
 
   return json({ educations, experiences });
-}
+};
 
-export default function About(): JSX.Element {
+export const Resume = (): JSX.Element => {
   const { educations, experiences } = useLoaderData<typeof loader>();
   const intl = useIntl();
 
   return (
     <BoxContent headline={intl.formatMessage({ id: "headline.resume" })}>
       <section>
-        <ExperienceWork experiences={experiences}></ExperienceWork>
+        <ExperiencesWork experiences={experiences}></ExperiencesWork>
       </section>
       <section>
-        <ExperienceEducation educations={educations}></ExperienceEducation>
+        <ExperiencesEducation educations={educations}></ExperiencesEducation>
       </section>
       <section>
         <h2 className="mb-4 text-2xl font-semibold">My Skills</h2>
@@ -69,4 +69,6 @@ export default function About(): JSX.Element {
       </section>
     </BoxContent>
   );
-}
+};
+
+export default Resume;

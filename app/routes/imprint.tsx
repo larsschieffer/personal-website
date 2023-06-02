@@ -1,7 +1,7 @@
 import { FormattedMessage } from "react-intl";
-import BoxRounded from "~/components/box/box-rounded";
+import { BoxRounded } from "~/components/box/box-rounded";
 
-export default function Imprint(): JSX.Element {
+export const Imprint = (): JSX.Element => {
   return (
     <div className="mx-6 grid h-screen place-items-center">
       <BoxRounded>
@@ -32,4 +32,6 @@ export default function Imprint(): JSX.Element {
       </BoxRounded>
     </div>
   );
-}
+};
+
+export default Imprint;

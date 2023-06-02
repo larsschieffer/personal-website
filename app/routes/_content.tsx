@@ -3,9 +3,9 @@ import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import flatten from "flat";
 import { FormattedMessage, IntlProvider } from "react-intl";
-import NavigationFull from "~/components/navigation/navigation-full";
-import NavigationSmall from "~/components/navigation/navigation-small";
-import Profile from "~/components/profile/profile";
+import { NavigationFull } from "~/components/navigation/navigation-full";
+import { NavigationSmall } from "~/components/navigation/navigation-small";
+import { Profile } from "~/components/profile/profile";
 import { navigationItems } from "~/constants/navigation-items";
 import { metaFunctionFactory } from "~/services/meta";
 import { isLinkTargetingPathname } from "~/services/path";
@@ -33,7 +33,7 @@ export const meta: V2_MetaFunction = (args) => {
   })(args);
 };
 
-export function loader(): TypedResponse<ContentData> {
+export const loader = (): TypedResponse<ContentData> => {
   const data = {
     copyright: {
       start: "2021",
@@ -41,9 +41,9 @@ export function loader(): TypedResponse<ContentData> {
     },
   };
   return json(data);
-}
+};
 
-export default function ContentLayout(): JSX.Element {
+export const ContentLayout = (): JSX.Element => {
   const { copyright } = useLoaderData<typeof loader>();
   return (
     <div>
@@ -88,4 +88,6 @@ export default function ContentLayout(): JSX.Element {
       </div>
     </div>
   );
-}
+};
+
+export default ContentLayout;

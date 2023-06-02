@@ -13,7 +13,7 @@ import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
 import tailwind from "~/styles/tailwind.css";
 import messages from "../public/assets/i18n/en.json";
-import Toast from "./components/toast";
+import { Toast } from "./components/toast";
 import { metaFunctionFactory } from "./services/meta";
 
 export const links: LinksFunction = () => [
@@ -23,7 +23,7 @@ export const links: LinksFunction = () => [
 ];
 export const meta: V2_MetaFunction = metaFunctionFactory();
 
-export default function App(): JSX.Element {
+export const App = (): JSX.Element => {
   return (
     <html lang="en">
       <head>
@@ -47,4 +47,6 @@ export default function App(): JSX.Element {
       </body>
     </html>
   );
-}
+};
+
+export default App;

@@ -23,7 +23,7 @@ enum SkillId {
   TAILWIND_CSS = "6d1def26-b083-4a85-9ab9-c318411492f3",
 }
 
-function getEducation(): Omit<Education, "id">[] {
+const getEducation = (): Omit<Education, "id">[] => {
   return [
     {
       title: "Master of Science in Computer Science",
@@ -56,12 +56,12 @@ function getEducation(): Omit<Education, "id">[] {
       description: null,
     },
   ];
-}
+};
 
-function getExperiences(): {
+const getExperiences = (): {
   experience: Omit<Experience, "id">;
   skillIds: string[];
-}[] {
+}[] => {
   return [
     {
       experience: {
@@ -122,9 +122,9 @@ function getExperiences(): {
       ],
     },
   ];
-}
+};
 
-function getSkills(): Skill[] {
+const getSkills = (): Skill[] => {
   return [
     {
       id: SkillId.ANGULAR,
@@ -217,9 +217,9 @@ function getSkills(): Skill[] {
       area: SkillArea.Backend,
     },
   ];
-}
+};
 
-async function seed(): Promise<void> {
+const seed = async (): Promise<void> => {
   await Promise.all(
     getSkills().map((skill: Skill) => {
       return db.skill.create({ data: skill });
@@ -244,6 +244,6 @@ async function seed(): Promise<void> {
       });
     })
   );
-}
+};
 
 void seed();

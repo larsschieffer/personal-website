@@ -5,10 +5,10 @@ import { useIntl } from "react-intl";
 import { getDay, getMonth } from "~/services/date";
 import type { BlogPostThumbnailProps } from "~/types/blog";
 
-export function BlogPostThumbnail({
+export const BlogPostThumbnail = ({
   slug,
   frontMatter: { title, description, thumbnail, published },
-}: BlogPostThumbnailProps): JSX.Element {
+}: BlogPostThumbnailProps): JSX.Element => {
   const [isHoverOnThumbnail, setHoverOnThumbnail] = useState(false);
   const [hasImageError, setImageError] = useState(!thumbnail);
   const intl = useIntl();
@@ -62,4 +62,6 @@ export function BlogPostThumbnail({
       </div>
     </Link>
   );
-}
+};
+
+export default BlogPostThumbnail;

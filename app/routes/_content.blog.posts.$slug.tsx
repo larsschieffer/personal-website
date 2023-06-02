@@ -11,9 +11,9 @@ import highlightjs from "highlight.js/styles/github.css";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo } from "react";
 import invariant from "tiny-invariant";
-import BlogFeedback from "~/components/blog/blog-feedback";
+import { BlogFeedback } from "~/components/blog/blog-feedback";
 import { blogSubstitutionComponents } from "~/components/blog/blog-substitutions";
-import BoxContent from "~/components/box/box-content";
+import { BoxContent } from "~/components/box/box-content";
 import { metaFunctionFactory } from "~/services/meta";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter } from "~/types/blog";
@@ -36,18 +36,18 @@ export const meta: V2_MetaFunction = (args) => {
   return metaFunctionFactory(meta)(args);
 };
 
-export async function loader({
+export const loader = async ({
   params,
-}: LoaderArgs): Promise<TypedResponse<ContentBlogPostDate>> {
+}: LoaderArgs): Promise<TypedResponse<ContentBlogPostDate>> => {
   invariant(params.slug, "PostId is required");
 
   const post = await bundleFileMarkdown(`en/blog/${params.slug}.mdx`);
   const feedback = await bundleFileMarkdown(`en/feedback.mdx`);
 
   return json({ post, feedback });
-}
+};
 
-export default function Post(): JSX.Element {
+export const Post = (): JSX.Element => {
   const {
     post: { code: postContent, frontmatter },
     feedback: { code: feedbackContent },
@@ -70,4 +70,6 @@ export default function Post(): JSX.Element {
       </section>
     </BoxContent>
   );
-}
+};
+
+export default Post;

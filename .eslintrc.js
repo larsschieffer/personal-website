@@ -11,7 +11,7 @@ module.exports = {
     "@remix-run/eslint-config/node",
     "prettier",
   ],
-  plugins: ["formatjs", "@typescript-eslint"],
+  plugins: ["formatjs", "@typescript-eslint", "prefer-arrow"],
   parser: "@typescript-eslint/parser",
   overrides: [
     {
@@ -28,5 +28,13 @@ module.exports = {
   root: true,
   rules: {
     "@typescript-eslint/explicit-function-return-type": "error",
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn",
+      {
+        disallowPrototype: true,
+        singleReturnOnly: false,
+        classPropertiesAllowed: false,
+      },
+    ],
   },
 };

@@ -1,12 +1,12 @@
 import { FcBriefcase } from "@react-icons/all-files/fc/FcBriefcase";
 import { useIntl } from "react-intl";
-import Experiences from "~/components/experience/experiences";
+import { Experiences } from "~/components/experience/experiences";
 import type { ExperiencesWorkProps } from "~/types/experience";
-import ExperienceOfWork from "./experience-work";
+import { ExperienceOfWork } from "./experience-work";
 
-export function ExperienceWork({
+export const ExperiencesWork = ({
   experiences,
-}: ExperiencesWorkProps): JSX.Element {
+}: ExperiencesWorkProps): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -26,4 +26,6 @@ export function ExperienceWork({
       ))}
     </Experiences>
   );
-}
+};
+
+export default ExperiencesWork;
