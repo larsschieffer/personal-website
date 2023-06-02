@@ -5,7 +5,7 @@ import { DateRange } from "../date-range";
 export default function ExperienceStep({
   data: { title, organisation, start, end, description },
   options,
-}: StepProps) {
+}: StepProps): JSX.Element {
   const intl = useIntl();
 
   return (

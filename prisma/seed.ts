@@ -219,7 +219,7 @@ function getSkills(): Skill[] {
   ];
 }
 
-async function seed() {
+async function seed(): Promise<void> {
   await Promise.all(
     getSkills().map((skill: Skill) => {
       return db.skill.create({ data: skill });

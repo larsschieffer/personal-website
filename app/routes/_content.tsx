@@ -1,5 +1,5 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import type { V2_MetaFunction } from "@vercel/remix";
+import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import flatten from "flat";
 import { FormattedMessage, IntlProvider } from "react-intl";
@@ -9,6 +9,7 @@ import Profile from "~/components/profile/profile";
 import { navigationItems } from "~/constants/navigation-items";
 import { metaFunctionFactory } from "~/services/meta";
 import { isLinkTargetingPathname } from "~/services/path";
+import type { ContentData } from "~/types/content";
 import type { NavigationItem } from "~/types/navigation";
 import messages from "../../public/assets/i18n/en.json";
 
@@ -32,7 +33,7 @@ export const meta: V2_MetaFunction = (args) => {
   })(args);
 };
 
-export function loader() {
+export function loader(): TypedResponse<ContentData> {
   const data = {
     copyright: {
       start: "2021",
@@ -42,7 +43,7 @@ export function loader() {
   return json(data);
 }
 
-export default function ContentLayout() {
+export default function ContentLayout(): JSX.Element {
   const { copyright } = useLoaderData<typeof loader>();
   return (
     <div>

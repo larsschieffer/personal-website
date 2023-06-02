@@ -4,7 +4,9 @@ import Experiences from "~/components/experience/experiences";
 import type { ExperienceEducationProps } from "~/types/experience";
 import ExperienceOfEducation from "./experience-education";
 
-export function ExperienceEducation({ educations }: ExperienceEducationProps) {
+export function ExperienceEducation({
+  educations,
+}: ExperienceEducationProps): JSX.Element {
   const intl = useIntl();
   return (
     <Experiences

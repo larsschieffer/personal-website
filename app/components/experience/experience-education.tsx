@@ -4,6 +4,6 @@ import ExperienceStep from "./experience-step";
 export default function ExperienceOfEducation({
   education,
   options,
-}: ExperienceOfEducationProps) {
+}: ExperienceOfEducationProps): JSX.Element {
   return <ExperienceStep data={education} options={options}></ExperienceStep>;
 }

@@ -4,7 +4,7 @@ export default function Experiences({
   children,
   headline,
   icon,
-}: ExperiencesProps) {
+}: ExperiencesProps): JSX.Element {
   return (
     <div className="pl-[17px]">
       <div className="-ml-[17px] mb-4 flex flex-row items-center gap-3">

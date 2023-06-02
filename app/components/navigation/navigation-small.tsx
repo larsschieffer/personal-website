@@ -6,12 +6,14 @@ import { FormattedMessage, useIntl } from "react-intl";
 import { isLinkTargetingPathname as isHighlighted } from "~/services/path";
 import type { NavigationItem, NavigationProps } from "~/types/navigation";
 
-export default function NavigationSmall({ navigationItems }: NavigationProps) {
+export default function NavigationSmall({
+  navigationItems,
+}: NavigationProps): JSX.Element {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const intl = useIntl();
 
-  function toggleMenuState() {
+  function toggleMenuState(): void {
     setMenuOpen((menuState: boolean) => !menuState);
   }
 

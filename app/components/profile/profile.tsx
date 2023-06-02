@@ -10,7 +10,7 @@ import { notImplementedYet } from "~/services/under-construction";
 import BoxRounded from "../box/box-rounded";
 import ProfileItem from "./profile-item";
 
-export default function Profile() {
+export default function Profile(): JSX.Element {
   const intl = useIntl();
 
   return (

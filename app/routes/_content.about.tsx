@@ -1,4 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
+import type { TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
@@ -7,8 +8,9 @@ import BoxContent from "~/components/box/box-content";
 import { ExperienceWork } from "~/components/experience/experiences-work";
 import { db } from "~/services/server/db.server";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
+import type { ContentAbout } from "~/types/content";
 
-export async function loader() {
+export async function loader(): Promise<TypedResponse<ContentAbout>> {
   const experiences = await db.experience.findMany({
     include: { skills: true },
     orderBy: [
@@ -25,7 +27,7 @@ export async function loader() {
   return json({ experiences, aboutMe: { code, frontmatter } });
 }
 
-export default function About() {
+export default function About(): JSX.Element {
   const {
     experiences,
     aboutMe: { code },

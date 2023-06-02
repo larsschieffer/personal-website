@@ -8,7 +8,7 @@ import type { BlogPostThumbnailProps } from "~/types/blog";
 export function BlogPostThumbnail({
   slug,
   frontMatter: { title, description, thumbnail, published },
-}: BlogPostThumbnailProps) {
+}: BlogPostThumbnailProps): JSX.Element {
   const [isHoverOnThumbnail, setHoverOnThumbnail] = useState(false);
   const [hasImageError, setImageError] = useState(!thumbnail);
   const intl = useIntl();
@@ -18,8 +18,8 @@ export function BlogPostThumbnail({
     <Link
       to={`/blog/posts/${slug}`}
       className="overflow-hidden rounded-4xl"
-      onMouseEnter={() => setHoverOnThumbnail(true)}
-      onMouseLeave={() => setHoverOnThumbnail(false)}
+      onMouseEnter={(): void => setHoverOnThumbnail(true)}
+      onMouseLeave={(): void => setHoverOnThumbnail(false)}
     >
       <div className="relative">
         {hasImageError ? (
@@ -37,8 +37,8 @@ export function BlogPostThumbnail({
             alt={`${intl.formatMessage({
               id: "blog.thumbnailLabel",
             })} ${title}`}
-            onError={() => {
-              return setImageError(true);
+            onError={(): void => {
+              setImageError(true);
             }}
           />
         )}

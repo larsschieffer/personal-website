@@ -1,6 +1,9 @@
 import type { ProgressBarProps } from "~/types/progress-bar";
 
-export function ProgressBar({ title, percentage }: ProgressBarProps) {
+export function ProgressBar({
+  title,
+  percentage,
+}: ProgressBarProps): JSX.Element {
   return (
     <div className="rounded-full bg-gray-light ">
       <div

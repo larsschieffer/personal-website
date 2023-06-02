@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from "react";
+
 export interface BlogFeedbackProps {
   content: string;
 }
@@ -18,4 +20,12 @@ export interface PostThumbnailType {
   id: string;
   slug: string;
   frontmatter: BlogFrontmatter;
+}
+export interface BlogImageProps {
+  src: string;
+  alt: string;
+}
+
+export interface BlogFrameProps extends PropsWithChildren {
+  alignment: "vertical" | "horizontal";
 }

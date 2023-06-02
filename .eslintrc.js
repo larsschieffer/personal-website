@@ -26,4 +26,7 @@ module.exports = {
     },
   ],
   root: true,
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": "error",
+  },
 };

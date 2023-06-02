@@ -7,7 +7,7 @@ import { ProgressBar } from "./progress-bar";
 export function ProgressBarColumn({
   progressBarItems,
   headline,
-}: ProgressBarColumnProps) {
+}: ProgressBarColumnProps): JSX.Element {
   return (
     <div>
       <h3 className="pb-2 pt-4 text-xl">{headline}</h3>

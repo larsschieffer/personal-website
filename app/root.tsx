@@ -23,7 +23,7 @@ export const links: LinksFunction = () => [
 ];
 export const meta: V2_MetaFunction = metaFunctionFactory();
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <html lang="en">
       <head>

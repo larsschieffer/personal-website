@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import type { SerializeFrom } from "@vercel/remix";
+import type { SerializeFrom, TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
 import invariant from "tiny-invariant";
@@ -7,20 +7,25 @@ import { BlogPostThumbnail } from "~/components/blog/blog-post-thumbnail";
 import BoxContent from "~/components/box/box-content";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
+import type { ContentBlogData } from "~/types/content";
 import type { GithubMetaFile } from "~/types/github";
 
-const byDateDesc = (
+function byDateDesc(
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
   { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter }
-) => new Date(b).getTime() - new Date(a).getTime();
+): number {
+  return new Date(b).getTime() - new Date(a).getTime();
+}
 
-const onlyAlreadyPublished = ({
+function onlyAlreadyPublished({
   frontmatter: { published },
 }: {
   frontmatter: BlogFrontmatter;
-}) => new Date(published) < new Date();
+}): boolean {
+  return new Date(published) < new Date();
+}
 
-export async function loader() {
+export async function loader(): Promise<TypedResponse<ContentBlogData>> {
   const api = process.env.CONTENT_API_LOCATION;
   invariant(api, "Environment variable CONTENT_API_LOCATION is missing");
 
@@ -52,7 +57,7 @@ export async function loader() {
   });
 }
 
-export default function About() {
+export default function About(): JSX.Element {
   const intl = useIntl();
   const { posts } = useLoaderData<typeof loader>();
 

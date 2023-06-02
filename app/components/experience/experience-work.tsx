@@ -6,7 +6,7 @@ import ExperienceStep from "./experience-step";
 export default function ExperienceOfWork({
   experience: { title, organisation, start, end, skills },
   options,
-}: ExperienceOfWorkProps) {
+}: ExperienceOfWorkProps): JSX.Element {
   const intl = useIntl();
   const data: StepData = {
     title,

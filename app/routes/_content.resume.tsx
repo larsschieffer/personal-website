@@ -1,4 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
+import type { TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
 import BoxContent from "~/components/box/box-content";
@@ -12,8 +13,9 @@ import {
   securitySkills,
 } from "~/constants/skill-percentages";
 import { db } from "~/services/server/db.server";
+import type { ContentResumeData } from "~/types/content";
 
-export async function loader() {
+export async function loader(): Promise<TypedResponse<ContentResumeData>> {
   const experiences = await db.experience.findMany({
     include: { skills: true },
     orderBy: [
@@ -34,7 +36,7 @@ export async function loader() {
   return json({ educations, experiences });
 }
 
-export default function About() {
+export default function About(): JSX.Element {
   const { educations, experiences } = useLoaderData<typeof loader>();
   const intl = useIntl();
 

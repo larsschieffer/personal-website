@@ -1,7 +1,7 @@
 import { useIntl } from "react-intl";
 import type { DateRangeProps } from "~/types/date-range";
 
-export function DateRange({ start, end }: DateRangeProps) {
+export function DateRange({ start, end }: DateRangeProps): JSX.Element {
   const intl = useIntl();
 
   function displayDate(date: string): string {

@@ -5,7 +5,7 @@ export default function BoxContent({
   children,
   headline,
   options: { position } = { position: "left" },
-}: ContentBoxProps) {
+}: ContentBoxProps): JSX.Element {
   return (
     <BoxRounded className="bg-white md:rounded-tr-none [&>*:first-child]:pb-0 [&>*:first-child]:pt-6 sm:[&>*:first-child]:pt-10 [&>*:last-child]:pb-6 sm:[&>*:last-child]:pb-10 [&>*]:px-6 [&>*]:py-5 sm:[&>*]:px-10 [&>section:nth-child(odd)]:bg-gray-lighter">
       <h1
