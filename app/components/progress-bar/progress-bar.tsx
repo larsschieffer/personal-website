@@ -1,6 +1,6 @@
-import type { ProgressBarItem } from "~/types/progress-bar-item";
+import type { ProgressBarProps } from "~/types/progress-bar";
 
-export function ProgressBar({ title, percentage }: ProgressBarItem) {
+export function ProgressBar({ title, percentage }: ProgressBarProps) {
   return (
     <div className="rounded-full bg-gray-light ">
       <div

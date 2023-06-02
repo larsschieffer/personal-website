@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { useIntl } from "react-intl";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import { getDay, getMonth } from "~/utils/date";
-
 import { CgNotes } from "@react-icons/all-files/cg/CgNotes";
 import { Link } from "@remix-run/react";
+import { useState } from "react";
+import { useIntl } from "react-intl";
+import { getDay, getMonth } from "~/services/date";
+import type { BlogPostThumbnailProps } from "~/types/blog";
 
-export function PostThumbnailWithDescription({
+export function BlogPostThumbnail({
   slug,
   frontMatter: { title, description, thumbnail, published },
-}: {
-  slug: string;
-  frontMatter: BlogFrontmatter;
-}) {
+}: BlogPostThumbnailProps) {
   const [isHoverOnThumbnail, setHoverOnThumbnail] = useState(false);
   const [hasImageError, setImageError] = useState(!thumbnail);
   const intl = useIntl();

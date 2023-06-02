@@ -1,25 +1,8 @@
 import { useIntl } from "react-intl";
-import { StepDate } from "./step-date";
+import type { StepProps } from "~/types/experience";
+import { DateRange } from "../date-range";
 
-export interface StepOptions {
-  isFirstInColumn?: boolean;
-  isLastInColumn?: boolean;
-}
-
-export interface StepData {
-  title: string;
-  organisation: string | null;
-  start: string;
-  end: string | null;
-  description: string | null;
-}
-
-interface StepProps {
-  data: StepData;
-  options: StepOptions;
-}
-
-export default function Step({
+export default function ExperienceStep({
   data: { title, organisation, start, end, description },
   options,
 }: StepProps) {
@@ -38,7 +21,7 @@ export default function Step({
       </div>
       <div className={`pl-3 ${options.isLastInColumn ? "pb-1" : "pb-6"}`}>
         <p className="py-2 text-gray">
-          <StepDate start={start} end={end}></StepDate>
+          <DateRange start={start} end={end}></DateRange>
         </p>
         {description ? <p>{description}</p> : null}
       </div>

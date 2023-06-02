@@ -1,18 +1,12 @@
 import type { Skill } from "@prisma/client";
 import { useIntl } from "react-intl";
-import type { ExperienceWithSkills } from "~/types/experience";
-import type { StepData, StepOptions } from "./step";
-import Step from "./step";
+import type { ExperienceOfWorkProps, StepData } from "~/types/experience";
+import ExperienceStep from "./experience-step";
 
-interface ExperienceWorkProps {
-  experience: ExperienceWithSkills;
-  options: StepOptions;
-}
-
-export default function ExperienceWorkStep({
+export default function ExperienceOfWork({
   experience: { title, organisation, start, end, skills },
   options,
-}: ExperienceWorkProps) {
+}: ExperienceOfWorkProps) {
   const intl = useIntl();
   const data: StepData = {
     title,
@@ -24,5 +18,5 @@ export default function ExperienceWorkStep({
       .join(" · ")}`,
   };
 
-  return <Step data={data} options={options}></Step>;
+  return <ExperienceStep data={data} options={options}></ExperienceStep>;
 }

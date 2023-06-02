@@ -2,12 +2,11 @@ import { useLoaderData } from "@remix-run/react";
 import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
-import ContentBox from "~/components/box/content-box";
-import { db } from "~/utils/db.server";
-import { bundleFileMarkdown } from "~/utils/markdown.server";
-
 import { useIntl } from "react-intl";
+import BoxContent from "~/components/box/box-content";
 import { ExperienceWork } from "~/components/experience/experiences-work";
+import { db } from "~/services/server/db.server";
+import { bundleFileMarkdown } from "~/services/server/markdown.server";
 
 export async function loader() {
   const experiences = await db.experience.findMany({
@@ -35,13 +34,13 @@ export default function About() {
   const AboutMeText = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <ContentBox headline={intl.formatMessage({ id: "headline.aboutMe" })}>
+    <BoxContent headline={intl.formatMessage({ id: "headline.aboutMe" })}>
       <section className="text-justify">
         <AboutMeText />
       </section>
       <section>
         <ExperienceWork experiences={experiences}></ExperienceWork>
       </section>
-    </ContentBox>
+    </BoxContent>
   );
 }

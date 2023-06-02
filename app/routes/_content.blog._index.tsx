@@ -1,15 +1,13 @@
 import { useLoaderData } from "@remix-run/react";
+import type { SerializeFrom } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import ContentBox from "~/components/box/content-box";
-
-import type { SerializeFrom } from "@vercel/remix";
 import invariant from "tiny-invariant";
-import { PostThumbnailWithDescription } from "~/components/blog/post-thumbnail-with-description";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import type { PostThumbnailType } from "~/types/blog/post-thumbnail";
-import type { GithubMetaFile } from "~/types/github/github-meta-file";
-import { bundleFileMarkdown } from "~/utils/markdown.server";
+import { BlogPostThumbnail } from "~/components/blog/blog-post-thumbnail";
+import BoxContent from "~/components/box/box-content";
+import { bundleFileMarkdown } from "~/services/server/markdown.server";
+import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
+import type { GithubMetaFile } from "~/types/github";
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
@@ -59,18 +57,18 @@ export default function About() {
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <ContentBox headline={intl.formatMessage({ id: "navigation.blog" })}>
+    <BoxContent headline={intl.formatMessage({ id: "navigation.blog" })}>
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {posts.map(
           ({ id, slug, frontmatter }: SerializeFrom<PostThumbnailType>) => (
-            <PostThumbnailWithDescription
+            <BlogPostThumbnail
               key={id}
               slug={slug}
               frontMatter={frontmatter}
-            ></PostThumbnailWithDescription>
+            ></BlogPostThumbnail>
           )
         )}
       </section>
-    </ContentBox>
+    </BoxContent>
   );
 }

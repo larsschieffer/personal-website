@@ -8,14 +8,13 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction, V2_MetaFunction } from "@vercel/remix";
 import flatten from "flat";
-
 import { IntlProvider } from "react-intl";
 import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
 import tailwind from "~/styles/tailwind.css";
 import messages from "../public/assets/i18n/en.json";
 import Toast from "./components/toast";
-import { metaFunctionFactory } from "./utils/meta";
+import { metaFunctionFactory } from "./services/meta";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },

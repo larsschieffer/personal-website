@@ -1,9 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import ContentBox from "~/components/box/content-box";
-import { db } from "~/utils/db.server";
-
+import BoxContent from "~/components/box/box-content";
 import { ExperienceEducation } from "~/components/experience/experiences-education";
 import { ExperienceWork } from "~/components/experience/experiences-work";
 import { ProgressBarColumn } from "~/components/progress-bar/progress-bar-column";
@@ -12,7 +10,8 @@ import {
   cloudSkills,
   frontendSkills,
   securitySkills,
-} from "~/constant/skill-percentages";
+} from "~/constants/skill-percentages";
+import { db } from "~/services/server/db.server";
 
 export async function loader() {
   const experiences = await db.experience.findMany({
@@ -40,7 +39,7 @@ export default function About() {
   const intl = useIntl();
 
   return (
-    <ContentBox headline={intl.formatMessage({ id: "headline.resume" })}>
+    <BoxContent headline={intl.formatMessage({ id: "headline.resume" })}>
       <section>
         <ExperienceWork experiences={experiences}></ExperienceWork>
       </section>
@@ -66,6 +65,6 @@ export default function About() {
           ></ProgressBarColumn>
         </div>
       </section>
-    </ContentBox>
+    </BoxContent>
   );
 }

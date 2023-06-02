@@ -1,17 +1,16 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import type { V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
+import flatten from "flat";
 import { FormattedMessage, IntlProvider } from "react-intl";
 import NavigationFull from "~/components/navigation/navigation-full";
 import NavigationSmall from "~/components/navigation/navigation-small";
 import Profile from "~/components/profile/profile";
-import { navigationItems } from "~/constant/navigation-items";
-import type { NavigationItem } from "~/types/navigation-item";
-import { metaFunctionFactory } from "~/utils/meta";
-import { isLinkTargetingPathname } from "~/utils/path";
+import { navigationItems } from "~/constants/navigation-items";
+import { metaFunctionFactory } from "~/services/meta";
+import { isLinkTargetingPathname } from "~/services/path";
+import type { NavigationItem } from "~/types/navigation";
 import messages from "../../public/assets/i18n/en.json";
-
-import flatten from "flat";
 
 export const meta: V2_MetaFunction = (args) => {
   const intlProvider = new IntlProvider({

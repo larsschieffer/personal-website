@@ -1,12 +1,7 @@
 import { useIntl } from "react-intl";
+import type { DateRangeProps } from "~/types/date-range";
 
-export function StepDate({
-  start,
-  end,
-}: {
-  start: string;
-  end: string | null;
-}) {
+export function DateRange({ start, end }: DateRangeProps) {
   const intl = useIntl();
 
   function displayDate(date: string): string {

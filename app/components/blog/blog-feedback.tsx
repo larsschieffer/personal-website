@@ -1,7 +1,8 @@
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
+import type { BlogFeedbackProps } from "~/types/blog";
 
-export default function Feedback({ content }: { content: string }) {
+export default function BlogFeedback({ content }: BlogFeedbackProps) {
   const FeedbackContent = useMemo(() => getMDXComponent(content), [content]);
 
   return (

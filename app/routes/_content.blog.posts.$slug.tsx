@@ -1,5 +1,4 @@
 import { useLoaderData } from "@remix-run/react";
-
 import type { LinksFunction, LoaderArgs, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import hljs from "highlight.js";
@@ -8,11 +7,11 @@ import { getMDXComponent } from "mdx-bundler/client";
 import type { PropsWithChildren } from "react";
 import { useEffect, useMemo } from "react";
 import invariant from "tiny-invariant";
-import Feedback from "~/components/blog/feedback";
-import ContentBox from "~/components/box/content-box";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import { bundleFileMarkdown } from "~/utils/markdown.server";
-import { metaFunctionFactory } from "~/utils/meta";
+import BlogFeedback from "~/components/blog/blog-feedback";
+import BoxContent from "~/components/box/box-content";
+import { metaFunctionFactory } from "~/services/meta";
+import { bundleFileMarkdown } from "~/services/server/markdown.server";
+import type { BlogFrontmatter } from "~/types/blog";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: highlightjs },
@@ -134,12 +133,12 @@ export default function Post() {
   }, []);
 
   return (
-    <ContentBox headline={frontmatter.title} options={{ position: "center" }}>
+    <BoxContent headline={frontmatter.title} options={{ position: "center" }}>
       <section className="[&>*:last-child]:mb-0 xs:mx-6 sm:mx-0 lg:mx-8 text-justify [&_table_tr:nth-child(even)]:bg-gray-lighter [&_table_tr:nth-child(odd)]:bg-gray-light  [&_table]:table-auto [&_table]:w-full [&_table]:my-4 [&_table_tr_th:not(:first-child)]:text-center [&_table_tr_td:not(:first-child)]:text-center [&_table_tr_td]:p-1 [&_table_tr_th]:p-1">
         <PostContent components={substitutions} />
         <div className="h-0.5 bg-gray-dark w-24 mx-auto my-8"></div>
-        <Feedback content={feedbackContent}></Feedback>
+        <BlogFeedback content={feedbackContent}></BlogFeedback>
       </section>
-    </ContentBox>
+    </BoxContent>
   );
 }
