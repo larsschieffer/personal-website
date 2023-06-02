@@ -23,7 +23,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup
+      - name: Setup worker
+        uses: ./.github/actions/setup
 
       - name: Lint
         run: pnpm run lint
@@ -36,7 +37,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup
+      - name: Setup worker
+        uses: ./.github/actions/setup
 
       - name: Type check
         run: pnpm run typecheck
@@ -50,7 +52,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup
+      - name: Setup worker
+        uses: ./.github/actions/setup
 
       - name: Build
         run: pnpm run build
@@ -64,7 +67,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup
+      - name: Setup worker
+        uses: ./.github/actions/setup
 
       - name: Install Vercel CLI
         run: pnpm install --global vercel@latest
@@ -78,18 +82,33 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-  migrate:
-    if: github.event_name != 'pull_request'
-    needs: deploy
+  is-db-migration-required:
+    name: Check if database migration is required
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    outputs:
+      is-required: ${{ steps.filter.outputs.database }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            database:
+              - './prisma/**'
 
+  db-migration:
+    name: Database migration
+    runs-on: ubuntu-latest
+    needs: [is-db-migration-required]
+    if: github.event_name != 'pull_request' && needs.is-db-migration-required.outputs.is-required == 'true'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/setup
+      - name: Setup worker
+        uses: ./.github/actions/setup
 
-      - name: 📀 Run database migrations
+      - name: Run database migrations
         run: pnpm prisma migrate deploy
         env:
           POSTGRES_PRISMA_URL: ${{ secrets.POSTGRES_PRISMA_URL }}
