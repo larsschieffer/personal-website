@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { useIntl } from "react-intl";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import { getDay, getMonth } from "~/utils/date";
-
 import { CgNotes } from "@react-icons/all-files/cg/CgNotes";
 import { Link } from "@remix-run/react";
+import { useState } from "react";
+import { useIntl } from "react-intl";
+import { getDay, getMonth } from "~/services/date";
+import type { BlogPostThumbnailProps } from "~/types/blog";
 
-export function PostThumbnailWithDescription({
+export const BlogPostThumbnail = ({
   slug,
   frontMatter: { title, description, thumbnail, published },
-}: {
-  slug: string;
-  frontMatter: BlogFrontmatter;
-}) {
+}: BlogPostThumbnailProps): JSX.Element => {
   const [isHoverOnThumbnail, setHoverOnThumbnail] = useState(false);
   const [hasImageError, setImageError] = useState(!thumbnail);
   const intl = useIntl();
@@ -22,8 +18,8 @@ export function PostThumbnailWithDescription({
     <Link
       to={`/blog/posts/${slug}`}
       className="overflow-hidden rounded-4xl"
-      onMouseEnter={() => setHoverOnThumbnail(true)}
-      onMouseLeave={() => setHoverOnThumbnail(false)}
+      onMouseEnter={(): void => setHoverOnThumbnail(true)}
+      onMouseLeave={(): void => setHoverOnThumbnail(false)}
     >
       <div className="relative">
         {hasImageError ? (
@@ -41,8 +37,8 @@ export function PostThumbnailWithDescription({
             alt={`${intl.formatMessage({
               id: "blog.thumbnailLabel",
             })} ${title}`}
-            onError={() => {
-              return setImageError(true);
+            onError={(): void => {
+              setImageError(true);
             }}
           />
         )}
@@ -66,4 +62,6 @@ export function PostThumbnailWithDescription({
       </div>
     </Link>
   );
-}
+};
+
+export default BlogPostThumbnail;

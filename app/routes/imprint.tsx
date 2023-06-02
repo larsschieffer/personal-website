@@ -1,10 +1,10 @@
 import { FormattedMessage } from "react-intl";
-import RoundedBox from "~/components/box/rounded-box";
+import { BoxRounded } from "~/components/box/box-rounded";
 
-export default function Imprint() {
+export const Imprint = (): JSX.Element => {
   return (
     <div className="mx-6 grid h-screen place-items-center">
-      <RoundedBox>
+      <BoxRounded>
         <div className="flex flex-col content-center gap-8 bg-white p-8">
           <div>
             <span className="font-semibold">Contact:</span>
@@ -29,7 +29,9 @@ export default function Imprint() {
             </p>
           </div>
         </div>
-      </RoundedBox>
+      </BoxRounded>
     </div>
   );
-}
+};
+
+export default Imprint;

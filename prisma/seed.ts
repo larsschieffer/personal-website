@@ -2,6 +2,13 @@ import type { Education, Experience, Skill } from "@prisma/client";
 import { PrismaClient, SkillArea } from "@prisma/client";
 const db = new PrismaClient();
 
+type EducationSeed = Omit<Education, "id">;
+
+interface ExperienceSeed {
+  experience: Omit<Experience, "id">;
+  skillIds: string[];
+}
+
 enum SkillId {
   NGRX = "e0f7d1b4-9cab-49f0-9b34-597f63512440",
   CONTENTSQUARE = "32c40b1c-8e73-4440-9593-dba04e6d12a3",
@@ -23,7 +30,7 @@ enum SkillId {
   TAILWIND_CSS = "6d1def26-b083-4a85-9ab9-c318411492f3",
 }
 
-function getEducation(): Omit<Education, "id">[] {
+const getEducation = (): EducationSeed[] => {
   return [
     {
       title: "Master of Science in Computer Science",
@@ -56,12 +63,9 @@ function getEducation(): Omit<Education, "id">[] {
       description: null,
     },
   ];
-}
+};
 
-function getExperiences(): {
-  experience: Omit<Experience, "id">;
-  skillIds: string[];
-}[] {
+const getExperiences = (): ExperienceSeed[] => {
   return [
     {
       experience: {
@@ -122,9 +126,9 @@ function getExperiences(): {
       ],
     },
   ];
-}
+};
 
-function getSkills(): Skill[] {
+const getSkills = (): Skill[] => {
   return [
     {
       id: SkillId.ANGULAR,
@@ -217,9 +221,9 @@ function getSkills(): Skill[] {
       area: SkillArea.Backend,
     },
   ];
-}
+};
 
-async function seed() {
+const seed = async (): Promise<void> => {
   await Promise.all(
     getSkills().map((skill: Skill) => {
       return db.skill.create({ data: skill });
@@ -227,13 +231,13 @@ async function seed() {
   );
 
   await Promise.all(
-    getEducation().map((education) => {
+    getEducation().map((education: EducationSeed) => {
       return db.education.create({ data: education });
     })
   );
 
   await Promise.all(
-    getExperiences().map((experienceData) => {
+    getExperiences().map((experienceData: ExperienceSeed) => {
       return db.experience.create({
         data: {
           ...experienceData.experience,
@@ -244,6 +248,6 @@ async function seed() {
       });
     })
   );
-}
+};
 
 void seed();

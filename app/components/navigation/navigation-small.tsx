@@ -3,21 +3,19 @@ import { GoX } from "@react-icons/all-files/go/GoX";
 import { Link, useLocation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import type { NavigationItem } from "~/types/navigation-item";
-import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
+import { isLinkTargetingPathname as isHighlighted } from "~/services/path";
+import type { NavigationItem, NavigationProps } from "~/types/navigation";
 
-export default function NavigationSmall({
+export const NavigationSmall = ({
   navigationItems,
-}: {
-  navigationItems: NavigationItem[];
-}) {
+}: NavigationProps): JSX.Element => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const intl = useIntl();
 
-  function toggleMenuState() {
+  const toggleMenuState = (): void => {
     setMenuOpen((menuState: boolean) => !menuState);
-  }
+  };
 
   useEffect(() => {
     setMenuOpen(false);
@@ -51,19 +49,17 @@ export default function NavigationSmall({
       {isMenuOpen ? (
         <div className="flex h-full w-full flex-col justify-center pl-7 text-2xl text-white">
           {navigationItems.map(
-            (navigationItem: NavigationItem, index: number) => (
+            ({ link, titleKey }: NavigationItem, index: number) => (
               <Link
                 key={index}
-                to={`/${navigationItem.link}`}
+                to={`/${link}`}
                 className={`rounded-l-3xl py-4 pl-8 ${
-                  isHighlighted(location.pathname, navigationItem.link)
+                  isHighlighted(location.pathname, link)
                     ? "bg-accent-secondary"
                     : ""
                 }`}
               >
-                <FormattedMessage
-                  id={navigationItem.titleKey}
-                ></FormattedMessage>
+                <FormattedMessage id={titleKey}></FormattedMessage>
               </Link>
             )
           )}
@@ -71,4 +67,6 @@ export default function NavigationSmall({
       ) : null}
     </div>
   );
-}
+};
+
+export default NavigationSmall;

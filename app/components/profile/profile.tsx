@@ -1,24 +1,21 @@
 import { BsCalendar } from "@react-icons/all-files/bs/BsCalendar";
-import { FaRegFilePdf } from "@react-icons/all-files/fa/FaRegFilePdf";
-import { HiOutlineLocationMarker } from "@react-icons/all-files/hi/HiOutlineLocationMarker";
-
 import { BsEnvelope } from "@react-icons/all-files/bs/BsEnvelope";
-
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
+import { FaRegFilePdf } from "@react-icons/all-files/fa/FaRegFilePdf";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
-
+import { HiOutlineLocationMarker } from "@react-icons/all-files/hi/HiOutlineLocationMarker";
 import { FormattedMessage, useIntl } from "react-intl";
-import { ASSETS_LOCATION } from "~/constant/assets-location";
-import { notImplementedYet } from "~/utils/under-construction";
-import RoundedBox from "../box/rounded-box";
-import ProfileItem from "./profile-item";
+import { ASSETS_LOCATION } from "~/constants/assets-location";
+import { notImplementedYet } from "~/services/under-construction";
+import { BoxRounded } from "../box/box-rounded";
+import { ProfileItem } from "./profile-item";
 
-export default function Profile() {
+export const Profile = (): JSX.Element => {
   const intl = useIntl();
 
   return (
     <div className="relative">
-      <RoundedBox>
+      <BoxRounded>
         <div className="flex flex-col items-center gap-4 bg-white px-6 pt-6 sm:flex-row sm:p-8 sm:px-10 sm:pt-10 md:flex-col md:pb-0 md:pt-36">
           <img
             className="h-44 w-44 rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:-translate-y-1/3"
@@ -81,7 +78,9 @@ export default function Profile() {
             </span>
           </button>
         </div>
-      </RoundedBox>
+      </BoxRounded>
     </div>
   );
-}
+};
+
+export default Profile;

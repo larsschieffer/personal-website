@@ -1,19 +1,20 @@
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import type { V2_MetaFunction } from "@vercel/remix";
+import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
+import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
+import flatten from "flat";
 import { FormattedMessage, IntlProvider } from "react-intl";
-import NavigationFull from "~/components/navigation/navigation-full";
-import NavigationSmall from "~/components/navigation/navigation-small";
-import Profile from "~/components/profile/profile";
-import { navigationItems } from "~/constant/navigation-items";
-import type { NavigationItem } from "~/types/navigation-item";
-import { metaFunctionFactory } from "~/utils/meta";
-import { isLinkTargetingPathname } from "~/utils/path";
+import { NavigationFull } from "~/components/navigation/navigation-full";
+import { NavigationSmall } from "~/components/navigation/navigation-small";
+import { Profile } from "~/components/profile/profile";
+import { navigationItems } from "~/constants/navigation-items";
+import { metaFunctionFactory } from "~/services/meta";
+import { isLinkTargetingPathname } from "~/services/path";
+import type { ContentData } from "~/types/content";
+import type { NavigationItem } from "~/types/navigation";
 import messages from "../../public/assets/i18n/en.json";
 
-import flatten from "flat";
-
-export const meta: V2_MetaFunction = (args) => {
+export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
   const intlProvider = new IntlProvider({
     locale: "en",
     messages: flatten(messages),
@@ -33,7 +34,7 @@ export const meta: V2_MetaFunction = (args) => {
   })(args);
 };
 
-export function loader() {
+export const loader = (): TypedResponse<ContentData> => {
   const data = {
     copyright: {
       start: "2021",
@@ -41,9 +42,9 @@ export function loader() {
     },
   };
   return json(data);
-}
+};
 
-export default function ContentLayout() {
+export const ContentLayout = (): JSX.Element => {
   const { copyright } = useLoaderData<typeof loader>();
   return (
     <div>
@@ -88,4 +89,6 @@ export default function ContentLayout() {
       </div>
     </div>
   );
-}
+};
+
+export default ContentLayout;

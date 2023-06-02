@@ -1,15 +1,16 @@
 import { useLoaderData } from "@remix-run/react";
+import type { TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
-import ContentBox from "~/components/box/content-box";
-import { db } from "~/utils/db.server";
-import { bundleFileMarkdown } from "~/utils/markdown.server";
-
 import { useIntl } from "react-intl";
-import { ExperienceWork } from "~/components/experience/experiences-work";
+import { BoxContent } from "~/components/box/box-content";
+import { ExperiencesWork } from "~/components/experience/experiences-work";
+import { db } from "~/services/server/db.server";
+import { bundleFileMarkdown } from "~/services/server/markdown.server";
+import type { ContentAbout } from "~/types/content";
 
-export async function loader() {
+export const loader = async (): Promise<TypedResponse<ContentAbout>> => {
   const experiences = await db.experience.findMany({
     include: { skills: true },
     orderBy: [
@@ -24,9 +25,9 @@ export async function loader() {
   );
 
   return json({ experiences, aboutMe: { code, frontmatter } });
-}
+};
 
-export default function About() {
+export const About = (): JSX.Element => {
   const {
     experiences,
     aboutMe: { code },
@@ -35,13 +36,15 @@ export default function About() {
   const AboutMeText = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <ContentBox headline={intl.formatMessage({ id: "headline.aboutMe" })}>
+    <BoxContent headline={intl.formatMessage({ id: "headline.aboutMe" })}>
       <section className="text-justify">
         <AboutMeText />
       </section>
       <section>
-        <ExperienceWork experiences={experiences}></ExperienceWork>
+        <ExperiencesWork experiences={experiences}></ExperiencesWork>
       </section>
-    </ContentBox>
+    </BoxContent>
   );
-}
+};
+
+export default About;

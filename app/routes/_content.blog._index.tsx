@@ -1,28 +1,27 @@
 import { useLoaderData } from "@remix-run/react";
+import type { SerializeFrom, TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { useIntl } from "react-intl";
-import ContentBox from "~/components/box/content-box";
-
-import type { SerializeFrom } from "@vercel/remix";
 import invariant from "tiny-invariant";
-import { PostThumbnailWithDescription } from "~/components/blog/post-thumbnail-with-description";
-import type { BlogFrontmatter } from "~/types/blog/blog-frontmatter";
-import type { PostThumbnailType } from "~/types/blog/post-thumbnail";
-import type { GithubMetaFile } from "~/types/github/github-meta-file";
-import { bundleFileMarkdown } from "~/utils/markdown.server";
+import { BlogPostThumbnail } from "~/components/blog/blog-post-thumbnail";
+import { BoxContent } from "~/components/box/box-content";
+import { bundleFileMarkdown } from "~/services/server/markdown.server";
+import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
+import type { ContentBlogData } from "~/types/content";
+import type { GithubMetaFile } from "~/types/github";
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
   { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter }
-) => new Date(b).getTime() - new Date(a).getTime();
+): number => new Date(b).getTime() - new Date(a).getTime();
 
 const onlyAlreadyPublished = ({
   frontmatter: { published },
 }: {
   frontmatter: BlogFrontmatter;
-}) => new Date(published) < new Date();
+}): boolean => new Date(published) < new Date();
 
-export async function loader() {
+export const loader = async (): Promise<TypedResponse<ContentBlogData>> => {
   const api = process.env.CONTENT_API_LOCATION;
   invariant(api, "Environment variable CONTENT_API_LOCATION is missing");
 
@@ -52,25 +51,27 @@ export async function loader() {
   return json({
     posts,
   });
-}
+};
 
-export default function About() {
+export const Blog = (): JSX.Element => {
   const intl = useIntl();
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <ContentBox headline={intl.formatMessage({ id: "navigation.blog" })}>
+    <BoxContent headline={intl.formatMessage({ id: "navigation.blog" })}>
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {posts.map(
           ({ id, slug, frontmatter }: SerializeFrom<PostThumbnailType>) => (
-            <PostThumbnailWithDescription
+            <BlogPostThumbnail
               key={id}
               slug={slug}
               frontMatter={frontmatter}
-            ></PostThumbnailWithDescription>
+            ></BlogPostThumbnail>
           )
         )}
       </section>
-    </ContentBox>
+    </BoxContent>
   );
-}
+};
+
+export default Blog;

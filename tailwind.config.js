@@ -27,6 +27,22 @@ module.exports = {
       borderRadius: {
         "4xl": "2rem",
       },
+      backgroundImage: {
+        body: `
+          url('https://assets.larsschieffer.de/left_upper_corner.svg'),
+          url('https://assets.larsschieffer.de/right_lower_corner.svg')
+        `,
+      },
+      backgroundPosition: {
+        body: `left top, right bottom`,
+      },
+      backgroundSize: {
+        body: `
+          min(420px, 50vw) auto, 
+          min(447px, 50vw) auto, 
+          contain
+        `,
+      },
     },
   },
   plugins: [],

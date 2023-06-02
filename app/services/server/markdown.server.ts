@@ -1,11 +1,24 @@
 import { fetch } from "@remix-run/node";
+import type { BuildOptions } from "esbuild";
+
 import { bundleMDX } from "mdx-bundler";
 import path from "path";
 import invariant from "tiny-invariant";
+import type { Markdown } from "~/types/markdown";
 
-export async function bundleFileMarkdown<T extends Record<string, unknown>>(
+const esbuildOptions = <T extends Record<string, unknown>>(
+  options: BuildOptions,
+  _frontmatter: T
+): BuildOptions => {
+  options.minify = true;
+  options.target = ["es2019"];
+
+  return options;
+};
+
+export const bundleFileMarkdown = async <T extends Record<string, unknown>>(
   filePath: string
-) {
+): Promise<Markdown<T>> => {
   if (process.platform === "win32") {
     process.env.ESBUILD_BINARY_PATH = path.join(
       process.cwd(),
@@ -31,11 +44,6 @@ export async function bundleFileMarkdown<T extends Record<string, unknown>>(
 
   return await bundleMDX<T>({
     source: content,
-    esbuildOptions(options, _frontmatter) {
-      options.minify = true;
-      options.target = ["es2019"];
-
-      return options;
-    },
+    esbuildOptions,
   });
-}
+};

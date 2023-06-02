@@ -1,20 +1,14 @@
 import { useIntl } from "react-intl";
+import type { DateRangeProps } from "~/types/date-range";
 
-export function StepDate({
-  start,
-  end,
-}: {
-  start: string;
-  end: string | null;
-}) {
+export const DateRange = ({ start, end }: DateRangeProps): JSX.Element => {
   const intl = useIntl();
 
-  function displayDate(date: string): string {
-    return new Date(date).toLocaleDateString(intl.locale, {
+  const displayDate = (date: string): string =>
+    new Date(date).toLocaleDateString(intl.locale, {
       month: "short",
       year: "numeric",
     });
-  }
 
   const visibleStartDate = displayDate(start);
   const visibleEndDate =
@@ -27,4 +21,6 @@ export function StepDate({
         : `${visibleStartDate} - ${visibleEndDate}`}
     </span>
   );
-}
+};
+
+export default DateRange;

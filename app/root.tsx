@@ -8,25 +8,22 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction, V2_MetaFunction } from "@vercel/remix";
 import flatten from "flat";
-
 import { IntlProvider } from "react-intl";
 import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
-import styles from "~/styles/styles.css";
 import tailwind from "~/styles/tailwind.css";
 import messages from "../public/assets/i18n/en.json";
-import Toast from "./components/toast";
-import { metaFunctionFactory } from "./utils/meta";
+import { Toast } from "./components/toast";
+import { metaFunctionFactory } from "./services/meta";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },
   { rel: "stylesheet", href: toastify },
   { rel: "stylesheet", href: tailwind },
-  { rel: "stylesheet", href: styles },
 ];
 export const meta: V2_MetaFunction = metaFunctionFactory();
 
-export default function App() {
+export const App = (): JSX.Element => {
   return (
     <html lang="en">
       <head>
@@ -35,7 +32,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter text-gray-dark md:overflow-visible">
+      <body className="font-inter text-gray-dark md:overflow-visible bg-body bg-gray-light bg-no-repeat">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"
@@ -50,4 +47,6 @@ export default function App() {
       </body>
     </html>
   );
-}
+};
+
+export default App;

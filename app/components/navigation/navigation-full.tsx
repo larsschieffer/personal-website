@@ -1,14 +1,12 @@
 import { Link, useLocation } from "@remix-run/react";
 import { FormattedMessage } from "react-intl";
-import type { NavigationItem } from "~/types/navigation-item";
-import { isLinkTargetingPathname as isHighlighted } from "~/utils/path";
+import { isLinkTargetingPathname as isHighlighted } from "~/services/path";
+import type { NavigationItem, NavigationProps } from "~/types/navigation";
 
-export default function NavigationFull({
+export const NavigationFull = ({
   navigationItems,
-}: {
-  navigationItems: NavigationItem[];
-}) {
-  const location = useLocation();
+}: NavigationProps): JSX.Element => {
+  const { pathname } = useLocation();
 
   return (
     <div className="flex-row md:flex">
@@ -21,20 +19,18 @@ export default function NavigationFull({
       </svg>
       <div className="flex flex-row rounded-tr-3xl bg-white pr-6">
         {navigationItems.map(
-          (navigationItem: NavigationItem, index: number) => {
+          ({ link, titleKey }: NavigationItem, index: number) => {
             return (
               <Link
                 key={index}
-                to={`/${navigationItem.link}`}
+                to={`/${link}`}
                 className={`my-3 px-4 py-1 first:-ml-4 ${
-                  isHighlighted(location.pathname, navigationItem.link)
+                  isHighlighted(pathname, link)
                     ? "rounded-2xl bg-accent text-white"
                     : "font-normal"
                 }`}
               >
-                <FormattedMessage
-                  id={navigationItem.titleKey}
-                ></FormattedMessage>
+                <FormattedMessage id={titleKey}></FormattedMessage>
               </Link>
             );
           }
@@ -42,4 +38,6 @@ export default function NavigationFull({
       </div>
     </div>
   );
-}
+};
+
+export default NavigationFull;

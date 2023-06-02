@@ -1,6 +1,6 @@
-import type { ProgressBarItem } from "~/types/progress-bar-item";
+import type { ProgressBarProps } from "~/types/progress-bar";
 
-export const frontendSkills: ProgressBarItem[] = [
+export const frontendSkills: ProgressBarProps[] = [
   { title: "Typescript", percentage: 85 },
   { title: "JavaScript", percentage: 85 },
   { title: "HTML", percentage: 70 },
@@ -11,18 +11,18 @@ export const frontendSkills: ProgressBarItem[] = [
   { title: "React", percentage: 50 },
 ];
 
-export const backendSkills: ProgressBarItem[] = [
+export const backendSkills: ProgressBarProps[] = [
   { title: "Java", percentage: 80 },
   { title: "Spring Boot", percentage: 80 },
   { title: "Apache Kafka", percentage: 60 },
 ];
 
-export const cloudSkills: ProgressBarItem[] = [
+export const cloudSkills: ProgressBarProps[] = [
   { title: "Serverless Computing", percentage: 80 },
   { title: "AWS", percentage: 80 },
 ];
 
-export const securitySkills: ProgressBarItem[] = [
+export const securitySkills: ProgressBarProps[] = [
   { title: "OAuth2", percentage: 60 },
   { title: "Keycloak", percentage: 60 },
 ];
