@@ -4,6 +4,7 @@ import { json } from "@vercel/remix";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
 import { useIntl } from "react-intl";
+import invariant from "tiny-invariant";
 import { BoxContent } from "~/components/box/box-content";
 import { ExperiencesWork } from "~/components/experience/experiences-work";
 import { db } from "~/services/server/db.server";
@@ -20,9 +21,9 @@ export const loader = async (): Promise<TypedResponse<ContentAbout>> => {
     ],
   });
 
-  const { code, frontmatter } = await bundleFileMarkdown(
-    "en/blog/about-me.mdx"
-  );
+  const markdown = await bundleFileMarkdown("en/blog/about-me.mdx");
+  invariant(markdown, "About me markdown is missing");
+  const { code, frontmatter } = markdown;
 
   return json({ experiences, aboutMe: { code, frontmatter } });
 };

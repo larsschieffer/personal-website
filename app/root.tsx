@@ -15,7 +15,8 @@ import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
 import tailwind from "~/styles/tailwind.css";
 import messages from "../public/assets/i18n/en.json";
-import { ErrorNotFound } from "./components/error/error-not-fount";
+import { ErrorPageDefault } from "./components/error-page/error-page-default";
+import { ErrorPageNotFound } from "./components/error-page/error-page-something-went-wrong";
 import { Toast } from "./components/toast";
 import { metaFunctionFactory } from "./services/meta";
 
@@ -64,14 +65,14 @@ export const ErrorBoundary = (): JSX.Element => {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter text-gray-dark bg-gray-light  ">
+      <body className="font-inter text-gray-dark bg-body bg-gray-light bg-no-repeat">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"
           defaultLocale="en"
         >
-          <div className="w-screen h-screen max-h-screen max-w-screen grid place-items-center p-8">
-            {isRouteError ? <ErrorNotFound /> : <ErrorNotFound />}
+          <div className="w-screen h-screen max-h-screen max-w-screen grid place-items-center py-16 px-8">
+            {isRouteError ? <ErrorPageNotFound /> : <ErrorPageDefault />}
           </div>
           <Toast />
           <ScrollRestoration />
