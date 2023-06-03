@@ -5,10 +5,10 @@ import { useIntl } from "react-intl";
 import invariant from "tiny-invariant";
 import { BlogPostThumbnail } from "~/components/blog/blog-post-thumbnail";
 import { BoxContent } from "~/components/box/box-content";
+import { getAllFileData } from "~/services/server/github-api.server";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
 import type { ContentBlogData } from "~/types/content";
-import type { GithubMetaFile } from "~/types/github";
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
@@ -22,29 +22,32 @@ const onlyAlreadyPublished = ({
 }): boolean => new Date(published) < new Date();
 
 export const loader = async (): Promise<TypedResponse<ContentBlogData>> => {
-  const api = process.env.CONTENT_API_LOCATION;
-  invariant(api, "Environment variable CONTENT_API_LOCATION is missing");
-
-  const files = await fetch(`${api}en/blog`, {
-    headers: {
-      Authorization: process.env.GITHUB_TOKEN ?? "",
-      Accept: "application/vnd.github+json",
-    },
-  });
-  const filesData = (await files.json()) as GithubMetaFile[];
+  const files = await getAllFileData("en/blog");
+  invariant(Array.isArray(files.data), "Array of files is expected");
 
   let posts = await Promise.all(
-    filesData.map(async (file: GithubMetaFile) => {
-      const { frontmatter } = await bundleFileMarkdown<BlogFrontmatter>(
-        file.path
-      );
+    files.data.map(
+      async ({
+        path,
+        sha,
+        name,
+      }: {
+        path: string;
+        sha: string;
+        name: string;
+      }) => {
+        const markdown = await bundleFileMarkdown<BlogFrontmatter>(path);
+        invariant(markdown);
 
-      return {
-        id: file.sha,
-        slug: file.name.replace(/.mdx/g, ""),
-        frontmatter,
-      };
-    })
+        const { frontmatter } = markdown;
+
+        return {
+          id: sha,
+          slug: name.replace(/.mdx/g, ""),
+          frontmatter,
+        };
+      }
+    )
   );
   posts = posts.sort(byDateDesc).filter(onlyAlreadyPublished);
 

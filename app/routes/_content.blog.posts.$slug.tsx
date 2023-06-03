@@ -43,7 +43,14 @@ export const loader = async ({
   invariant(params.slug, "PostId is required");
 
   const post = await bundleFileMarkdown(`en/blog/${params.slug}.mdx`);
+
+  if (!post) {
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
+    throw json(`Blog post ${params.slug} not found`, 404);
+  }
+
   const feedback = await bundleFileMarkdown(`en/feedback.mdx`);
+  invariant(feedback, "Feedback markdown is missing");
 
   return json({ post, feedback });
 };

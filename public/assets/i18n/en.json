@@ -45,5 +45,17 @@
   },
   "blog": {
     "thumbnailLabel": "Thumbnail of"
+  },
+  "error": {
+    "404": {
+      "imageDescription": "Two people holding an empty box",
+      "message": "Sorry,\n the page you requested was <strong>not found</strong>.",
+      "button": "Back to Homepage"
+    },
+    "default": {
+      "imageDescription": "Two people holding an empty box",
+      "message": "Oops 😕, something went wrong.",
+      "button": "Report Error"
+    }
   }
 }

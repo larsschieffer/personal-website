@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/unbound-method */
 /**
  * By default, Remix will handle generating the HTTP Response for you.
