@@ -63,7 +63,7 @@ export const ContentLayout = (): JSX.Element => {
                   navigationItems={navigationItems}
                 ></NavigationFull>
               </div>
-              <div className="[&>*]:h-full h-full">
+              <div className="h-full [&>*]:h-full">
                 <Outlet />
               </div>
             </div>

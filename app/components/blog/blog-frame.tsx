@@ -8,7 +8,7 @@ export const BlogFrame = ({
     <div
       className={`grid ${
         alignment === "vertical" ? "grid-flow-row grid-cols-1" : "grid-flow-col"
-      } gap-2 my-4 justify-center`}
+      } my-4 justify-center gap-2`}
     >
       {children}
     </div>

@@ -14,7 +14,7 @@ export const ErrorPage = ({
   const { pathname } = useLocation();
 
   return (
-    <BoxRounded className="bg-white/90 h-full w-full max-h-[80vh] sm:h-2/3  p-4 sm:p-8 max-w-[1170px]">
+    <BoxRounded className="h-full max-h-[80vh] w-full max-w-[1170px] bg-white/90  p-4 sm:h-2/3 sm:p-8">
       <Form method="post" action="/error" className="inline">
         <input
           className="hidden"
@@ -23,13 +23,13 @@ export const ErrorPage = ({
           value={pathname}
           readOnly
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[3fr_2fr] sm:grid-rows-[3fr_1fr] md:grid-rows-2 justify-content-center h-full md:gap-10">
+        <div className="justify-content-center grid h-full grid-cols-1 sm:grid-cols-2 sm:grid-rows-[3fr_1fr] md:grid-cols-[3fr_2fr] md:grid-rows-2 md:gap-10">
           <img
             alt={intl.formatMessage({ id: imageAltTextId })}
             src={`${ASSETS_LOCATION}${imagePath}`}
-            className="object-contain h-[25vh] md:h-[50vh] justify-self-center pt-4 sm:col-span-2 md:col-span-1 md:row-span-2 md:self-center"
+            className="h-[25vh] justify-self-center object-contain pt-4 sm:col-span-2 md:col-span-1 md:row-span-2 md:h-[50vh] md:self-center"
           ></img>
-          <h1 className="text-3xl whitespace-pre-line self-center md:self-end">
+          <h1 className="self-center whitespace-pre-line text-3xl md:self-end">
             <FormattedMessage
               id={descriptionTextId}
               values={{
@@ -41,7 +41,7 @@ export const ErrorPage = ({
           </h1>
           <button
             type="submit"
-            className="sm:place-self-center sm:mb-0 sm:w-fit rounded-xl bg-accent-ternary px-8 py-4 font-bold text-white w-full self-end md:self-start"
+            className="w-full self-end rounded-xl bg-accent-ternary px-8 py-4 font-bold text-white sm:mb-0 sm:w-fit sm:place-self-center md:self-start"
           >
             <FormattedMessage id={buttonTextId}></FormattedMessage>
           </button>

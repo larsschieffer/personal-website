@@ -71,9 +71,9 @@ export const Post = (): JSX.Element => {
 
   return (
     <BoxContent headline={frontmatter.title} options={{ position: "center" }}>
-      <section className="[&>*:last-child]:mb-0 xs:mx-6 sm:mx-0 lg:mx-8 text-justify [&_table_tr:nth-child(even)]:bg-gray-lighter [&_table_tr:nth-child(odd)]:bg-gray-light  [&_table]:table-auto [&_table]:w-full [&_table]:my-4 [&_table_tr_th:not(:first-child)]:text-center [&_table_tr_td:not(:first-child)]:text-center [&_table_tr_td]:p-1 [&_table_tr_th]:p-1">
+      <section className="text-justify xs:mx-6 sm:mx-0 lg:mx-8 [&>*:last-child]:mb-0 [&_table]:my-4 [&_table]:w-full  [&_table]:table-auto [&_table_tr:nth-child(even)]:bg-gray-lighter [&_table_tr:nth-child(odd)]:bg-gray-light [&_table_tr_td:not(:first-child)]:text-center [&_table_tr_td]:p-1 [&_table_tr_th:not(:first-child)]:text-center [&_table_tr_th]:p-1">
         <PostContent components={blogSubstitutionComponents} />
-        <div className="h-0.5 bg-gray-dark w-24 mx-auto my-8"></div>
+        <div className="mx-auto my-8 h-0.5 w-24 bg-gray-dark"></div>
         <BlogFeedback content={feedbackContent}></BlogFeedback>
       </section>
     </BoxContent>
