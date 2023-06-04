@@ -36,7 +36,7 @@ export const App = (): JSX.Element => {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter text-gray-dark md:overflow-visible bg-body bg-gray-light bg-no-repeat">
+      <body className="bg-gray-light bg-body bg-no-repeat font-inter text-gray-dark md:overflow-visible">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"
@@ -65,13 +65,13 @@ export const ErrorBoundary = (): JSX.Element => {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter text-gray-dark bg-body bg-gray-light bg-no-repeat">
+      <body className="bg-gray-light bg-body bg-no-repeat font-inter text-gray-dark">
         <IntlProvider
           messages={flatten(messages)}
           locale="en"
           defaultLocale="en"
         >
-          <div className="w-screen h-screen max-h-screen max-w-screen grid place-items-center py-16 px-8">
+          <div className="max-w-screen grid h-screen max-h-screen w-screen place-items-center px-8 py-16">
             {isRouteError ? <ErrorPageNotFound /> : <ErrorPageDefault />}
           </div>
           <Toast />

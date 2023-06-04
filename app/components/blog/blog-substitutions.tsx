@@ -7,13 +7,13 @@ const ImageFrame = (props: BlogFrameProps): JSX.Element => (
 );
 
 const code = (props: React.HTMLAttributes<HTMLElement>): JSX.Element => (
-  <code {...props} className="!bg-gray-light px-0.5 overflow-x-auto" />
+  <code {...props} className="overflow-x-auto !bg-gray-light px-0.5" />
 );
 
 const pre = (props: React.HTMLAttributes<HTMLPreElement>): JSX.Element => (
   <pre
     {...props}
-    className="grid [&>code]:p-4 [&>code]:mt-4 [&>code]:rounded-md"
+    className="grid [&>code]:mt-4 [&>code]:rounded-md [&>code]:p-4"
   ></pre>
 );
 
@@ -28,18 +28,18 @@ const a = (
 const ul = (props: React.HTMLAttributes<HTMLUListElement>): JSX.Element => (
   <ul
     {...props}
-    className="list-disc list-outside mt-4 [&_li]:first-letter:uppercase"
+    className="mt-4 list-outside list-disc [&_li]:first-letter:uppercase"
   />
 );
 
 const h3 = (props: React.HTMLAttributes<HTMLHeadingElement>): JSX.Element => (
-  <h3 {...props} className="mt-4 font-semibold text-lg capitalize mb-1">
+  <h3 {...props} className="mb-1 mt-4 text-lg font-semibold capitalize">
     {props.children}
   </h3>
 );
 
 const h2 = (props: React.HTMLAttributes<HTMLHeadingElement>): JSX.Element => (
-  <h2 {...props} className="mt-6 font-semibold text-2xl capitalize mb-1">
+  <h2 {...props} className="mb-1 mt-6 text-2xl font-semibold capitalize">
     {props.children}
   </h2>
 );

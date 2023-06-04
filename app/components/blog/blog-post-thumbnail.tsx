@@ -57,7 +57,7 @@ export const BlogPostThumbnail = ({
         </div>
       </div>
       <div className="h-full bg-gray-light p-6 pt-3">
-        <h3 className="py-2 text-lg font-bold capitalize truncate">{title}</h3>
+        <h3 className="truncate py-2 text-lg font-bold capitalize">{title}</h3>
         <p className="line-clamp-2 text-ellipsis">{description}</p>
       </div>
     </Link>
