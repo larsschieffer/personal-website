@@ -5,7 +5,7 @@
   "headline": {
     "aboutMe": "About Me",
     "experience": "Experience",
-    "resume": "Resume",
+    "resume": "Résumé",
     "educationAndCertification": "Education & Certification"
   },
   "profile": {
@@ -39,7 +39,7 @@
   "at": "at",
   "navigation": {
     "aboutMe": "About me",
-    "resume": "Resume",
+    "resume": "Résumé",
     "toggle": "Toggle menu",
     "blog": "Blog"
   },
