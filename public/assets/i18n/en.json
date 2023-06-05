@@ -38,10 +38,19 @@
   },
   "at": "at",
   "navigation": {
-    "aboutMe": "About me",
-    "resume": "Résumé",
-    "toggle": "Toggle menu",
-    "blog": "Blog"
+    "aboutMe": {
+      "title": "About me",
+      "description": "This is my personal website to showcase my experience and learnings as a software developer."
+    },
+    "resume": {
+      "title": "Résumé",
+      "description": "A brief description of my professional experience, education, and certificates. In other words, my CV."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "In this blog, I'm writing about some of the challenges we face as software developers and how to improve with clean code approaches."
+    },
+    "toggle": "Toggle menu"
   },
   "blog": {
     "thumbnailLabel": "Thumbnail of"

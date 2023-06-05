@@ -3,6 +3,6 @@ export interface NavigationProps {
 }
 
 export interface NavigationItem {
-  titleKey: string;
+  translationKey: string;
   link: string;
 }

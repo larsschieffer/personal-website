@@ -61,7 +61,7 @@ export const Blog = (): JSX.Element => {
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <BoxContent headline={intl.formatMessage({ id: "navigation.blog" })}>
+    <BoxContent headline={intl.formatMessage({ id: "navigation.blog.title" })}>
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {posts.map(
           ({ id, slug, frontmatter }: SerializeFrom<PostThumbnailType>) => (

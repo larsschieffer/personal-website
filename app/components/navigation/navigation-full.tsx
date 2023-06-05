@@ -19,7 +19,7 @@ export const NavigationFull = ({
       </svg>
       <div className="flex flex-row rounded-tr-3xl bg-white pr-6">
         {navigationItems.map(
-          ({ link, titleKey }: NavigationItem, index: number) => {
+          ({ link, translationKey }: NavigationItem, index: number) => {
             return (
               <Link
                 key={index}
@@ -30,7 +30,9 @@ export const NavigationFull = ({
                     : "font-normal"
                 }`}
               >
-                <FormattedMessage id={titleKey}></FormattedMessage>
+                <FormattedMessage
+                  id={`${translationKey}.title`}
+                ></FormattedMessage>
               </Link>
             );
           }
