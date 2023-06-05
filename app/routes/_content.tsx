@@ -20,17 +20,24 @@ export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
     messages: flatten(messages),
   });
 
-  const { titleKey = "" } =
+  const { translationKey = "" } =
     navigationItems.find(({ link }: NavigationItem) => {
       return isLinkTargetingPathname(args.location.pathname, link);
     }) ?? {};
 
-  const location = titleKey
-    ? intlProvider.state.intl?.formatMessage({ id: titleKey })
+  const location = translationKey
+    ? intlProvider.state.intl?.formatMessage({ id: `${translationKey}.title` })
+    : undefined;
+
+  const description = translationKey
+    ? intlProvider.state.intl?.formatMessage({
+        id: `${translationKey}.description`,
+      })
     : undefined;
 
   return metaFunctionFactory({
     location,
+    description,
   })(args);
 };
 

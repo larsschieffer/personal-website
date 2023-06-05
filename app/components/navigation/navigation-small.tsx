@@ -49,7 +49,7 @@ export const NavigationSmall = ({
       {isMenuOpen ? (
         <div className="flex h-full w-full flex-col justify-center pl-7 text-2xl text-white">
           {navigationItems.map(
-            ({ link, titleKey }: NavigationItem, index: number) => (
+            ({ link, translationKey }: NavigationItem, index: number) => (
               <Link
                 key={index}
                 to={`/${link}`}
@@ -59,7 +59,9 @@ export const NavigationSmall = ({
                     : ""
                 }`}
               >
-                <FormattedMessage id={titleKey}></FormattedMessage>
+                <FormattedMessage
+                  id={`${translationKey}.title`}
+                ></FormattedMessage>
               </Link>
             )
           )}

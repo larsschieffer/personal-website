@@ -1,7 +1,7 @@
 import type { NavigationItem } from "~/types/navigation";
 
 export const navigationItems: NavigationItem[] = [
-  { titleKey: "navigation.aboutMe", link: "about" },
-  { titleKey: "navigation.resume", link: "resume" },
-  { titleKey: "navigation.blog", link: "blog" },
+  { translationKey: "navigation.aboutMe", link: "about" },
+  { translationKey: "navigation.resume", link: "resume" },
+  { translationKey: "navigation.blog", link: "blog" },
 ];
