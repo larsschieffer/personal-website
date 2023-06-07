@@ -1,5 +1,11 @@
+import type { V2_MetaFunction } from "@vercel/remix";
 import { FormattedMessage } from "react-intl";
 import { BoxRounded } from "~/components/box/box-rounded";
+import { metaFunctionFactory } from "~/services/meta";
+
+export const meta: V2_MetaFunction = metaFunctionFactory({
+  locationKey: "imprint.title",
+});
 
 export const Imprint = (): JSX.Element => {
   return (
@@ -7,7 +13,9 @@ export const Imprint = (): JSX.Element => {
       <BoxRounded>
         <div className="flex flex-col content-center gap-8 bg-white p-8">
           <div>
-            <span className="font-semibold">Contact:</span>
+            <h1 className="font-semibold">
+              <FormattedMessage id="imprint.contact" />:
+            </h1>
             <p>
               Lars Schieffer <br />
               Neugasse 1a <br />

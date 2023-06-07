@@ -1,25 +1,39 @@
-import type { V2_MetaFunction } from "@vercel/remix";
+import flatten from "flat";
+import { IntlProvider } from "react-intl";
+import type { MetaFunctionFactory } from "~/types/meta";
+import messages from "../../public/assets/i18n/en.json";
 
-export const metaFunctionFactory =
+const {
+  state: { intl },
+} = new IntlProvider({
+  locale: "en",
+  messages: flatten(messages),
+});
+
+export const metaFunctionFactory: MetaFunctionFactory =
   ({
+    locationKey,
+    descriptionKey = "navigation.aboutMe.description",
     location,
     description,
   }: {
+    locationKey?: string;
+    descriptionKey?: string;
     location?: string;
     description?: string;
-  } = {}): V2_MetaFunction =>
+  } = {}) =>
   () => {
-    const meta = [];
-    if (description != null) {
-      meta.push({
+    location =
+      location ?? (locationKey ? intl?.formatMessage({ id: locationKey }) : "");
+    description = description ?? intl?.formatMessage({ id: descriptionKey });
+
+    return [
+      {
         name: "description",
         content: description,
-      });
-    }
-
-    meta.unshift({
-      title: `Lars Schieffer${location ? ` | ${location}` : ""}`,
-    });
-
-    return meta;
+      },
+      {
+        title: `Lars Schieffer${location ? ` | ${location}` : ""}`,
+      },
+    ];
   };

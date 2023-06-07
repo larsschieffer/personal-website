@@ -2,8 +2,7 @@ import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
-import flatten from "flat";
-import { FormattedMessage, IntlProvider } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { NavigationFull } from "~/components/navigation/navigation-full";
 import { NavigationSmall } from "~/components/navigation/navigation-small";
 import { Profile } from "~/components/profile/profile";
@@ -12,32 +11,16 @@ import { metaFunctionFactory } from "~/services/meta";
 import { isLinkTargetingPathname } from "~/services/path";
 import type { ContentData } from "~/types/content";
 import type { NavigationItem } from "~/types/navigation";
-import messages from "../../public/assets/i18n/en.json";
 
 export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
-  const intlProvider = new IntlProvider({
-    locale: "en",
-    messages: flatten(messages),
-  });
-
   const { translationKey = "" } =
     navigationItems.find(({ link }: NavigationItem) => {
       return isLinkTargetingPathname(args.location.pathname, link);
     }) ?? {};
 
-  const location = translationKey
-    ? intlProvider.state.intl?.formatMessage({ id: `${translationKey}.title` })
-    : undefined;
-
-  const description = translationKey
-    ? intlProvider.state.intl?.formatMessage({
-        id: `${translationKey}.description`,
-      })
-    : undefined;
-
   return metaFunctionFactory({
-    location,
-    description,
+    locationKey: `${translationKey}.title`,
+    descriptionKey: `${translationKey}.description`,
   })(args);
 };
 
