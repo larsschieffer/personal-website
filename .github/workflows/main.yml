@@ -75,7 +75,7 @@ jobs:
   deploy:
     name: 🚀 Deploy to Vercel
     if: github.event_name != 'pull_request'
-    needs: [lint, typecheck]
+    needs: [lint, typecheck, test]
     runs-on: ubuntu-latest
 
     steps:
