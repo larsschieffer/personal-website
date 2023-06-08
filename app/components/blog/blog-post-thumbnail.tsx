@@ -49,7 +49,7 @@ export const BlogPostThumbnail = ({
         ) : null}
         <div className="absolute left-0 top-0 flex h-16 w-16 flex-col items-center justify-center rounded-br-3xl bg-accent-secondary text-white">
           <span className="text-2xl font-semibold">
-            {getDay(intl.locale, publishedDate)}
+            {getDay(publishedDate)}
           </span>
           <span className="text-sm">
             {getMonth(intl.locale, publishedDate)}
