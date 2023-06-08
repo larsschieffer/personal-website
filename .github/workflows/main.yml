@@ -40,7 +40,7 @@ jobs:
       - name: Setup worker
         uses: ./.github/actions/setup
 
-      - name: Lint
+      - name: Testing
         run: pnpm run test:coverage
 
   typecheck:
