@@ -28,6 +28,7 @@
     "@vercel/node": "2.15.1",
     "@vercel/remix": "1.17.0",
     "esbuild": "0.17.19",
+    "feed": "4.2.2",
     "flat": "5.0.2",
     "highlight.js": "11.8.0",
     "isbot": "3.6.10",
