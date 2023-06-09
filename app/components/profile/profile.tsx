@@ -36,7 +36,7 @@ export const Profile = (): JSX.Element => {
                 href="https://github.com/larsschieffer"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Github"
+                aria-label="GitHub"
               >
                 <FaGithub />
               </a>
