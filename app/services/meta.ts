@@ -33,7 +33,7 @@ export const metaFunctionFactory: MetaFunctionFactory =
         content: description,
       },
       {
-        title: `Lars Schieffer${location ? ` | ${location}` : ""}`,
+        title: `${location ? `${location} | ` : ""}Lars Schieffer`,
       },
     ];
   };
