@@ -11,6 +11,7 @@ import hljs from "highlight.js";
 import highlightjs from "highlight.js/styles/github.css";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo } from "react";
+import { useIntl } from "react-intl";
 import invariant from "tiny-invariant";
 import { BlogFeedback } from "~/components/blog/blog-feedback";
 import { blogSubstitutionComponents } from "~/components/blog/blog-substitutions";
@@ -42,14 +43,16 @@ export const loader = async ({
 }: LoaderArgs): Promise<TypedResponse<ContentBlogPostDate>> => {
   invariant(params.slug, "PostId is required");
 
-  const post = await bundleFileMarkdown(`en/blog/${params.slug}.mdx`);
+  const post = await bundleFileMarkdown<BlogFrontmatter>(
+    `en/blog/${params.slug}.mdx`
+  );
 
   if (!post) {
     // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw json(`Blog post ${params.slug} not found`, 404);
   }
 
-  const feedback = await bundleFileMarkdown(`en/feedback.mdx`);
+  const feedback = await bundleFileMarkdown<BlogFrontmatter>(`en/feedback.mdx`);
   invariant(feedback, "Feedback markdown is missing");
 
   return json({ post, feedback });
@@ -57,7 +60,10 @@ export const loader = async ({
 
 export const Post = (): JSX.Element => {
   const {
-    post: { code: postContent, frontmatter },
+    post: {
+      code: postContent,
+      frontmatter: { title, description, thumbnail },
+    },
     feedback: { code: feedbackContent },
   } = useLoaderData<typeof loader>();
   const PostContent = useMemo(
@@ -65,13 +71,28 @@ export const Post = (): JSX.Element => {
     [postContent]
   );
 
+  const intl = useIntl();
+
   useEffect((): void => {
-    hljs.highlightAll();
+    hljs.configure({ languages: ["html", "javascript", "typescript"] });
+    hljs.initHighlightingOnLoad();
   }, []);
 
   return (
-    <BoxContent headline={frontmatter.title} options={{ position: "center" }}>
+    <BoxContent headline={title} options={{ position: "center" }}>
       <section className="text-justify xs:mx-6 sm:mx-0 lg:mx-8 [&>*:last-child]:mb-0 [&_table]:my-4 [&_table]:w-full  [&_table]:table-auto [&_table_tr:nth-child(even)]:bg-gray-lighter [&_table_tr:nth-child(odd)]:bg-gray-light [&_table_tr_td:not(:first-child)]:text-center [&_table_tr_td]:p-1 [&_table_tr_th:not(:first-child)]:text-center [&_table_tr_th]:p-1">
+        <p className="mb-6 text-justify text-sm font-semibold [text-align-last:center]">
+          {description}
+        </p>
+        {thumbnail != undefined ? (
+          <img
+            className="my-6 w-full rounded-sm"
+            src={thumbnail}
+            alt={`${intl.formatMessage({
+              id: "blog.thumbnailLabel",
+            })} ${title}`}
+          ></img>
+        ) : null}
         <PostContent components={blogSubstitutionComponents} />
         <div className="mx-auto my-8 h-0.5 w-24 bg-gray-dark"></div>
         <BlogFeedback content={feedbackContent}></BlogFeedback>

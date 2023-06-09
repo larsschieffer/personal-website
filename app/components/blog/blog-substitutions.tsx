@@ -13,14 +13,18 @@ const code = (props: React.HTMLAttributes<HTMLElement>): JSX.Element => (
 const pre = (props: React.HTMLAttributes<HTMLPreElement>): JSX.Element => (
   <pre
     {...props}
-    className="grid [&>code]:mt-4 [&>code]:rounded-md [&>code]:p-4"
+    className="grid [&>code]:my-4 [&>code]:rounded-md [&>code]:p-4"
   ></pre>
 );
 
 const a = (
   props: React.AnchorHTMLAttributes<HTMLAnchorElement>
 ): JSX.Element => (
-  <a {...props} className="text-accent hover:underline" target="_blank">
+  <a
+    {...props}
+    className="whitespace-nowrap text-accent hover:underline"
+    target="_blank"
+  >
     {props.children}
   </a>
 );
@@ -30,6 +34,10 @@ const ul = (props: React.HTMLAttributes<HTMLUListElement>): JSX.Element => (
     {...props}
     className="mt-4 list-outside list-disc [&_li]:first-letter:uppercase"
   />
+);
+
+const li = (props: React.HTMLAttributes<HTMLLIElement>): JSX.Element => (
+  <li {...props} className="ml-4 text-left" />
 );
 
 const h3 = (props: React.HTMLAttributes<HTMLHeadingElement>): JSX.Element => (
@@ -48,6 +56,7 @@ export const blogSubstitutionComponents = {
   h2,
   h3,
   ul,
+  li,
   a,
   pre,
   code,
