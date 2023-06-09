@@ -17,8 +17,8 @@ export interface ContentResumeData {
 }
 
 export interface ContentBlogPostDate {
-  post: Markdown<Record<string, unknown>>;
-  feedback: Markdown<Record<string, unknown>>;
+  post: Markdown<BlogFrontmatter>;
+  feedback: Markdown<BlogFrontmatter>;
 }
 
 export interface ContentBlogData {

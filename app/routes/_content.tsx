@@ -1,4 +1,4 @@
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData, useLocation } from "@remix-run/react";
 import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type { TypedResponse, V2_MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
@@ -36,6 +36,8 @@ export const loader = (): TypedResponse<ContentData> => {
 
 export const ContentLayout = (): JSX.Element => {
   const { copyright } = useLoaderData<typeof loader>();
+  const { pathname } = useLocation();
+  const isBlogContent = isLinkTargetingPathname(pathname, "blog");
   return (
     <div>
       <div className="sticky top-0 z-50 md:hidden">
@@ -47,7 +49,11 @@ export const ContentLayout = (): JSX.Element => {
         <div className="grid place-items-center">
           <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
             <Profile />
-            <div className="relative">
+            <div
+              className={`relative${
+                isBlogContent ? " -order-1 md:order-none" : ""
+              } `}
+            >
               <div className="absolute bottom-full right-0 hidden md:block">
                 <NavigationFull
                   navigationItems={navigationItems}
