@@ -40,14 +40,14 @@ describe("metaFunctionFactory", () => {
       parameters: [{ location, description }],
       expectedReturn: expectedMetaFunction(
         description,
-        `Lars Schieffer | ${location}`
+        `${location} | Lars Schieffer`
       ),
     },
     {
       parameters: [{ location }],
       expectedReturn: expectedMetaFunction(
         defaultDescription,
-        `Lars Schieffer | ${location}`
+        `${location} | Lars Schieffer`
       ),
     },
     {
@@ -58,14 +58,14 @@ describe("metaFunctionFactory", () => {
       parameters: [{ locationKey, descriptionKey }],
       expectedReturn: expectedMetaFunction(
         descriptionKeyTranslation,
-        `Lars Schieffer | ${locationKeyTranslation}`
+        `${locationKeyTranslation} | Lars Schieffer`
       ),
     },
     {
       parameters: [{ locationKey }],
       expectedReturn: expectedMetaFunction(
         defaultDescription,
-        `Lars Schieffer | ${locationKeyTranslation}`
+        `${locationKeyTranslation} | Lars Schieffer`
       ),
     },
     {
