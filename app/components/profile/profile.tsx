@@ -1,5 +1,6 @@
 import { BsCalendar } from "@react-icons/all-files/bs/BsCalendar";
 import { BsEnvelope } from "@react-icons/all-files/bs/BsEnvelope";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { FaRegFilePdf } from "@react-icons/all-files/fa/FaRegFilePdf";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
@@ -30,6 +31,15 @@ export const Profile = (): JSX.Element => {
               <FormattedMessage id="profile.jobTitle"></FormattedMessage>
             </span>
             <div className="mb-6 mt-2 flex gap-7 sm:pr-7 md:pr-0">
+              <a
+                className="hover:scale-110"
+                href="https://github.com/larsschieffer"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Github"
+              >
+                <FaGithub />
+              </a>
               <a
                 className="hover:scale-110 hover:text-[#0072b1]"
                 href="https://www.linkedin.com/in/larsschieffer/"
