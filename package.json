@@ -15,7 +15,7 @@
     "test:coverage": "vitest --coverage --run"
   },
   "dependencies": {
-    "@fontsource/inter": "5.0.2",
+    "@fontsource/inter": "5.0.3",
     "@fontsource/merriweather": "5.0.2",
     "@octokit/rest": "19.0.11",
     "@prisma/client": "4.15.0",
