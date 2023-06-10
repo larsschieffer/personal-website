@@ -7,13 +7,16 @@ const ImageFrame = (props: BlogFrameProps): JSX.Element => (
 );
 
 const code = (props: React.HTMLAttributes<HTMLElement>): JSX.Element => (
-  <code {...props} className="overflow-x-auto !bg-gray-light px-0.5" />
+  <code
+    {...props}
+    className="overflow-x-auto whitespace-nowrap !bg-gray-light px-0.5"
+  />
 );
 
 const pre = (props: React.HTMLAttributes<HTMLPreElement>): JSX.Element => (
   <pre
     {...props}
-    className="grid [&>code]:my-4 [&>code]:rounded-md [&>code]:p-4"
+    className="grid [&>code]:my-4 [&>code]:whitespace-pre [&>code]:rounded-md [&>code]:p-4"
   ></pre>
 );
 
