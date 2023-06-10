@@ -9,8 +9,8 @@ dependencies:
     specifier: 5.0.3
     version: 5.0.3
   '@fontsource/merriweather':
-    specifier: 5.0.2
-    version: 5.0.2
+    specifier: 5.0.3
+    version: 5.0.3
   '@octokit/rest':
     specifier: 19.0.11
     version: 19.0.11
@@ -2040,8 +2040,8 @@ packages:
     resolution: {integrity: sha512-JJvh5xht71F6e0E5r2+Ffu8g+CYAxMvnGJm9ZMg5IIjy8UwxLp+8C99TgPJupdEyBpEJv0wuMG2Rd183z/bV8g==}
     dev: false
 
-  /@fontsource/merriweather@5.0.2:
-    resolution: {integrity: sha512-xoziTXfksJCNnyV12IIR1/5NpEN062I1XqVEOf97snw0OxsvXAZ2TiWxJL+wxSbGxZiXIu3zDSBp9nkoxRSKHw==}
+  /@fontsource/merriweather@5.0.3:
+    resolution: {integrity: sha512-iCngvmyUfmWxQwqi3ekD8NIysXresp9L6M9fPJXUgUNWvEHhEXjMYg6RvIiZVexKrlRgtEY1KVt11kh4KFTDYQ==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.16.0:
