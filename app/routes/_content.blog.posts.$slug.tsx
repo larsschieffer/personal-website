@@ -16,6 +16,7 @@ import invariant from "tiny-invariant";
 import { BlogFeedback } from "~/components/blog/blog-feedback";
 import { blogSubstitutionComponents } from "~/components/blog/blog-substitutions";
 import { BoxContent } from "~/components/box/box-content";
+import { WEBSITE_URL } from "~/constants/sitemap";
 import { metaFunctionFactory } from "~/services/meta";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter } from "~/types/blog";
@@ -31,8 +32,10 @@ export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
   } = args.data as { post: { frontmatter: BlogFrontmatter } };
 
   const meta = {
+    url: `${WEBSITE_URL}${args.location.pathname.substring(1)}`,
     location: frontmatter.title,
     description: frontmatter.description,
+    ...(frontmatter.thumbnail && { imageUrl: frontmatter.thumbnail }),
   };
 
   return metaFunctionFactory(meta)(args);

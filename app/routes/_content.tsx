@@ -7,6 +7,7 @@ import { NavigationFull } from "~/components/navigation/navigation-full";
 import { NavigationSmall } from "~/components/navigation/navigation-small";
 import { Profile } from "~/components/profile/profile";
 import { navigationItems } from "~/constants/navigation-items";
+import { WEBSITE_URL } from "~/constants/sitemap";
 import { metaFunctionFactory } from "~/services/meta";
 import { isLinkTargetingPathname } from "~/services/path";
 import type { ContentData } from "~/types/content";
@@ -19,6 +20,7 @@ export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
     }) ?? {};
 
   return metaFunctionFactory({
+    url: `${WEBSITE_URL}${args.location.pathname.substring(1)}`,
     locationKey: `${translationKey}.title`,
     descriptionKey: `${translationKey}.description`,
   })(args);
