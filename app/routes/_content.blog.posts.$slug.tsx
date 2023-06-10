@@ -78,7 +78,7 @@ export const Post = (): JSX.Element => {
 
   useEffect((): void => {
     hljs.configure({ languages: ["html", "javascript", "typescript"] });
-    hljs.initHighlightingOnLoad();
+    hljs.highlightAll();
   }, []);
 
   return (
