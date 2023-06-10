@@ -19,6 +19,7 @@ export interface ContentResumeData {
 export interface ContentBlogPostDate {
   post: Markdown<BlogFrontmatter>;
   feedback: Markdown<BlogFrontmatter>;
+  slug: string;
 }
 
 export interface ContentBlogData {
