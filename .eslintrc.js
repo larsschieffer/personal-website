@@ -9,9 +9,10 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "@remix-run/eslint-config",
     "@remix-run/eslint-config/node",
+    "plugin:vitest/all",
     "prettier",
   ],
-  plugins: ["formatjs", "@typescript-eslint", "prefer-arrow"],
+  plugins: ["formatjs", "@typescript-eslint", "prefer-arrow", "vitest"],
   parser: "@typescript-eslint/parser",
   overrides: [
     {

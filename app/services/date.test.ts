@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { TestCaseFor } from "../../__tests__/common/given";
-import { Given } from "../../__tests__/common/given";
+import type { TestCaseFor } from "../../tests/common/given";
+import { Given } from "../../tests/common/given";
 import { getDay, getMonth } from "./date";
 
 describe("getMonth", () => {
