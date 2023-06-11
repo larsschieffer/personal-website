@@ -5,9 +5,11 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     environment: "happy-dom",
-    exclude: [...configDefaults.exclude, "**/__tests__/common/*"],
+    exclude: [...configDefaults.exclude, "./tests/*"],
     coverage: {
       100: true,
     },
+    globals: true,
+    setupFiles: ["./tests/setup-tests.ts"],
   },
 });

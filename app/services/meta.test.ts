@@ -2,8 +2,8 @@ import type { V2_MetaFunction } from "@vercel/remix";
 import { describe, expect, it } from "vitest";
 import { ASSETS_LOCATION } from "~/constants/assets-location";
 import { WEBSITE_URL } from "~/constants/sitemap";
-import { Given, type TestCaseFor } from "../../__tests__/common/given";
 import translation from "../../public/assets/i18n/en.json";
+import { Given, type TestCaseFor } from "../../tests/common/given";
 import { metaFunctionFactory } from "./meta";
 
 const expectedMetaFunction = (

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { TestCaseFor } from "../../__tests__/common/given";
+import type { TestCaseFor } from "../../tests/common/given";
 import { isLinkTargetingPathname } from "./path";
 
 const linkTarget = "blog";
