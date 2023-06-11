@@ -53,6 +53,9 @@ dependencies:
   highlight.js:
     specifier: 11.8.0
     version: 11.8.0
+  http-status-codes:
+    specifier: 2.2.0
+    version: 2.2.0
   isbot:
     specifier: 3.6.10
     version: 3.6.10
@@ -5843,6 +5846,10 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+
+  /http-status-codes@2.2.0:
+    resolution: {integrity: sha512-feERVo9iWxvnejp3SEfm/+oNG517npqL2/PIA8ORjyOZjGC7TwCRQsZylciLS64i6pJ0wRYz3rkXLRwbtFa8Ng==}
+    dev: false
 
   /http2-wrapper@1.0.3:
     resolution: {integrity: sha512-V+23sDMr12Wnz7iTcDeJr3O6AIxlnvT/bmaAAAP/Xda35C90p9599p0F1eHR/N1KILWSoWVAiOMFjBBXaXSMxg==}
