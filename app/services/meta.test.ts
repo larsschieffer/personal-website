@@ -121,12 +121,12 @@ describe("metaFunctionFactory", () => {
       parameters,
       expectedReturn,
     }: TestCaseFor<typeof metaFunctionFactory>) => {
-      const args = Given.getServerRuntimeMetaArgs();
+      const args = Given.serverRuntimeMetaArgs();
 
       const actualReturn = metaFunctionFactory(...parameters);
 
       expect(actualReturn(args)).toStrictEqual(
-        expectedReturn(Given.getServerRuntimeMetaArgs())
+        expectedReturn(Given.serverRuntimeMetaArgs())
       );
     }
   );

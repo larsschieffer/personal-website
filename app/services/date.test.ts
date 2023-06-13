@@ -5,8 +5,8 @@ import { getDay, getMonth } from "./date";
 
 describe("getMonth", () => {
   it.each<TestCaseFor<typeof getMonth>>([
-    { parameters: ["de", Given.getDate()], expectedReturn: "Dez" },
-    { parameters: ["en", Given.getDate()], expectedReturn: "Dec" },
+    { parameters: ["de", Given.date()], expectedReturn: "Dez" },
+    { parameters: ["en", Given.date()], expectedReturn: "Dec" },
   ])(
     "should return $expectedReturn for locale $parameters.0 and date $parameters.1",
     ({
@@ -21,7 +21,7 @@ describe("getMonth", () => {
 
 describe("getDay", () => {
   it.each<TestCaseFor<typeof getDay>>([
-    { parameters: [Given.getDate()], expectedReturn: "06" },
+    { parameters: [Given.date()], expectedReturn: "06" },
     { parameters: [new Date(2017, 6, 17)], expectedReturn: "17" },
   ])(
     "should return $expectedReturn for date $parameters.0",

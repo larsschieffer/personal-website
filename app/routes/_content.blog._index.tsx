@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 import invariant from "tiny-invariant";
 import { BlogPostThumbnail } from "~/components/blog/blog-post-thumbnail";
 import { BoxContent } from "~/components/box/box-content";
-import { getAllFileData } from "~/services/server/github-api.server";
+import { getMetaDataOfFilesAtPath } from "~/services/server/github-api.server";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
 import type { ContentBlogData } from "~/types/content";
@@ -22,11 +22,10 @@ const onlyAlreadyPublished = ({
 }): boolean => new Date(published) < new Date();
 
 export const loader = async (): Promise<TypedResponse<ContentBlogData>> => {
-  const files = await getAllFileData("en/blog");
-  invariant(Array.isArray(files.data), "Array of files is expected");
+  const files = await getMetaDataOfFilesAtPath("en/blog");
 
   let posts = await Promise.all(
-    files.data.map(
+    files.map(
       async ({
         path,
         sha,

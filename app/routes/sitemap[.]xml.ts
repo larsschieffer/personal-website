@@ -1,6 +1,5 @@
-import invariant from "tiny-invariant";
 import { WEBSITE_PATHS, WEBSITE_URL } from "~/constants/sitemap";
-import { getAllFileData } from "~/services/server/github-api.server";
+import { getMetaDataOfFilesAtPath } from "~/services/server/github-api.server";
 import type { SitemapUrl } from "~/types/sitemap";
 
 const createLocation = ({ url, changefreq, priority }: SitemapUrl): string => {
@@ -12,8 +11,7 @@ const createLocation = ({ url, changefreq, priority }: SitemapUrl): string => {
 };
 
 export const loader = async (): Promise<Response> => {
-  const { data: posts } = await getAllFileData("en/blog");
-  invariant(Array.isArray(posts), "Array of files is expected");
+  const posts = await getMetaDataOfFilesAtPath("en/blog");
 
   const staticPages = WEBSITE_PATHS.map((url: SitemapUrl): string =>
     createLocation(url)
