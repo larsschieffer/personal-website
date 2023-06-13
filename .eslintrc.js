@@ -50,5 +50,6 @@ module.exports = {
       },
     ],
     "no-console": "error",
+    "vitest/no-hooks": "off",
   },
 };

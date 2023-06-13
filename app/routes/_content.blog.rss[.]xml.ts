@@ -2,7 +2,7 @@ import { Feed } from "feed";
 import invariant from "tiny-invariant";
 import { ASSETS_LOCATION } from "~/constants/assets-location";
 import { DOMAINE, WEBSITE_URL } from "~/constants/sitemap";
-import { getAllFileData } from "~/services/server/github-api.server";
+import { getMetaDataOfFilesAtPath } from "~/services/server/github-api.server";
 import { bundleFileMarkdown } from "~/services/server/markdown.server";
 import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
 
@@ -36,11 +36,10 @@ export const loader = async (): Promise<Response> => {
     generator: "Lars Schieffer",
     author: contactDetails,
   });
-  const files = await getAllFileData("en/blog");
-  invariant(Array.isArray(files.data), "Array of files is expected");
+  const files = await getMetaDataOfFilesAtPath("en/blog");
 
   let posts = await Promise.all(
-    files.data.map(
+    files.map(
       async ({
         path,
         sha,

@@ -1,7 +1,12 @@
 import invariant from "tiny-invariant";
 
-export const getValueEnvironmentFromVariable = (variable: string): string => {
-  const environmentValue = process.env[variable];
-  invariant(environmentValue, `Environment variable ${variable} is missing`);
+export const getValueEnvironmentFromVariable = (
+  variableName: string
+): string => {
+  const environmentValue = process.env[variableName];
+  invariant(
+    environmentValue,
+    `Environment variable ${variableName} is missing`
+  );
   return environmentValue;
 };

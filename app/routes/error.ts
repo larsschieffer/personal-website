@@ -1,7 +1,7 @@
 import type { ActionArgs, TypedResponse } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import invariant from "tiny-invariant";
-import { logError } from "~/services/server/error.server";
+import { createUserGeneratedIssue } from "~/services/server/user-error.server";
 
 export const action = async ({
   request,
@@ -11,7 +11,7 @@ export const action = async ({
   invariant(location, '"location" is required in form data');
   invariant(typeof location == "string", '"location" has to be a string');
 
-  await logError({ location });
+  await createUserGeneratedIssue(location);
 
   return redirect("/");
 };
