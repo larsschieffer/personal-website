@@ -1,4 +1,4 @@
 import * as dotenv from "dotenv";
 
 // eslint-disable-next-line vitest/require-hook
-dotenv.config({ path: "./tests/.env-test" });
+dotenv.config({ path: "./config/test.env" });

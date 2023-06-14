@@ -1,7 +1,6 @@
 node_modules
 
 .cache
-.env
 .vercel
 .output
 
@@ -10,6 +9,8 @@ node_modules
 /api/index.js
 /api/index.js.map
 
+/config/*
+!/config/test.env
 
 /coverage
 

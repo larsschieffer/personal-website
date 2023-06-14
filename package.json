@@ -12,7 +12,9 @@
     "seed": "node --require esbuild-register prisma/seed.ts",
     "prepare": "husky install",
     "test": "vitest",
-    "test:coverage": "vitest --coverage --run"
+    "test:coverage": "vitest --coverage --run",
+    "db-client:dev": "dotenv -e config/dev.env pnpm prisma studio",
+    "db-client:prod": "dotenv -e config/prod.env pnpm prisma studio"
   },
   "dependencies": {
     "@fontsource/inter": "5.0.3",
