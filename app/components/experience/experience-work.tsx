@@ -8,14 +8,18 @@ export const ExperienceOfWork = ({
   options,
 }: ExperienceOfWorkProps): JSX.Element => {
   const intl = useIntl();
+  const description =
+    skills.length > 0
+      ? `${intl.formatMessage({ id: "experience.skills" })}: ${skills
+          .map((skill: Skill) => skill.title)
+          .join(" · ")}`
+      : "";
   const data: StepData = {
     title,
     organisation,
     start,
     end,
-    description: `${intl.formatMessage({ id: "experience.skills" })}: ${skills
-      .map((skill: Skill) => skill.title)
-      .join(" · ")}`,
+    description,
   };
 
   return <ExperienceStep data={data} options={options}></ExperienceStep>;
