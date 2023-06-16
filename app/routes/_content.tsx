@@ -13,7 +13,9 @@ import { isLinkTargetingPathname } from "~/services/path";
 import type { ContentData } from "~/types/content";
 import type { NavigationItem } from "~/types/navigation";
 
-export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
+export const meta: V2_MetaFunction = (
+  args: V2_ServerRuntimeMetaArgs<unknown, never>
+) => {
   const { translationKey = "" } =
     navigationItems.find(({ link }: NavigationItem) => {
       return isLinkTargetingPathname(args.location.pathname, link);
