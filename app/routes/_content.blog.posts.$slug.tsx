@@ -79,7 +79,9 @@ export const Post = (): JSX.Element => {
   const intl = useIntl();
 
   useEffect((): void => {
-    hljs.configure({ languages: ["html", "javascript", "typescript"] });
+    hljs.configure({
+      languages: ["html", "javascript", "typescript", "shell"],
+    });
     hljs.highlightAll();
   }, []);
 
