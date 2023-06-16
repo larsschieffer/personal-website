@@ -29,7 +29,9 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: highlightjs },
 ];
 
-export const meta: V2_MetaFunction = (args: V2_ServerRuntimeMetaArgs) => {
+export const meta: V2_MetaFunction = (
+  args: V2_ServerRuntimeMetaArgs<unknown, never>
+) => {
   const {
     post: { frontmatter },
   } = args.data as { post: { frontmatter: BlogFrontmatter } };
