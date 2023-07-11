@@ -21,7 +21,7 @@
   "dependencies": {
     "@fontsource/inter": "5.0.5",
     "@fontsource/merriweather": "5.0.5",
-    "@octokit/rest": "19.0.13",
+    "@octokit/rest": "20.0.1",
     "@prisma/client": "4.16.2",
     "@react-icons/all-files": "4.1.0",
     "@remix-run/css-bundle": "1.18.1",
