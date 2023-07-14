@@ -161,11 +161,11 @@ devDependencies:
     specifier: 3.0.0
     version: 3.0.0
   prettier-plugin-organize-imports:
-    specifier: 3.2.2
-    version: 3.2.2(prettier@3.0.0)(typescript@5.1.6)
+    specifier: 3.2.3
+    version: 3.2.3(prettier@3.0.0)(typescript@5.1.6)
   prettier-plugin-tailwindcss:
     specifier: 0.4.0
-    version: 0.4.0(prettier-plugin-organize-imports@3.2.2)(prettier@3.0.0)
+    version: 0.4.0(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.0)
   prisma:
     specifier: 5.0.0
     version: 5.0.0
@@ -8328,8 +8328,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-organize-imports@3.2.2(prettier@3.0.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-e97lE6odGSiHonHJMTYC0q0iLXQyw0u5z/PJpvP/3vRy6/Zi9kLBwFAbEGjDzIowpjQv8b+J04PDamoUSQbzGA==}
+  /prettier-plugin-organize-imports@3.2.3(prettier@3.0.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-KFvk8C/zGyvUaE3RvxN2MhCLwzV6OBbFSkwZ2OamCrs9ZY4i5L77jQ/w4UmUr+lqX8qbaqVq6bZZkApn+IgJSg==}
     peerDependencies:
       '@volar/vue-language-plugin-pug': ^1.0.4
       '@volar/vue-typescript': ^1.0.4
@@ -8345,7 +8345,7 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /prettier-plugin-tailwindcss@0.4.0(prettier-plugin-organize-imports@3.2.2)(prettier@3.0.0):
+  /prettier-plugin-tailwindcss@0.4.0(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.0):
     resolution: {integrity: sha512-Rna0sDPETA0KNhMHlN8wxKNgfSa8mTl2hPPAGxnbv6tUcHT6J4RQmQ8TLXyhB7Dm5Von4iHloBxTyClYM6wT0A==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
@@ -8398,7 +8398,7 @@ packages:
         optional: true
     dependencies:
       prettier: 3.0.0
-      prettier-plugin-organize-imports: 3.2.2(prettier@3.0.0)(typescript@5.1.6)
+      prettier-plugin-organize-imports: 3.2.3(prettier@3.0.0)(typescript@5.1.6)
     dev: true
 
   /prettier@2.8.8:
