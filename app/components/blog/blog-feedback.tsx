@@ -6,7 +6,7 @@ export const BlogFeedback = ({ content }: BlogFeedbackProps): JSX.Element => {
   const FeedbackContent = useMemo(() => getMDXComponent(content), [content]);
 
   return (
-    <div className="[&_a:hover]:underline [&_a]:text-accent">
+    <div data-testid='feedback' className="[&_a:hover]:underline [&_a]:text-accent">
       <FeedbackContent />
     </div>
   );

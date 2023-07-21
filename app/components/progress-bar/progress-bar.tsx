@@ -4,6 +4,7 @@ export const ProgressBar = ({
   title,
   percentage,
 }: ProgressBarProps): JSX.Element => (
+
   <div className="rounded-full bg-gray-light ">
     <div
       data-testid="progress-bar"

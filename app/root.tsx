@@ -30,7 +30,7 @@ export const meta: MetaFunction = metaFunctionFactory();
 
 export const App = (): JSX.Element => {
   return (
-    <html lang="en">
+    <html lang="en" data-testid='app'>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />

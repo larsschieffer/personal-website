@@ -2,6 +2,7 @@ import type { ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 
 import type { Location, Params } from "@remix-run/router";
 import type { FileMetaData } from "~/types/file";
+import { Markdown } from "~/types/markdown";
 export interface TestCaseFor<T extends (...args: never) => unknown> {
   parameters: Parameters<T>;
   expectedReturn: ReturnType<T>;
@@ -66,5 +67,16 @@ export class Given {
 
   public static id(): number {
     return 42;
+  }
+
+  public static bundledMDX(): Markdown<Record<string, string>> {
+
+    return {
+      code: 'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var j=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,d=Object.prototype.hasOwnProperty;var f=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!d.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(s=j(t,o))||s.enumerable});return n};var C=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var u=f((O,a)=>{a.exports=_jsx_runtime});var h={};l(h,{default:()=>g});var r=C(u());function m(n){let t=Object.assign({p:"p"},n.components);return(0,r.jsx)(t.p,{children:"Content"})}function b(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,Object.assign({},n,{children:(0,r.jsx)(m,n)})):m(n)}var g=b;return M(h);})();\n' +
+        ';return Component;',
+      frontmatter: {},
+      errors: [],
+      matter: { content: 'Content', data: {}, excerpt: '', orig: '', language: '', matter: '', stringify: (lang: string) => JSON.stringify(lang) },
+    }
   }
 }
