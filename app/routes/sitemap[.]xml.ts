@@ -14,7 +14,7 @@ export const loader = async (): Promise<Response> => {
   const posts = await getMetaDataOfFilesAtPath("en/blog");
 
   const staticPages = WEBSITE_PATHS.map((url: SitemapUrl): string =>
-    createLocation(url)
+    createLocation(url),
   ).join("");
 
   const dynamicPages = posts
@@ -23,7 +23,7 @@ export const loader = async (): Promise<Response> => {
         url: `blog/posts/${name.replace(".mdx", "")}`,
         changefreq: "weekly",
         priority: 0.7,
-      })
+      }),
     )
     .join("");
 

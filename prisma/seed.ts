@@ -227,13 +227,13 @@ const seed = async (): Promise<void> => {
   await Promise.all(
     getSkills().map((skill: Skill) => {
       return db.skill.create({ data: skill });
-    })
+    }),
   );
 
   await Promise.all(
     getEducation().map((education: EducationSeed) => {
       return db.education.create({ data: education });
-    })
+    }),
   );
 
   await Promise.all(
@@ -246,7 +246,7 @@ const seed = async (): Promise<void> => {
           },
         },
       });
-    })
+    }),
   );
 };
 

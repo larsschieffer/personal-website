@@ -10,7 +10,7 @@ const expectedMetaFunction = (
   description: string,
   title: string,
   imageUrl: string,
-  url: string
+  url: string,
 ): V2_MetaFunction => {
   return () => [
     {
@@ -49,7 +49,7 @@ describe("metaFunctionFactory", () => {
         defaultDescription,
         "Lars Schieffer",
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -58,7 +58,7 @@ describe("metaFunctionFactory", () => {
         description,
         `${location} | Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -67,7 +67,7 @@ describe("metaFunctionFactory", () => {
         defaultDescription,
         `${location} | Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -76,7 +76,7 @@ describe("metaFunctionFactory", () => {
         description,
         `Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -85,7 +85,7 @@ describe("metaFunctionFactory", () => {
         descriptionKeyTranslation,
         `${locationKeyTranslation} | Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -94,7 +94,7 @@ describe("metaFunctionFactory", () => {
         defaultDescription,
         `${locationKeyTranslation} | Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -103,7 +103,7 @@ describe("metaFunctionFactory", () => {
         descriptionKeyTranslation,
         `Lars Schieffer`,
         defaultImageUrl,
-        WEBSITE_URL
+        WEBSITE_URL,
       ),
     },
     {
@@ -112,7 +112,7 @@ describe("metaFunctionFactory", () => {
         descriptionKeyTranslation,
         `Lars Schieffer`,
         imageUrl,
-        url
+        url,
       ),
     },
   ])(
@@ -126,8 +126,8 @@ describe("metaFunctionFactory", () => {
       const actualReturn = metaFunctionFactory(...parameters);
 
       expect(actualReturn(args)).toStrictEqual(
-        expectedReturn(Given.serverRuntimeMetaArgs())
+        expectedReturn(Given.serverRuntimeMetaArgs()),
       );
-    }
+    },
   );
 });

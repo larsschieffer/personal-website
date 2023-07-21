@@ -30,7 +30,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const meta: V2_MetaFunction = (
-  args: V2_ServerRuntimeMetaArgs<unknown, never>
+  args: V2_ServerRuntimeMetaArgs<unknown, never>,
 ) => {
   const {
     post: { frontmatter },
@@ -75,7 +75,7 @@ export const Post = (): JSX.Element => {
   } = useLoaderData<typeof loader>();
   const PostContent = useMemo(
     () => getMDXComponent(postContent),
-    [postContent]
+    [postContent],
   );
 
   const intl = useIntl();

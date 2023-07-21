@@ -21,7 +21,7 @@ export const ExperiencesEducation = ({
         (
           education: SerializeFrom<Education>,
           index: number,
-          arr: SerializeFrom<Education>[]
+          arr: SerializeFrom<Education>[],
         ) => (
           <ExperienceOfEducation
             key={education.id}
@@ -31,7 +31,7 @@ export const ExperiencesEducation = ({
               isLastInColumn: index == arr.length - 1,
             }}
           />
-        )
+        ),
       )}
     </Experiences>
   );

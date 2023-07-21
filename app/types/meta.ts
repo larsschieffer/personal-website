@@ -26,5 +26,5 @@ export type MetaFunctionFactory = (
     | { locationKey: string }
     | { description: string }
     | { descriptionKey: string }
-    | { url: string }
+    | { url: string },
 ) => V2_MetaFunction;

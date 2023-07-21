@@ -15,7 +15,7 @@ describe("getMonth", () => {
     }: TestCaseFor<typeof getMonth>) => {
       const actualReturn = getMonth(locale, date);
       expect(actualReturn).toBe(expectedReturn);
-    }
+    },
   );
 });
 
@@ -28,6 +28,6 @@ describe("getDay", () => {
     ({ parameters: [date], expectedReturn }: TestCaseFor<typeof getDay>) => {
       const actualReturn = getDay(date);
       expect(actualReturn).toBe(expectedReturn);
-    }
+    },
   );
 });

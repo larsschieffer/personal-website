@@ -8,7 +8,7 @@ export const ProgressBarColumn = ({
   progressBarItems,
   headline,
 }: ProgressBarColumnProps): JSX.Element => (
-  <div>
+  <div data-testid="progress-bar-column">
     <h3 className="pb-2 pt-4 text-xl">{headline}</h3>
     <div className="flex flex-col gap-4">
       {progressBarItems.map(
@@ -18,7 +18,7 @@ export const ProgressBarColumn = ({
             title={title}
             key={index}
           ></ProgressBar>
-        )
+        ),
       )}
     </div>
   </div>

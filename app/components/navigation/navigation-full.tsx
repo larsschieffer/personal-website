@@ -35,7 +35,7 @@ export const NavigationFull = ({
                 ></FormattedMessage>
               </Link>
             );
-          }
+          },
         )}
       </div>
     </div>

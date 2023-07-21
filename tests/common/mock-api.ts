@@ -14,11 +14,11 @@ const server = setupServer(
     async (
       req: RestRequest,
       res: ResponseComposition,
-      ctx: RestContext
+      ctx: RestContext,
     ): Promise<MockedResponse> => {
       const { title } = await req.json<{ title: string }>();
       return res(ctx.status(201), ctx.json({ title }));
-    }
+    },
   ),
 
   rest.get(
@@ -26,10 +26,10 @@ const server = setupServer(
     async (
       _req: RestRequest,
       res: ResponseComposition,
-      ctx: RestContext
+      ctx: RestContext,
     ): Promise<MockedResponse> => {
       return res(ctx.json([Given.fileMetaData()]));
-    }
+    },
   ),
 
   rest.get(
@@ -37,10 +37,10 @@ const server = setupServer(
     async (
       _req: RestRequest,
       res: ResponseComposition,
-      ctx: RestContext
+      ctx: RestContext,
     ): Promise<MockedResponse> => {
       return res(ctx.text("# Hello World"));
-    }
+    },
   ),
 
   rest.get(
@@ -48,10 +48,10 @@ const server = setupServer(
     async (
       _req: RestRequest,
       res: ResponseComposition,
-      ctx: RestContext
+      ctx: RestContext,
     ): Promise<MockedResponse> => {
       return res(ctx.status(404));
-    }
-  )
+    },
+  ),
 );
 export { rest, server };

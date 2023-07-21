@@ -11,13 +11,13 @@ process.env.ESBUILD_BINARY_PATH = path.join(
   "node_modules",
   "esbuild",
   "bin",
-  "esbuild"
+  "esbuild",
 );
 
 const location = getValueEnvironmentFromVariable("CONTENT_LOCATION");
 
 export const bundleFileMarkdown = async <T extends Record<string, unknown>>(
-  filePath: string
+  filePath: string,
 ): Promise<Markdown<T> | undefined> => {
   const file = await fetch(`${location}/${filePath}`);
   if (isFileMissing(file)) {
@@ -36,7 +36,7 @@ const isFileMissing = (file: Response): boolean => {
 
 const esbuildOptions = <T extends Record<string, unknown>>(
   options: BuildOptions,
-  _frontmatter: T
+  _frontmatter: T,
 ): BuildOptions => {
   options.minify = true;
   options.target = ["es2019"];

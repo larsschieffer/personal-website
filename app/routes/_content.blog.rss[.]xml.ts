@@ -8,7 +8,7 @@ import type { BlogFrontmatter, PostThumbnailType } from "~/types/blog";
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
-  { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter }
+  { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter },
 ): number => new Date(b).getTime() - new Date(a).getTime();
 
 const onlyAlreadyPublished = ({
@@ -59,8 +59,8 @@ export const loader = async (): Promise<Response> => {
           slug: name.replace(/.mdx/g, ""),
           frontmatter,
         };
-      }
-    )
+      },
+    ),
   );
   posts = posts.sort(byDateDesc).filter(onlyAlreadyPublished);
 
@@ -78,7 +78,7 @@ export const loader = async (): Promise<Response> => {
         author: [contactDetails],
         image: thumbnail,
       });
-    }
+    },
   );
 
   feed.addCategory("Technologie");

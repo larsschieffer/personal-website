@@ -21,7 +21,7 @@ const pre = (props: React.HTMLAttributes<HTMLPreElement>): JSX.Element => (
 );
 
 const a = (
-  props: React.AnchorHTMLAttributes<HTMLAnchorElement>
+  props: React.AnchorHTMLAttributes<HTMLAnchorElement>,
 ): JSX.Element => (
   <a
     {...props}

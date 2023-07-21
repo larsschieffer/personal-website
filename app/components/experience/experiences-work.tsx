@@ -21,7 +21,7 @@ export const ExperiencesWork = ({
         (
           experience: ExperienceWithSkills,
           index: number,
-          arr: ExperienceWithSkills[]
+          arr: ExperienceWithSkills[],
         ) => (
           <ExperienceOfWork
             key={experience.id}
@@ -31,7 +31,7 @@ export const ExperiencesWork = ({
               isLastInColumn: index == arr.length - 1,
             }}
           />
-        )
+        ),
       )}
     </Experiences>
   );
