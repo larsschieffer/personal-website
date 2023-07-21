@@ -1,6 +1,6 @@
 export const isLinkTargetingPathname = (
   pathname?: string,
-  linkTarget?: string
+  linkTarget?: string,
 ): boolean => {
   if (pathname == null || linkTarget == null) {
     return false;

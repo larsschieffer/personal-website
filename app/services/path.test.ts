@@ -24,6 +24,6 @@ describe("isLinkTargetingPathname", () => {
     }: TestCaseFor<typeof isLinkTargetingPathname>) => {
       const actualReturn = isLinkTargetingPathname(pathname, linkTarget);
       expect(actualReturn).toBe(expectedReturn);
-    }
+    },
   );
 });

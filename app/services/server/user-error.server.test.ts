@@ -4,7 +4,7 @@ import { createUserGeneratedIssue } from "./user-error.server";
 describe("createUserGeneratedIssue", () => {
   it("should create user error", async () => {
     await expect(
-      createUserGeneratedIssue("/PAGE-WITH-ERROR")
+      createUserGeneratedIssue("/PAGE-WITH-ERROR"),
     ).resolves.not.toThrow();
   });
 });

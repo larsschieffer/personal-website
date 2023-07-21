@@ -63,7 +63,7 @@ export const NavigationSmall = ({
                   id={`${translationKey}.title`}
                 ></FormattedMessage>
               </Link>
-            )
+            ),
           )}
         </div>
       ) : null}

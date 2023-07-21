@@ -28,7 +28,7 @@ export const metaFunctionFactory: MetaFunctionFactory =
       description?: string;
       url?: string;
       imageUrl?: string;
-    } = { url: WEBSITE_URL }
+    } = { url: WEBSITE_URL },
   ) =>
   () => {
     location =

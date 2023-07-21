@@ -15,7 +15,7 @@ export const DateRange = ({ start, end }: DateRangeProps): JSX.Element => {
     end == null ? intl.formatMessage({ id: "time.present" }) : displayDate(end);
 
   return (
-    <span>
+    <span data-testid="date-range">
       {visibleStartDate == visibleEndDate
         ? visibleStartDate
         : `${visibleStartDate} - ${visibleEndDate}`}

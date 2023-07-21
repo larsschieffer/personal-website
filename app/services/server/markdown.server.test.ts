@@ -11,7 +11,7 @@ describe("bundleFileMarkdown", () => {
 
   it("should not create bundle for not existing markdown file", async () => {
     const actual = await bundleFileMarkdown(
-      Given.sameOfNotExistingMarkdownFile()
+      Given.sameOfNotExistingMarkdownFile(),
     );
 
     expect(actual).toBeUndefined();

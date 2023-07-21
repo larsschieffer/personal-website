@@ -8,7 +8,7 @@ describe("getValueEnvironmentFromVariable", () => {
   });
   it("should throw on missing environment variable", () => {
     expect(() => getValueEnvironmentFromVariable("NOT_EXISTING")).toThrow(
-      Error
+      Error,
     );
   });
 });

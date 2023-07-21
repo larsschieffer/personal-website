@@ -8,7 +8,7 @@ import type { FileMetaData } from "~/types/file";
 import { octokit } from "./octokit.server";
 
 export const getMetaDataOfFilesAtPath = async (
-  path: string
+  path: string,
 ): Promise<FileMetaData[]> => {
   const content = await octokit.request(
     "GET /repos/{owner}/{repo}/contents/{path}",
@@ -19,7 +19,7 @@ export const getMetaDataOfFilesAtPath = async (
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
-    }
+    },
   );
 
   const { data } = content;
@@ -30,7 +30,7 @@ export const getMetaDataOfFilesAtPath = async (
 };
 
 export const createIssue = async (
-  title: string
+  title: string,
 ): Promise<{ title: string }> => {
   const issue = await octokit.rest.issues.create({
     owner: GITHUB_OWNER,

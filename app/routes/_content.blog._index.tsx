@@ -12,7 +12,7 @@ import type { ContentBlogData } from "~/types/content";
 
 const byDateDesc = (
   { frontmatter: { published: a } }: { frontmatter: BlogFrontmatter },
-  { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter }
+  { frontmatter: { published: b } }: { frontmatter: BlogFrontmatter },
 ): number => new Date(b).getTime() - new Date(a).getTime();
 
 const onlyAlreadyPublished = ({
@@ -45,8 +45,8 @@ export const loader = async (): Promise<TypedResponse<ContentBlogData>> => {
           slug: name.replace(/.mdx/g, ""),
           frontmatter,
         };
-      }
-    )
+      },
+    ),
   );
   posts = posts.sort(byDateDesc).filter(onlyAlreadyPublished);
 
@@ -69,7 +69,7 @@ export const Blog = (): JSX.Element => {
               slug={slug}
               frontMatter={frontmatter}
             ></BlogPostThumbnail>
-          )
+          ),
         )}
       </section>
     </BoxContent>

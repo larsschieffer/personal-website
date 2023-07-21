@@ -4,7 +4,7 @@ import { configDefaults, defineConfig } from "vitest/config";
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    // environment: "happy-dom",
+    environment: "jsdom",
     exclude: [...configDefaults.exclude, "./tests/*"],
     coverage: {
       100: true,
@@ -13,6 +13,7 @@ export default defineConfig({
     setupFiles: [
       "./tests/setup/environment.ts",
       "./tests/setup/mock-api-node.ts",
+      "./tests/setup/dom.ts",
     ],
   },
 });
