@@ -68,7 +68,7 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-vitest": "0.2.8",
-    "happy-dom": "10.6.3",
+    "happy-dom": "10.7.0",
     "husky": "8.0.3",
     "msw": "1.2.3",
     "postcss": "8.4.27",
