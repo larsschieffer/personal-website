@@ -34,10 +34,10 @@ dependencies:
     version: 1.19.3
   '@remix-run/vercel':
     specifier: 1.19.3
-    version: 1.19.3(@vercel/node@3.0.0)
+    version: 1.19.3(@vercel/node@3.0.1)
   '@vercel/node':
-    specifier: 3.0.0
-    version: 3.0.0
+    specifier: 3.0.1
+    version: 3.0.1
   '@vercel/remix':
     specifier: 1.19.2
     version: 1.19.2(react-dom@18.2.0)(react@18.2.0)
@@ -2870,14 +2870,14 @@ packages:
       set-cookie-parser: 2.6.0
       source-map: 0.7.4
 
-  /@remix-run/vercel@1.19.3(@vercel/node@3.0.0):
+  /@remix-run/vercel@1.19.3(@vercel/node@3.0.1):
     resolution: {integrity: sha512-LoWffUns8u9oqOHSvZtH0LMXWm4NuZ2hUldLx7TAw19lfif1liwa8WrqxRyMItuUp1xEo6shTDCNEUNdQtsEGg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@vercel/node': ^1.8.3 || ^2.4.0
     dependencies:
       '@remix-run/node': 1.19.3
-      '@vercel/node': 3.0.0
+      '@vercel/node': 3.0.1
     dev: false
 
   /@remix-run/web-blob@3.0.5:
@@ -3479,12 +3479,12 @@ packages:
     resolution: {integrity: sha512-R5cIyKwRsmrQ1BFIRezHqEJ7XR/dY/5dgwvZ8owSaaSbb7hTsYh86NUholRn+fGuSnRZbSLXmm4ILFto0rZ37A==}
     dev: false
 
-  /@vercel/error-utils@2.0.0:
-    resolution: {integrity: sha512-jxuxVcm22P375DUQPLgT7BaKasHu7ASjwU9GEMEkF4Qea3hIBWComCPqeQ0d/qwSFWiXkxWK+/9RlvFk/oAs4A==}
+  /@vercel/error-utils@2.0.1:
+    resolution: {integrity: sha512-ZUVpRFArh5eyKpJmdfEuCaMpZKQvZgUq0pQ7PdK8m5FgRYEvF4I0TMJH3JnkbYaMMUH82aYWZr+/hFJtEBcmTQ==}
     dev: false
 
-  /@vercel/node@3.0.0:
-    resolution: {integrity: sha512-Naw4e6Q4dSHcdGjTzMIVGf4yEUzzgPJcRzbc4OLTbiX1DILHIX2znkZEvwbP+VN5m7DSqHSWwAbGn9I/Rys2ng==}
+  /@vercel/node@3.0.1:
+    resolution: {integrity: sha512-L+zwrXCL0pmltt8H2Oz8BjyNvyx3CMtsMG8ySiqhX+Tqi9DnGK3MNfW46w7c16YLVpPrhxfcOokiTlqWClhejA==}
     dependencies:
       '@edge-runtime/node-utils': 2.0.3
       '@edge-runtime/primitives': 2.1.2
@@ -3492,7 +3492,7 @@ packages:
       '@types/node': 14.18.33
       '@types/node-fetch': 2.6.3
       '@vercel/build-utils': 7.0.0
-      '@vercel/error-utils': 2.0.0
+      '@vercel/error-utils': 2.0.1
       '@vercel/static-config': 3.0.0
       async-listen: 3.0.0
       content-type: 1.0.5
