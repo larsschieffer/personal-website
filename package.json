@@ -81,7 +81,7 @@
     "typescript": "5.2.2",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.34.2",
-    "vitest-dom": "^0.1.0"
+    "vitest-dom": "0.1.0"
   },
   "engines": {
     "node": "18.17.1"
