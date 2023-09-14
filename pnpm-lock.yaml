@@ -89,8 +89,8 @@ devDependencies:
     specifier: 14.0.0
     version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
   '@types/flat':
-    specifier: 5.0.2
-    version: 5.0.2
+    specifier: 5.0.3
+    version: 5.0.3
   '@types/node':
     specifier: 20.6.0
     version: 20.6.0
@@ -3038,8 +3038,8 @@ packages:
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
 
-  /@types/flat@5.0.2:
-    resolution: {integrity: sha512-3zsplnP2djeps5P9OyarTxwRpMLoe5Ash8aL9iprw0JxB+FAHjY+ifn4yZUuW4/9hqtnmor6uvjSRzJhiVbrEQ==}
+  /@types/flat@5.0.3:
+    resolution: {integrity: sha512-uG/4x6EXYbq4VDsBJLNDHQAQmtRPg3x4tAXcBspxlnEknz8NiJxnHoxSiJKGNExiS00q4mJNvuEBgVA3jsDIdQ==}
     dev: true
 
   /@types/glob@7.2.0:
