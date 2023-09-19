@@ -84,7 +84,7 @@
     "vitest-dom": "0.1.1"
   },
   "engines": {
-    "node": "18.17.1"
+    "node": "18.18.0"
   },
   "prisma": {
     "seed": "node --require esbuild-register prisma/seed.ts"
