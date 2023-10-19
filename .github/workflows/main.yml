@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
@@ -49,7 +49,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
@@ -105,7 +105,7 @@ jobs:
       is-required: ${{ steps.filter.outputs.database }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -120,7 +120,7 @@ jobs:
     if: github.event_name != 'pull_request' && needs.is-db-migration-required.outputs.is-required == 'true'
     steps:
       - name: Checkout repo
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup worker
         uses: ./.github/actions/setup
