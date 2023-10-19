@@ -95,8 +95,8 @@ devDependencies:
     specifier: 20.8.7
     version: 20.8.7
   '@types/react':
-    specifier: 18.2.29
-    version: 18.2.29
+    specifier: 18.2.30
+    version: 18.2.30
   '@types/react-dom':
     specifier: 18.2.14
     version: 18.2.14
@@ -3084,7 +3084,7 @@ packages:
   /@types/hoist-non-react-statics@3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -3156,11 +3156,11 @@ packages:
   /@types/react-dom@18.2.14:
     resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
     dev: true
 
-  /@types/react@18.2.29:
-    resolution: {integrity: sha512-Z+ZrIRocWtdD70j45izShRwDuiB4JZqDegqMFW/I8aG5DxxLKOzVNoq62UIO82v9bdgi+DO1jvsb9sTEZUSm+Q==}
+  /@types/react@18.2.30:
+    resolution: {integrity: sha512-OfqdJnDsSo4UNw0bqAjFCuBpLYQM7wvZidz0hVxHRjrEkzRlvZL1pJVyOSY55HMiKvRNEo9DUBRuEl7FNlJ/Vg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -8824,7 +8824,7 @@ packages:
       '@formatjs/intl-displaynames': 6.6.0
       '@formatjs/intl-listformat': 7.5.0
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
       hoist-non-react-statics: 3.3.2
       intl-messageformat: 10.5.4
       react: 18.2.0
