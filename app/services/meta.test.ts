@@ -1,4 +1,4 @@
-import type { V2_MetaFunction } from "@vercel/remix";
+import type { MetaFunction } from "@vercel/remix";
 import { describe, expect, it } from "vitest";
 import { ASSETS_LOCATION } from "~/constants/assets-location";
 import { WEBSITE_URL } from "~/constants/sitemap";
@@ -11,7 +11,7 @@ const expectedMetaFunction = (
   title: string,
   imageUrl: string,
   url: string,
-): V2_MetaFunction => {
+): MetaFunction => {
   return () => [
     {
       name: "description",

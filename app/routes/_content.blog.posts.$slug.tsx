@@ -2,12 +2,12 @@ import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { FaXing } from "@react-icons/all-files/fa/FaXing";
 import { useLoaderData } from "@remix-run/react";
-import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
+import type { ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type {
   LinksFunction,
-  LoaderArgs,
   TypedResponse,
-  V2_MetaFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
 } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import hljs from "highlight.js";
@@ -29,8 +29,8 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: highlightjs },
 ];
 
-export const meta: V2_MetaFunction = (
-  args: V2_ServerRuntimeMetaArgs<unknown, never>,
+export const meta: MetaFunction = (
+  args: ServerRuntimeMetaArgs,
 ) => {
   const {
     post: { frontmatter },
@@ -48,7 +48,7 @@ export const meta: V2_MetaFunction = (
 
 export const loader = async ({
   params: { slug },
-}: LoaderArgs): Promise<TypedResponse<ContentBlogPostDate>> => {
+}: LoaderFunctionArgs): Promise<TypedResponse<ContentBlogPostDate>> => {
   invariant(slug, "PostId is required");
 
   const post = await bundleFileMarkdown<BlogFrontmatter>(`en/blog/${slug}.mdx`);

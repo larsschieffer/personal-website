@@ -1,4 +1,3 @@
-import { fetch } from "@remix-run/node";
 import type { BuildOptions } from "esbuild";
 
 import { bundleMDX } from "mdx-bundler";

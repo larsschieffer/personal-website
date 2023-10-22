@@ -8,7 +8,6 @@ import {
   isRouteErrorResponse,
   useRouteError,
 } from "@remix-run/react";
-import type { LinksFunction, V2_MetaFunction } from "@vercel/remix";
 import flatten from "flat";
 import { IntlProvider } from "react-intl";
 import toastify from "react-toastify/dist/ReactToastify.css";
@@ -19,13 +18,15 @@ import { ErrorPageDefault } from "./components/error-page/error-page-default";
 import { ErrorPageNotFound } from "./components/error-page/error-page-something-went-wrong";
 import { Toast } from "./components/toast";
 import { metaFunctionFactory } from "./services/meta";
+import type { LinksFunction, MetaFunction } from "@vercel/remix";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },
   { rel: "stylesheet", href: toastify },
   { rel: "stylesheet", href: tailwind },
 ];
-export const meta: V2_MetaFunction = metaFunctionFactory();
+
+export const meta: MetaFunction = metaFunctionFactory();
 
 export const App = (): JSX.Element => {
   return (
