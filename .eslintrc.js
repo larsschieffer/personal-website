@@ -7,8 +7,6 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "plugin:jsx-a11y/strict",
     "plugin:@typescript-eslint/recommended",
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
     "plugin:vitest/all",
     "prettier",
   ],
@@ -51,5 +49,16 @@ module.exports = {
     ],
     "no-console": "error",
     "vitest/no-hooks": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "^_",
+    }],
   },
+  settings: {
+    "react": {
+      "version": "detect"
+    }
+  },
+  env: {
+    node: true
+  }
 };

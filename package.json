@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@remix-run/dev": "2.1.0",
-    "@remix-run/eslint-config": "2.1.0",
     "@remix-run/serve": "2.1.0",
     "@testing-library/react": "14.0.0",
     "@types/flat": "5.0.4",
