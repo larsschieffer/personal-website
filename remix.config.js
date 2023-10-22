@@ -8,4 +8,5 @@ module.exports = {
   serverBuildPath: "api/index.js",
   serverModuleFormat: "cjs",
   tailwind: true,
+  serverDependenciesToBundle: ["flat"],
 };
