@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@fontsource/inter':
-    specifier: 5.0.14
-    version: 5.0.14
+    specifier: 5.0.15
+    version: 5.0.15
   '@fontsource/merriweather':
     specifier: 5.0.8
     version: 5.0.8
@@ -2221,8 +2221,8 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: false
 
-  /@fontsource/inter@5.0.14:
-    resolution: {integrity: sha512-5H+rWUemTnUrtF5Dov2zDq+RWDIoXCmSrupNIfI5x7udZnoUTNhr+k9sYxtNS22mIngUQHZUPexTMj0/7P0Ucg==}
+  /@fontsource/inter@5.0.15:
+    resolution: {integrity: sha512-/IoWYEXl8lqJEx50JqNPT+bI4VNwxb/bg2oOfvG8PiEsDsmHRFvWBVHlohBNn1+QdBf+KbAjU/gb4vlGOSsVWw==}
     dev: false
 
   /@fontsource/merriweather@5.0.8:
