@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { Given } from "tests/common/given";
 import { describe, expect, it } from "vitest";
 import { bundleFileMarkdown } from "./markdown.server";
