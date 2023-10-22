@@ -20,8 +20,8 @@ export const Imprint = (): JSX.Element => {
             </h1>
             <p>
               Lars Schieffer <br />
-              Neugasse 1a <br />
-              65719 Hofheim am Taunus <br />
+              Franz-Marc-Weg 2 <br />
+              66564 Ottweiler <br />
               Email: <FormattedMessage id="contact.email"></FormattedMessage>
             </p>
           </div>
@@ -34,8 +34,8 @@ export const Imprint = (): JSX.Element => {
               <FormattedMessage id="imprint.responsible"></FormattedMessage> §
               55 Abs.2 RStV <br />
               Lars Schieffer <br />
-              Neugasse 1a <br />
-              65719 Hofheim am Taunus
+              Franz-Marc-Weg 2 <br />
+              66564 Ottweiler
             </p>
           </div>
         </div>
