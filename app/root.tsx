@@ -8,7 +8,6 @@ import {
   isRouteErrorResponse,
   useRouteError,
 } from "@remix-run/react";
-import flatten from "flat";
 import { IntlProvider } from "react-intl";
 import toastify from "react-toastify/dist/ReactToastify.css";
 import fonts from "~/styles/fonts.css";
@@ -19,6 +18,7 @@ import { ErrorPageNotFound } from "./components/error-page/error-page-something-
 import { Toast } from "./components/toast";
 import { metaFunctionFactory } from "./services/meta";
 import type { LinksFunction, MetaFunction } from "@vercel/remix";
+import { flatten } from "flat";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: fonts },
