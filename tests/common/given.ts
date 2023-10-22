@@ -1,4 +1,4 @@
-import type { V2_ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
+import type { ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 
 import type { Location, Params } from "@remix-run/router";
 import type { FileMetaData } from "~/types/file";
@@ -13,7 +13,7 @@ export class Given {
     return new Date(new Date(1996, 11, 6));
   }
 
-  public static serverRuntimeMetaArgs(): V2_ServerRuntimeMetaArgs<
+  public static serverRuntimeMetaArgs(): ServerRuntimeMetaArgs<
     unknown,
     never
   > {

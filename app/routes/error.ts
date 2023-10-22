@@ -1,11 +1,11 @@
-import type { ActionArgs, TypedResponse } from "@remix-run/node";
+import type { ActionFunctionArgs, TypedResponse } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import invariant from "tiny-invariant";
 import { createUserGeneratedIssue } from "~/services/server/user-error.server";
 
 export const action = async ({
   request,
-}: ActionArgs): Promise<TypedResponse<never>> => {
+}: ActionFunctionArgs): Promise<TypedResponse<never>> => {
   const location = (await request.formData()).get("location");
 
   invariant(location, '"location" is required in form data');

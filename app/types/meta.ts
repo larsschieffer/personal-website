@@ -1,14 +1,14 @@
-import type { V2_MetaFunction } from "@vercel/remix";
+import type { MetaFunction } from "@vercel/remix";
 
 export type MetaFunctionFactory = (
   meta?:
     | { location: string; description: string; url: string; imageUrl: string }
     | {
-        locationKey: string;
-        descriptionKey: string;
-        url: string;
-        imageUrl: string;
-      }
+      locationKey: string;
+      descriptionKey: string;
+      url: string;
+      imageUrl: string;
+    }
     | { location: string; url: string; imageUrl: string }
     | { locationKey: string; url: string; imageUrl: string }
     | { description: string; url: string; imageUrl: string }
@@ -27,4 +27,4 @@ export type MetaFunctionFactory = (
     | { description: string }
     | { descriptionKey: string }
     | { url: string },
-) => V2_MetaFunction;
+) => MetaFunction;

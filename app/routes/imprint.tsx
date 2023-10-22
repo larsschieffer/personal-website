@@ -1,10 +1,10 @@
-import type { V2_MetaFunction } from "@vercel/remix";
+import type { MetaFunction } from "@vercel/remix";
 import { FormattedMessage } from "react-intl";
 import { BoxRounded } from "~/components/box/box-rounded";
 import { WEBSITE_URL } from "~/constants/sitemap";
 import { metaFunctionFactory } from "~/services/meta";
 
-export const meta: V2_MetaFunction = metaFunctionFactory({
+export const meta: MetaFunction = metaFunctionFactory({
   locationKey: "imprint.title",
   url: `${WEBSITE_URL}imprint`,
 });
