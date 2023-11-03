@@ -69,8 +69,14 @@ jobs:
       - name: Setup worker
         uses: ./.github/actions/setup
 
-      - name: Build
-        run: pnpm run build
+      - name: Install Vercel CLI
+        run: pnpm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
   deploy:
     name: 🚀 Deploy to Vercel
