@@ -1,57 +1,34 @@
-import type {
-  MockedResponse,
-  ResponseComposition,
-  RestContext,
-  RestRequest,
-} from "msw";
-import { rest } from "msw";
+import { HttpResponse, http, PathParams } from "msw";
 import { setupServer } from "msw/node";
 import { Given } from "./given";
+import { ResponseResolverInfo } from "msw/lib/core/handlers/RequestHandler";
+import { HttpRequestResolverExtras } from "msw/lib/core/handlers/HttpHandler";
 
 const server = setupServer(
-  rest.post(
+  http.post(
     `*/issues`,
-    async (
-      req: RestRequest,
-      res: ResponseComposition,
-      ctx: RestContext,
-    ): Promise<MockedResponse> => {
-      const { title } = await req.json<{ title: string }>();
-      return res(ctx.status(201), ctx.json({ title }));
+    async ({ request }: ResponseResolverInfo<HttpRequestResolverExtras<PathParams>, { title: string }>): Promise<HttpResponse> => {
+      const { title } = await request.json();
+
+      return HttpResponse.json({ title }, { status: 201 });
     },
   ),
 
-  rest.get(
+  http.get(
     new RegExp(`${Given.contentPath()}$`),
-    async (
-      _req: RestRequest,
-      res: ResponseComposition,
-      ctx: RestContext,
-    ): Promise<MockedResponse> => {
-      return res(ctx.json([Given.fileMetaData()]));
-    },
+    (): HttpResponse => HttpResponse.json([Given.fileMetaData()]),
   ),
 
-  rest.get(
+  http.get(
     new RegExp(`${Given.nameOfMarkdownFile()}`),
-    async (
-      _req: RestRequest,
-      res: ResponseComposition,
-      ctx: RestContext,
-    ): Promise<MockedResponse> => {
-      return res(ctx.text("# Hello World"));
-    },
+    (): HttpResponse => HttpResponse.text("# Hello World"),
   ),
 
-  rest.get(
+  http.get(
     new RegExp(`${Given.sameOfNotExistingMarkdownFile()}`),
-    async (
-      _req: RestRequest,
-      res: ResponseComposition,
-      ctx: RestContext,
-    ): Promise<MockedResponse> => {
-      return res(ctx.status(404));
-    },
+    (): HttpResponse => new HttpResponse(null, {
+      status: 404,
+    }),
   ),
 );
-export { rest, server };
+export { http, server };
