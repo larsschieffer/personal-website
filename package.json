@@ -29,7 +29,7 @@
     "@remix-run/react": "2.2.0",
     "@remix-run/serve": "2.2.0",
     "@remix-run/vercel": "1.19.3",
-    "@vercel/node": "3.0.9",
+    "@vercel/node": "3.0.10",
     "@vercel/remix": "2.2.0",
     "esbuild": "0.19.5",
     "feed": "4.2.2",
