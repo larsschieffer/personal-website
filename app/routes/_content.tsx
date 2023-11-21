@@ -1,6 +1,6 @@
 import { Link, Outlet, useLoaderData, useLocation } from "@remix-run/react";
 import type { ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
-import type { TypedResponse, MetaFunction } from "@vercel/remix";
+import type { MetaFunction, TypedResponse } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import { FormattedMessage } from "react-intl";
 import { NavigationFull } from "~/components/navigation/navigation-full";
@@ -13,9 +13,7 @@ import { isLinkTargetingPathname } from "~/services/path";
 import type { ContentData } from "~/types/content";
 import type { NavigationItem } from "~/types/navigation";
 
-export const meta: MetaFunction = (
-  args: ServerRuntimeMetaArgs,
-) => {
+export const meta: MetaFunction = (args: ServerRuntimeMetaArgs) => {
   const { translationKey = "" } =
     navigationItems.find(({ link }: NavigationItem) => {
       return isLinkTargetingPathname(args.location.pathname, link);
@@ -54,8 +52,9 @@ export const ContentLayout = (): JSX.Element => {
           <div className="grid max-w-[1170px] gap-8 md:grid-flow-col">
             <Profile />
             <div
-              className={`relative${isBlogContent ? " -order-1 md:order-none" : ""
-                } `}
+              className={`relative${
+                isBlogContent ? " -order-1 md:order-none" : ""
+              } `}
             >
               <div className="absolute bottom-full right-0 hidden md:block">
                 <NavigationFull

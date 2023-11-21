@@ -13,10 +13,7 @@ export class Given {
     return new Date(new Date(1996, 11, 6));
   }
 
-  public static serverRuntimeMetaArgs(): ServerRuntimeMetaArgs<
-    unknown,
-    never
-  > {
+  public static serverRuntimeMetaArgs(): ServerRuntimeMetaArgs<unknown, never> {
     const data = undefined;
     const params: Params = {};
     const location: Location = {
