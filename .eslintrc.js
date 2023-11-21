@@ -10,7 +10,13 @@ module.exports = {
     "plugin:vitest/all",
     "prettier",
   ],
-  plugins: ["formatjs", "@typescript-eslint", "prefer-arrow", "vitest"],
+  plugins: [
+    "formatjs",
+    "@typescript-eslint",
+    "prefer-arrow",
+    "vitest",
+    "prettier",
+  ],
   parser: "@typescript-eslint/parser",
   overrides: [
     {
@@ -26,6 +32,7 @@ module.exports = {
   ],
   root: true,
   rules: {
+    "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "error",
     "prefer-arrow/prefer-arrow-functions": [
       "warn",
@@ -49,16 +56,19 @@ module.exports = {
     ],
     "no-console": "error",
     "vitest/no-hooks": "off",
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "argsIgnorePattern": "^_",
-    }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+      },
+    ],
   },
   settings: {
-    "react": {
-      "version": "detect"
-    }
+    react: {
+      version: "detect",
+    },
   },
   env: {
-    node: true
-  }
+    node: true,
+  },
 };
