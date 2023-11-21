@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { flatten } from "flat";
 import { IntlProvider } from "react-intl";
 import { Given } from "tests/common/given";
 import { beforeEach, describe, expect, it } from "vitest";
 import messages from "../../public/assets/i18n/en.json";
 import DateRange from "./date-range";
-import { flatten } from "flat";
 
 describe("date-range", () => {
   let start: Date;

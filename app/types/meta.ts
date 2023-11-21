@@ -4,11 +4,11 @@ export type MetaFunctionFactory = (
   meta?:
     | { location: string; description: string; url: string; imageUrl: string }
     | {
-      locationKey: string;
-      descriptionKey: string;
-      url: string;
-      imageUrl: string;
-    }
+        locationKey: string;
+        descriptionKey: string;
+        url: string;
+        imageUrl: string;
+      }
     | { location: string; url: string; imageUrl: string }
     | { locationKey: string; url: string; imageUrl: string }
     | { description: string; url: string; imageUrl: string }

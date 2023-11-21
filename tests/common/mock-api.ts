@@ -1,13 +1,18 @@
-import { HttpResponse, http, PathParams } from "msw";
+import { HttpResponse, PathParams, http } from "msw";
+import { HttpRequestResolverExtras } from "msw/lib/core/handlers/HttpHandler";
+import { ResponseResolverInfo } from "msw/lib/core/handlers/RequestHandler";
 import { setupServer } from "msw/node";
 import { Given } from "./given";
-import { ResponseResolverInfo } from "msw/lib/core/handlers/RequestHandler";
-import { HttpRequestResolverExtras } from "msw/lib/core/handlers/HttpHandler";
 
 const server = setupServer(
   http.post(
     `*/issues`,
-    async ({ request }: ResponseResolverInfo<HttpRequestResolverExtras<PathParams>, { title: string }>): Promise<HttpResponse> => {
+    async ({
+      request,
+    }: ResponseResolverInfo<
+      HttpRequestResolverExtras<PathParams>,
+      { title: string }
+    >): Promise<HttpResponse> => {
       const { title } = await request.json();
 
       return HttpResponse.json({ title }, { status: 201 });
@@ -26,9 +31,10 @@ const server = setupServer(
 
   http.get(
     new RegExp(`${Given.sameOfNotExistingMarkdownFile()}`),
-    (): HttpResponse => new HttpResponse(null, {
-      status: 404,
-    }),
+    (): HttpResponse =>
+      new HttpResponse(null, {
+        status: 404,
+      }),
   ),
 );
 export { http, server };

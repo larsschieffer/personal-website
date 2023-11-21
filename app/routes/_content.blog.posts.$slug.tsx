@@ -5,9 +5,9 @@ import { useLoaderData } from "@remix-run/react";
 import type { ServerRuntimeMetaArgs } from "@remix-run/server-runtime";
 import type {
   LinksFunction,
-  TypedResponse,
-  MetaFunction,
   LoaderFunctionArgs,
+  MetaFunction,
+  TypedResponse,
 } from "@vercel/remix";
 import { json } from "@vercel/remix";
 import hljs from "highlight.js";
@@ -29,9 +29,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: highlightjs },
 ];
 
-export const meta: MetaFunction = (
-  args: ServerRuntimeMetaArgs,
-) => {
+export const meta: MetaFunction = (args: ServerRuntimeMetaArgs) => {
   const {
     post: { frontmatter },
   } = args.data as { post: { frontmatter: BlogFrontmatter } };
