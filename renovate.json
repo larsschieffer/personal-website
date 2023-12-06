@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": [
+    "config:base"
+  ],
   "prHourlyLimit": 2,
   "rangeStrategy": "pin",
   "automerge": true,
@@ -9,8 +11,17 @@
   "dependencyDashboard": false,
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@remix-run\\/", "@vercel/remix"],
+      "matchPackagePatterns": [
+        "^@remix-run\\/",
+        "@vercel/remix"
+      ],
       "groupName": "Remix packages"
+    },
+    {
+      "packageNames": [
+        "node"
+      ],
+      "enabled": false
     }
   ]
 }
