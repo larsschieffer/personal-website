@@ -30,7 +30,7 @@
     "@remix-run/vercel": "1.19.3",
     "@vercel/node": "3.0.20",
     "@vercel/remix": "2.7.1",
-    "esbuild": "0.19.8",
+    "esbuild": "0.20.1",
     "feed": "4.2.2",
     "flat": "6.0.1",
     "highlight.js": "11.9.0",
