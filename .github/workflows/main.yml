@@ -103,7 +103,7 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Delete deployment
-        uses: strumwolf/delete-deployment-environment@v2
+        uses: strumwolf/delete-deployment-environment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: Production
