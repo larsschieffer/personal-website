@@ -46,7 +46,7 @@
   "devDependencies": {
     "@remix-run/dev": "2.8.1",
     "@remix-run/serve": "2.8.1",
-    "@testing-library/react": "14.2.1",
+    "@testing-library/react": "14.2.2",
     "@types/flat": "5.0.5",
     "@types/node": "20.11.30",
     "@types/react": "18.2.67",
