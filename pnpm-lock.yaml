@@ -60,8 +60,8 @@ dependencies:
     specifier: 5.1.2
     version: 5.1.2
   mdx-bundler:
-    specifier: 10.0.1
-    version: 10.0.1(esbuild@0.20.2)
+    specifier: 10.0.2
+    version: 10.0.2(esbuild@0.20.2)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -6051,8 +6051,8 @@ packages:
       '@types/mdast': 4.0.3
     dev: false
 
-  /mdx-bundler@10.0.1(esbuild@0.20.2):
-    resolution: {integrity: sha512-y/+RtkJf+vTQTl8Ae/zql42igpcp44ja8a2S74tWq87rX+R22Zwn4OmPc5APO+xhIaIy/I1oxoxlPrt4GwEuGQ==}
+  /mdx-bundler@10.0.2(esbuild@0.20.2):
+    resolution: {integrity: sha512-0wF0zoCv+Ms4G+eSlk/jaKYoJHc0oXBaOma3kYlFJiKq9H8h41Dd66ioDBGF4noy80Pf7KTBQlyHfEpTqVml7A==}
     engines: {node: '>=18', npm: '>=6'}
     peerDependencies:
       esbuild: 0.*
