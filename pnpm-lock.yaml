@@ -69,8 +69,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-intl:
-    specifier: 6.6.4
-    version: 6.6.4(react@18.2.0)(typescript@5.4.4)
+    specifier: 6.6.5
+    version: 6.6.5(react@18.2.0)(typescript@5.4.4)
   react-toastify:
     specifier: 10.0.5
     version: 10.0.5(react-dom@18.2.0)(react@18.2.0)
@@ -128,8 +128,8 @@ devDependencies:
     specifier: 9.1.0
     version: 9.1.0(eslint@8.57.0)
   eslint-plugin-formatjs:
-    specifier: 4.12.2
-    version: 4.12.2(eslint@8.57.0)
+    specifier: 4.13.0
+    version: 4.13.0(eslint@8.57.0)
   eslint-plugin-jsx-a11y:
     specifier: 6.8.0
     version: 6.8.0(eslint@8.57.0)
@@ -3673,10 +3673,6 @@ packages:
   /electron-to-chromium@1.4.680:
     resolution: {integrity: sha512-4nToZ5jlPO14W82NkF32wyjhYqQByVaDmLy4J2/tYcAbJfgO2TKJC780Az1V13gzq4l73CJ0yuyalpXvxXXD9A==}
 
-  /emoji-regex@10.2.1:
-    resolution: {integrity: sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==}
-    dev: true
-
   /emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
     dev: true
@@ -4175,8 +4171,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /eslint-plugin-formatjs@4.12.2(eslint@8.57.0):
-    resolution: {integrity: sha512-b4iEsi0Y3zy7J6xjxlhrIaDFJa27OiLwardvCRBRHALoZs8rNJ0oQIW6ymUgELLEMeFuEMAd2837M+n5SHJutg==}
+  /eslint-plugin-formatjs@4.13.0(eslint@8.57.0):
+    resolution: {integrity: sha512-sxgHQNyVclNRO7aydGwxohwxYR03/oRDW0uUXFWayNMPTlnb9sET3LCovBjvQF7qAHDGFDcLwg4ECSyui4nG8A==}
     peerDependencies:
       eslint: 7 || 8
     dependencies:
@@ -4185,7 +4181,7 @@ packages:
       '@types/eslint': 8.40.0
       '@types/picomatch': 2.3.0
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.4.4)
-      emoji-regex: 10.2.1
+      emoji-regex: 10.3.0
       eslint: 8.57.0
       magic-string: 0.30.1
       picomatch: 2.3.1
@@ -7519,8 +7515,8 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
-  /react-intl@6.6.4(react@18.2.0)(typescript@5.4.4):
-    resolution: {integrity: sha512-bD+7hVTX3zBFI3z/ffIVZrNkCVK0/sQguQ/DqW5uZ6JFWsuiwOieVcLnmtFiUgMQZLdmwNl2Ur5c10RaO7NWBQ==}
+  /react-intl@6.6.5(react@18.2.0)(typescript@5.4.4):
+    resolution: {integrity: sha512-OErDPbGqus0QKVj77MGCC9Plbnys3CDQrq6Lw41c60pmeTdn41AhoS1SIzXG6SUlyF7qNN2AVqfrrIvHUgSyLQ==}
     peerDependencies:
       react: ^16.6.0 || 17 || 18
       typescript: ^4.7 || 5
