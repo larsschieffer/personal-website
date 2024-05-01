@@ -81,7 +81,7 @@ dependencies:
 devDependencies:
   '@remix-run/dev':
     specifier: 2.8.1
-    version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.7)(ts-node@10.9.2)(typescript@5.4.5)
+    version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.8)(ts-node@10.9.2)(typescript@5.4.5)
   '@testing-library/react':
     specifier: 15.0.2
     version: 15.0.2(react-dom@18.2.0)(react@18.2.0)
@@ -89,8 +89,8 @@ devDependencies:
     specifier: 5.0.5
     version: 5.0.5
   '@types/node':
-    specifier: 20.12.7
-    version: 20.12.7
+    specifier: 20.12.8
+    version: 20.12.8
   '@types/react':
     specifier: 18.2.79
     version: 18.2.79
@@ -174,7 +174,7 @@ devDependencies:
     version: 3.4.3(ts-node@10.9.2)
   ts-node:
     specifier: 10.9.2
-    version: 10.9.2(@types/node@20.12.7)(typescript@5.4.5)
+    version: 10.9.2(@types/node@20.12.8)(typescript@5.4.5)
   typescript:
     specifier: 5.4.5
     version: 5.4.5
@@ -1293,7 +1293,7 @@ packages:
     dependencies:
       '@inquirer/type': 1.2.0
       '@types/mute-stream': 0.0.4
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       '@types/wrap-ansi': 3.0.0
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -1729,7 +1729,7 @@ packages:
     engines: {node: '>=18.0.0'}
     dev: false
 
-  /@remix-run/dev@2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.7)(ts-node@10.9.2)(typescript@5.4.5):
+  /@remix-run/dev@2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.8)(ts-node@10.9.2)(typescript@5.4.5):
     resolution: {integrity: sha512-qFt4jAsAJeIOyg6ngeSnTG/9Z5N9QJfeThP/8wRHc1crqYgTiEtcI3DZ8WlAXjVSF5emgn/ZZKqzLAI02OgMfQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -1763,7 +1763,7 @@ packages:
       '@remix-run/serve': 2.8.1(typescript@5.4.5)
       '@remix-run/server-runtime': 2.8.1(typescript@5.4.5)
       '@types/mdx': 2.0.5
-      '@vanilla-extract/integration': 6.2.1(@types/node@20.12.7)
+      '@vanilla-extract/integration': 6.2.1(@types/node@20.12.8)
       arg: 5.0.2
       cacache: 17.1.4
       chalk: 4.1.2
@@ -2176,14 +2176,14 @@ packages:
   /@types/mute-stream@0.0.4:
     resolution: {integrity: sha512-CPM9nzrCPPJHQNA9keH9CVkVI+WR5kMa+7XEs5jcGQ0VoAGnLv242w8lIVgwAEfmE4oufJRaTc9PNLQl0ioAow==}
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
     dev: true
 
   /@types/node@14.18.33:
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
 
-  /@types/node@20.12.7:
-    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
+  /@types/node@20.12.8:
+    resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
     dependencies:
       undici-types: 5.26.5
 
@@ -2512,7 +2512,7 @@ packages:
       media-query-parser: 2.0.2
       outdent: 0.8.0
 
-  /@vanilla-extract/integration@6.2.1(@types/node@20.12.7):
+  /@vanilla-extract/integration@6.2.1(@types/node@20.12.8):
     resolution: {integrity: sha512-+xYJz07G7TFAMZGrOqArOsURG+xcYvqctujEkANjw2McCBvGEK505RxQqOuNiA9Mi9hgGdNp2JedSa94f3eoLg==}
     dependencies:
       '@babel/core': 7.22.1
@@ -2526,8 +2526,8 @@ packages:
       lodash: 4.17.21
       mlly: 1.4.0
       outdent: 0.8.0
-      vite: 4.3.9(@types/node@20.12.7)
-      vite-node: 0.28.5(@types/node@20.12.7)
+      vite: 4.3.9(@types/node@20.12.8)
+      vite-node: 0.28.5(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -2610,7 +2610,7 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      '@remix-run/dev': 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.7)(ts-node@10.9.2)(typescript@5.4.5)
+      '@remix-run/dev': 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.12.8)(ts-node@10.9.2)(typescript@5.4.5)
       '@remix-run/node': 2.8.1(typescript@5.4.5)
       '@remix-run/server-runtime': 2.8.1(typescript@5.4.5)
       '@vercel/static-config': 3.0.0
@@ -7226,7 +7226,7 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.38
-      ts-node: 10.9.2(@types/node@20.12.7)(typescript@5.4.5)
+      ts-node: 10.9.2(@types/node@20.12.8)(typescript@5.4.5)
       yaml: 2.3.1
 
   /postcss-modules-extract-imports@3.0.0(postcss@8.4.38):
@@ -8513,7 +8513,7 @@ packages:
       yn: 3.1.1
     dev: false
 
-  /ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5):
+  /ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -8532,7 +8532,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -8938,7 +8938,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite-node@0.28.5(@types/node@20.12.7):
+  /vite-node@0.28.5(@types/node@20.12.8):
     resolution: {integrity: sha512-LmXb9saMGlrMZbXTvOveJKwMTBTNUH66c8rJnQ0ZPNX+myPEol64+szRzXtV5ORb0Hb/91yq+/D3oERoyAt6LA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -8950,7 +8950,7 @@ packages:
       picocolors: 1.0.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.3.9(@types/node@20.12.7)
+      vite: 4.3.9(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8960,7 +8960,7 @@ packages:
       - supports-color
       - terser
 
-  /vite-node@0.34.6(@types/node@20.12.7):
+  /vite-node@0.34.6(@types/node@20.12.8):
     resolution: {integrity: sha512-nlBMJ9x6n7/Amaz6F3zJ97EBwR2FkzhBRxF5e+jE6LA3yi6Wtc2lyTij1OnDMIr34v5g/tVQtsVAzhT0jc5ygA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -8970,7 +8970,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.3.9(@types/node@20.12.7)
+      vite: 4.3.9(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8997,7 +8997,7 @@ packages:
       - typescript
     dev: true
 
-  /vite@4.3.9(@types/node@20.12.7):
+  /vite@4.3.9(@types/node@20.12.8):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -9022,7 +9022,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       esbuild: 0.17.19
       postcss: 8.4.38
       rollup: 3.23.0
@@ -9076,7 +9076,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       '@vitest/expect': 0.34.6
       '@vitest/runner': 0.34.6
       '@vitest/snapshot': 0.34.6
@@ -9096,8 +9096,8 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.7.0
-      vite: 4.3.9(@types/node@20.12.7)
-      vite-node: 0.34.6(@types/node@20.12.7)
+      vite: 4.3.9(@types/node@20.12.8)
+      vite-node: 0.34.6(@types/node@20.12.8)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
