@@ -1,7 +1,7 @@
 export const loader = (): Response => {
   const robotText = `User-agent: *
 Disallow:
-Sitemap: https://larsschieffer.de/sitemap.xml`;
+Sitemap: https://lars.schieffer.cloud/sitemap.xml`;
 
   return new Response(robotText, {
     status: 200,

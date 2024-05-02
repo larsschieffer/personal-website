@@ -29,8 +29,8 @@ module.exports = {
       },
       backgroundImage: {
         body: `
-          url('https://assets.larsschieffer.de/left_upper_corner.svg'),
-          url('https://assets.larsschieffer.de/right_lower_corner.svg')
+          url('https://assets.lars.schieffer.cloud/left_upper_corner.svg'),
+          url('https://assets.lars.schieffer.cloud/right_lower_corner.svg')
         `,
       },
       backgroundPosition: {
