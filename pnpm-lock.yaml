@@ -57,8 +57,8 @@ dependencies:
     specifier: 2.3.0
     version: 2.3.0
   isbot:
-    specifier: 5.1.4
-    version: 5.1.4
+    specifier: 5.1.6
+    version: 5.1.6
   mdx-bundler:
     specifier: 10.0.2
     version: 10.0.2(esbuild@0.20.2)
@@ -5482,8 +5482,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /isbot@5.1.4:
-    resolution: {integrity: sha512-KuqD/TAG/qtgCDnO8Ab1v5rGRK3jl9hb+2KfJt+roIPE7R4Hiq99VinR0qrLGFptdUNIkClYjuXEpVTGkD9V/A==}
+  /isbot@5.1.6:
+    resolution: {integrity: sha512-Phksj1A0dBP/M/5xeOx0zWemKlZRQvrbNzI19/HWso0uodiOcR8YYCXN60IdzwbKsGj5LnxPkMy6FuBtgckMNw==}
     engines: {node: '>=18'}
     dev: false
 
