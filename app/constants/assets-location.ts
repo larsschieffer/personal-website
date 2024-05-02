@@ -1,1 +1,1 @@
-export const ASSETS_LOCATION = "https://assets.larsschieffer.de/";
+export const ASSETS_LOCATION = "https://assets.lars.schieffer.cloud/";
