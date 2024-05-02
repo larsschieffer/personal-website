@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@fontsource/inter':
-    specifier: 5.0.17
-    version: 5.0.17
+    specifier: 5.0.18
+    version: 5.0.18
   '@fontsource/merriweather':
-    specifier: 5.0.12
-    version: 5.0.12
+    specifier: 5.0.13
+    version: 5.0.13
   '@octokit/rest':
     specifier: 20.1.0
     version: 20.1.0
@@ -1170,12 +1170,12 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@fontsource/inter@5.0.17:
-    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
+  /@fontsource/inter@5.0.18:
+    resolution: {integrity: sha512-YCsoYPTcs713sI7tLtxaPrIhXAXvEetGg5Ry02ivA8qUOb3fQHojbK/X9HLD5OOKvFUNR2Ynkwb1kR1hVKQHpw==}
     dev: false
 
-  /@fontsource/merriweather@5.0.12:
-    resolution: {integrity: sha512-l7brVGcFUiGhK7bucRbwWYZDInfyXuVYEthHNw26RkkfMR9TFTiOAIABnN6PFr6Vjaz+c0o7ibLmdEMeSMDfRA==}
+  /@fontsource/merriweather@5.0.13:
+    resolution: {integrity: sha512-V/UsU+5yceDICBUJJXWCT+6xf5YpLIVUHfUjBQ+NNbllIhe3zaVZ1f3t5+fNKwvBzKBDa3RNMCofAdW7uzw08Q==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.18.2:
