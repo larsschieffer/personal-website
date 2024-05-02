@@ -18,8 +18,8 @@
     "db-management:prod": "dotenv -e config/prod.env pnpm prisma studio"
   },
   "dependencies": {
-    "@fontsource/inter": "5.0.17",
-    "@fontsource/merriweather": "5.0.12",
+    "@fontsource/inter": "5.0.18",
+    "@fontsource/merriweather": "5.0.13",
     "@octokit/rest": "20.1.0",
     "@prisma/client": "5.12.1",
     "@react-icons/all-files": "4.1.0",
