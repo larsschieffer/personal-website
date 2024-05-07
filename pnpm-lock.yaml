@@ -37,10 +37,10 @@ importers:
         version: 2.9.1(typescript@5.4.5)
       '@remix-run/vercel':
         specifier: 1.19.3
-        version: 1.19.3(@vercel/node@3.0.28)
+        version: 1.19.3(@vercel/node@3.1.0)
       '@vercel/node':
-        specifier: 3.0.28
-        version: 3.0.28
+        specifier: 3.1.0
+        version: 3.1.0
       '@vercel/remix':
         specifier: 2.9.1
         version: 2.9.1(@remix-run/dev@2.9.1(@remix-run/react@2.9.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@remix-run/serve@2.9.1(typescript@5.4.5))(@types/node@20.12.10)(ts-node@10.9.2(@types/node@20.12.10)(typescript@5.4.5))(typescript@5.4.5))(@remix-run/node@2.9.1(typescript@5.4.5))(@remix-run/server-runtime@2.9.1(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1315,6 +1315,9 @@ packages:
   '@types/node@14.18.33':
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
 
+  '@types/node@16.18.11':
+    resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
+
   '@types/node@20.12.10':
     resolution: {integrity: sha512-Eem5pH9pmWBHoGAT8Dr5fdc5rYA+4NAovdM4EktRPVAAiJhmWWfQrA0cFhAbOsQdSfIHjAud6YdkbL69+zSKjw==}
 
@@ -1486,8 +1489,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  '@vercel/node@3.0.28':
-    resolution: {integrity: sha512-GQggDgsBgSJLDPlkddmSPOgfvrgRlxnQzhae64b21X0C5GHRmN8c1p5qVghjeNft8cIEIBETVOnSe8eBvqWYxQ==}
+  '@vercel/node@3.1.0':
+    resolution: {integrity: sha512-Ghx663fSKJoe9NxjEU9i5d9+QcPPEw4HWkSThCCO9OK0Ov2KdeZEBcfZe8OYLiFDY10LN0EPe2Ur3NmofcwyNA==}
 
   '@vercel/remix@2.9.1':
     resolution: {integrity: sha512-S65PDKlkpR9sYMHxNRZsxHHuiEenupg0rKs1YIV2R3j51rwFFcgFcvbbGIckQqUmwy2Wne7jONokuPe4WxFcyQ==}
@@ -6253,10 +6256,10 @@ snapshots:
     optionalDependencies:
       typescript: 5.4.5
 
-  '@remix-run/vercel@1.19.3(@vercel/node@3.0.28)':
+  '@remix-run/vercel@1.19.3(@vercel/node@3.1.0)':
     dependencies:
       '@remix-run/node': 1.19.3
-      '@vercel/node': 3.0.28
+      '@vercel/node': 3.1.0
 
   '@remix-run/web-blob@3.1.0':
     dependencies:
@@ -6406,6 +6409,8 @@ snapshots:
       '@types/node': 20.12.10
 
   '@types/node@14.18.33': {}
+
+  '@types/node@16.18.11': {}
 
   '@types/node@20.12.10':
     dependencies:
@@ -6673,12 +6678,12 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vercel/node@3.0.28':
+  '@vercel/node@3.1.0':
     dependencies:
       '@edge-runtime/node-utils': 2.3.0
       '@edge-runtime/primitives': 4.1.0
       '@edge-runtime/vm': 3.2.0
-      '@types/node': 14.18.33
+      '@types/node': 16.18.11
       '@vercel/build-utils': 8.0.0
       '@vercel/error-utils': 2.0.2
       '@vercel/nft': 0.26.4
@@ -6692,7 +6697,7 @@ snapshots:
       node-fetch: 2.6.9
       path-to-regexp: 6.2.1
       ts-morph: 12.0.0
-      ts-node: 10.9.1(@types/node@14.18.33)(typescript@4.9.5)
+      ts-node: 10.9.1(@types/node@16.18.11)(typescript@4.9.5)
       typescript: 4.9.5
       undici: 5.26.5
     transitivePeerDependencies:
@@ -10609,14 +10614,14 @@ snapshots:
       '@ts-morph/common': 0.11.1
       code-block-writer: 10.1.1
 
-  ts-node@10.9.1(@types/node@14.18.33)(typescript@4.9.5):
+  ts-node@10.9.1(@types/node@16.18.11)(typescript@4.9.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.9
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 14.18.33
+      '@types/node': 16.18.11
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
