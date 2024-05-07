@@ -1,0 +1,16 @@
+{{ define "content" }}
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Summary }}</p>
+
+  {{ if .Params.thumbnail }}
+    <img
+      class="my-6 w-full rounded-sm"
+      src="{{ .Params.thumbnail }}"
+      alt="Thumbnail"
+    />
+  {{ end }}
+
+  {{ .Content }}
+
+  {{ partial "blog/feedback.html" . }}
+{{ end }}

@@ -1,0 +1,26 @@
+<div class="flex-row md:flex">
+  <svg viewBox="0 0 200 100" width="112" height="56">
+    <path
+      fill="#FFFFFF"
+      transform="rotate(180, 100, 50)"
+      d="M0,0 L200,0 C25,25 100,100 0,100z"
+    />
+  </svg>
+  <div class="flex flex-row rounded-tr-3xl bg-white pr-4">
+    {{ $current := . }}
+    {{- range site.Menus.main }}
+      {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+      {{ $active = or $active (eq .Name $current.Title) }}
+      {{ $active = or $active (and (eq .Name "Blog") (eq $current.Section "post")) }}
+      {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+      <a
+        href="{{ .URL }}"
+        class="font-normal{{ if $active }}
+          rounded-2xl bg-accent text-white
+        {{ end }} my-3 text-nowrap px-4 py-1 first:-ml-4"
+      >
+        {{ .Name }}
+      </a>
+    {{- end }}
+  </div>
+</div>

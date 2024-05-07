@@ -1,0 +1,21 @@
+<div class="fixed inset-0 h-screen w-screen bg-accent">
+  <div
+    class="flex h-full w-full flex-col justify-center pl-7 text-2xl text-white"
+  >
+    {{ $current := . }}
+    {{- range site.Menus.main }}
+      {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+      {{ $active = or $active (eq .Name $current.Title) }}
+      {{ $active = or $active (and (eq .Name "Blog") (eq $current.Section "post")) }}
+      {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+      <a
+        href="{{ .URL }}"
+        class="rounded-l-3xl py-4 pl-8{{ if $active }}
+          bg-accent-secondary
+        {{ end }}"
+      >
+        {{ .Name }}
+      </a>
+    {{- end }}
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<a class="group overflow-hidden rounded-4xl" href="{{ .RelPermalink }}">
+  <div class="relative">
+    {{ if .Params.thumbnail }}
+      <img
+        class="h-60 max-h-60 w-full object-cover"
+        src="{{ .Params.thumbnail }}"
+        alt="Thumbnail for {{ .LinkTitle }}"
+      />
+    {{ else }}
+      <div
+        class="h-60 max-h-60 w-full bg-blue-300"
+        style="
+        background: linear-gradient(
+          55deg,
+          hsla(197, 84%, 35%, 1) 0%,
+          hsla(181, 99%, 37%, 1) 60%
+        );
+      "
+      ></div>
+    {{ end }}
+    <div
+      class="invisible absolute inset-0 grid place-content-center bg-gray-dark/20 text-white group-hover:visible [&>div]:h-10 [&>div]:w-10"
+    >
+      {{ partial "icons/line-awesome.html" "file-alt" }}
+    </div>
+    <div
+      class="absolute left-0 top-0 flex h-16 w-16 flex-col items-center justify-center rounded-br-3xl bg-accent-secondary text-white"
+    >
+      <span class="text-2xl font-semibold">
+        {{ .Date | time.Format "02" }}
+      </span>
+      <span class="text-sm"> {{ .Date | time.Format "Jan" }} </span>
+    </div>
+  </div>
+  <div class="h-full bg-gray-light p-6 pt-3">
+    <h3 class="truncate py-2 text-lg font-bold capitalize">{{ .LinkTitle }}</h3>
+    <p class="line-clamp-2 text-ellipsis">{{ .Summary }}</p>
+  </div>
+</a>

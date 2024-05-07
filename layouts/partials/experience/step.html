@@ -1,0 +1,31 @@
+<div class="border-l border-gray-light">
+  <div class="pl-3">
+    <h3
+      class="relative font-bold before:absolute before:-left-[12.5px] before:top-[0.35rem] before:block before:h-3 before:w-3 before:-translate-x-1/2 before:rounded-full before:border-2 before:border-white/75 before:bg-accent before:content-['']"
+    >
+      {{ .Title }}
+      {{ if .Location }}
+        at
+        {{ .Location }}
+      {{ end }}
+    </h3>
+  </div>
+  <div class="pb-6 pl-3">
+    <p class="py-2 text-gray">
+      {{ if (eq .Start .End) }}
+        {{ .Start }}
+      {{ else }}
+        {{ .Start }} -
+        {{ .End }}
+      {{ end }}
+    </p>
+    <p>
+      {{ if reflect.IsSlice .Description }}
+        Skills:
+        {{ delimit .Description ", " " and " }}
+      {{ else }}
+        {{ .Description }}
+      {{ end }}
+    </p>
+  </div>
+</div>

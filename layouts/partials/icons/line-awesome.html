@@ -1,0 +1,6 @@
+<div class="inline-block h-6 w-6">
+  {{- $fname:=print "line-awesome/" . ".svg" -}}
+  {{- $path:="<path" -}}
+  {{- $fill:="<path fill=\"currentColor\"" -}}
+  {{ replace (readFile $fname) $path $fill | safeHTML }}
+</div>

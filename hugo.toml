@@ -1,0 +1,49 @@
+# Disable tags, categories etc.
+disableKinds = ["taxonomy"]
+
+# Define default vlaues
+baseURL = 'https://www.lars.schieffer.cloud/'
+languageCode = 'en-us'
+
+title = 'Lars Schieffer'
+[params]
+  author = 'Lars Schieffer'
+
+# Markup settings
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'catppuccin-latte'
+    tabWidth = 4
+
+# Navigation configuration
+[menus]
+  [[menus.main]]
+    name = 'About me'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Résumé'
+    pageRef = '/resume'
+    weight = 20
+  [[menus.main]]
+    name = 'Blog'
+    pageRef = '/blog'
+    weight = 30
+
+# Outputs
+[outputs]
+home = ['html']
+section = ['html']
+
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "rss"
