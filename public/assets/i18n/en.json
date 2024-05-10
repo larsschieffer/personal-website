@@ -1,0 +1,71 @@
+{
+  "time": {
+    "present": "Present"
+  },
+  "headline": {
+    "aboutMe": "About Me",
+    "experience": "Experience",
+    "resume": "Résumé",
+    "educationAndCertification": "Education & Certification"
+  },
+  "profile": {
+    "portrait": "Portrait",
+    "jobTitle": "Software Developer",
+    "requestCV": "Request CV",
+    "birthdayMonth": "December, 1996",
+    "currentLocation": "Saarland, Germany"
+  },
+  "contact": {
+    "email": "contact@lars.schieffer.cloud"
+  },
+  "copyright": {
+    "rightsReserved": "All rights reserved"
+  },
+  "imprint": {
+    "title": "Imprint",
+    "contact": "Contact",
+    "editorialContent": "For editorial content",
+    "responsible": "Responsible according to"
+  },
+  "experience": {
+    "skills": "Skills",
+    "thesis": "Thesis"
+  },
+  "skills": {
+    "headline": {
+      "frontend": "Frontend Technologies",
+      "backendAndCloud": "Backend & Cloud Technologies"
+    }
+  },
+  "at": "at",
+  "navigation": {
+    "aboutMe": {
+      "title": "About me",
+      "description": "This is my personal website to showcase my experience and learnings as a software developer."
+    },
+    "resume": {
+      "title": "Résumé",
+      "description": "A brief description of my professional experience, education, and certificates. In other words, my CV."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "In this blog, I'm writing about some of the challenges we face as software developers and how to improve with clean code approaches."
+    },
+    "toggle": "Toggle menu"
+  },
+  "blog": {
+    "thumbnailLabel": "Thumbnail of"
+  },
+  "error": {
+    "404": {
+      "imageDescription": "Two people holding an empty box",
+      "message": "Sorry,\n the page you requested was <strong>not found</strong>.",
+      "button": "Back to Homepage"
+    },
+    "default": {
+      "imageDescription": "Two people holding an empty box",
+      "message": "Oops 😕, something went wrong.",
+      "button": "Report Error"
+    }
+  }
+}
