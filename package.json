@@ -4,7 +4,7 @@
   "description": "My personal Website.",
   "scripts": {
     "start:css": "pnpx tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css -w",
-    "start:hugo": "hugo server --bind 192.168.77.24 --baseURL http://192.168.77.24 --noHTTPCache --disableFastRender",
+    "start:hugo": "hugo server --bind 0.0.0.0 --baseURL http://0.0.0.0 --noHTTPCache --disableFastRender --buildDrafts",
     "start": "concurrently --kill-others \"pnpm run start:css\" \"pnpm run start:hugo\"",
     "build:css": "pnpx tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css -m",
     "build:hugo": "hugo --minify",
