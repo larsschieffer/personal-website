@@ -12,12 +12,12 @@
       class="peer fixed right-0 top-0 z-20 h-14 w-14 cursor-pointer opacity-0 md:hidden"
     />
     <button
-      class="{{partial "navigation/button-mobile-style.html"}} peer-checked:hidden md:hidden"
+      class="{{ partial "navigation/button-mobile-style.html" }} peer-checked:hidden md:hidden"
     >
       {{ partial "icons/line-awesome.html" "bars-solid" }}
     </button>
     <button
-      class="{{partial "navigation/button-mobile-style.html"}} hidden peer-checked:block"
+      class="{{ partial "navigation/button-mobile-style.html" }} hidden peer-checked:block"
     >
       {{ partial "icons/line-awesome.html" "times-solid" }}
     </button>
@@ -27,8 +27,8 @@
     </div>
 
     <div class="peer-checked:hidden">
-      <main class="mx-2 pb-2 pt-2 xs:mx-6 xs:pt-6 md:mt-[198px]">
-        <div class="grid place-items-center">
+      <div class="mx-2 pb-2 pt-2 xs:mx-6 xs:pt-6 md:mt-[198px]">
+        <main class="grid place-items-center">
           <div
             class="grid w-full max-w-[1170px] gap-8 md:grid-flow-col md:grid-cols-[min-content_1fr]"
           >
