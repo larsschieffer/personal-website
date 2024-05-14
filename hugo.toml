@@ -8,7 +8,7 @@ languageCode = 'en-us'
 title = 'Lars Schieffer'
 [params]
   author = 'Lars Schieffer'
-  description = "Software developer specializing in clean, efficient full-stack development. I build user-friendly tools that simplify daily tasks and always learn new ways to improve with a focus on avoiding redundancy."
+  description = "Software developer specializing in clean, efficient full-stack development. I build user-friendly applications that simplify daily tasks and always learn new ways to improve with a focus on avoiding redundancy."
 
 # Markup settings
 [markup]
