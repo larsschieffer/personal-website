@@ -50,3 +50,8 @@ section = ['html']
 mediatype = "application/rss"
 baseName = "rss"
 
+# Frontmatter
+enableGitInfo = true
+
+[frontmatter]
+lastmod = [':git', ':fileModTime']
