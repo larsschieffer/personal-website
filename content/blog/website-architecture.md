@@ -58,7 +58,7 @@ architecture of this website, and perhaps deliver the content in multiple
 languages if it is required in the future. In the end, I found the
 [mdx-bundler](https://www.baeldung.com/cs/object-relational-mapping) package,
 which allows me to store the content of the site in a different
-[content-repository](https://github.com/larsschieffer/personal-website-posts).
+[content-repository](https://github.com/larsschieffer/personal-website/tree/main/content).
 
 ### Domain
 
