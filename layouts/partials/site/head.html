@@ -4,7 +4,7 @@
 {{ if .Params.noindex }}<meta name="robots" content="noindex" />{{ end }}
 
 {{ if .IsHome }}
-  <title>{{ .Site.Params.author }}</title>
+  <title>{{ .Site.Params.jobTitle }} | {{ .Site.Params.author }}</title>
 {{ else }}
   <title>{{ .Title }} | {{ .Site.Params.author }}</title>
 {{ end }}
