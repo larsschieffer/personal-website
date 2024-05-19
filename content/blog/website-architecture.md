@@ -100,12 +100,11 @@ access to a running database.
 
 ### Deployment
 
-As mentioned in my [introduction](/blog/posts/about-me), I hate nothing more
-than doing the same things over and over again. With that said, the build and
-deployment process is completely automated. As soon as I make a commit to the
-main branch, my GitHub actions start running. They run type checks and linting
-rules, followed by the build step. Afterwards, the artefacts are pushed to
-Vercel.
+As mentioned in my [introduction](/), I hate nothing more than doing the same
+things over and over again. With that said, the build and deployment process is
+completely automated. As soon as I make a commit to the main branch, my GitHub
+actions start running. They run type checks and linting rules, followed by the
+build step. Afterwards, the artefacts are pushed to Vercel.
 
 ## Design
 
