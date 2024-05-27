@@ -16,7 +16,7 @@
 {{- end }}
 
 {{ $styles := resources.Get "/css/style.css" }}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 {{ else }}
   {{ $styles := $styles | minify }}

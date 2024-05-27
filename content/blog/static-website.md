@@ -250,7 +250,7 @@ The generated file can now be referenced in the `<head>` section of the
     <meta charset="utf-8" />
 
     {{ $styles := resources.Get "/css/style.css" }}
-    {{ if .hugo.IsServer }}
+    {{ if hugo.IsServer }}
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ else }}
       {{ $styles := $styles | minify }}
