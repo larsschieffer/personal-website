@@ -30,9 +30,11 @@
       <div class="mx-2 pb-2 pt-2 xs:mx-6 xs:pt-6 md:mt-[198px]">
         <main class="grid place-items-center">
           <div
-            class="grid w-full max-w-[1170px] gap-8 md:grid-flow-col md:grid-cols-[min-content_1fr]"
+            class="grid w-full max-w-[1170px] gap-6 md:grid-flow-col md:grid-cols-[min-content_1fr]"
           >
-            {{ partial "profile.html" . }}
+            <div class="h-fit md:sticky md:top-20">
+              {{ partial "profile.html" . }}
+            </div>
             <div
               class="{{ if (strings.FindRE "blog/.+" .Permalink) }}
                 -order-1 md:order-none
