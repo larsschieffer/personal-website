@@ -5,6 +5,7 @@ summary:
   A small POC how to set up your E2E tests to check the behaviour of your
   Microsoft Outlook add-in.
 thumbnail: /blog/thumbnails/person-next-to-computer.webp
+aliases: ["/blog/posts/playwright-outlook-e2e"]
 ---
 
 ## The Challenge
