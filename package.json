@@ -12,17 +12,17 @@
   },
   "author": "Lars Schieffer",
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
-    "autoprefixer": "^10.4.19",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
+    "postcss": "^8.4.45",
+    "prettier": "^3.3.3",
     "prettier-plugin-go-template": "^0.0.15",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3"
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.10"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.0.18",
-    "@fontsource/merriweather": "^5.0.13"
+    "@fontsource/inter": "^5.0.20",
+    "@fontsource/merriweather": "^5.0.14"
   }
 }
