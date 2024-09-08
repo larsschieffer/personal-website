@@ -69,8 +69,8 @@ All my development projects are located in **~/Projects/**, so it makes sense to
 limit the selection to this directory. This also allows shortening the visible
 labels later. The selection process combines the `fd` command with `fzf`.
 Instead of feeding the results directly into `fzf` to choose a project, the
-`cut` utility trims the path, from `/Users/lars/Projects/personal-website` to
-`personal-website`. The shortened paths are then passed into `fzf`. The
+`cut` utility trims the path, from _/Users/lars/Projects/personal-website_ to
+_personal-website_. The shortened paths are then passed into `fzf`. The
 `--print-query` option enables a special feature later. Now, the
 `FUZZY_SELECTION` variable holds both the query inputted into `fzf` and the
 selected project, like this:
