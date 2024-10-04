@@ -1,3 +1,6 @@
+# Enable robots
+enableRobotsTXT = true
+
 # Disable tags, categories etc.
 disableKinds = ["taxonomy"]
 
